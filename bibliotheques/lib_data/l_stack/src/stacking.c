@@ -1,15 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   stacking.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 10:51:00 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/11 12:57:24 by eslamber         ###   ########.fr       */
+/*   Created: 2022/10/11 12:50:42 by eslamber          #+#    #+#             */
+/*   Updated: 2022/10/11 12:58:20 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib_stack.h"
 
-t_list	init_stack(t_type t, t_list lst);
+void	stacking(t_list lst, t_data elem);

@@ -1,15 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   lib_queue.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 10:51:00 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/11 12:57:24 by eslamber         ###   ########.fr       */
+/*   Created: 2022/10/11 12:46:25 by eslamber          #+#    #+#             */
+/*   Updated: 2022/10/11 12:46:45 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib_stack.h"
+#ifndef LIB_QUEUE_H
+# define LIB_QUEUE_H
 
-t_list	init_stack(t_type t, t_list lst);
+void	init_queue();
+
+#endif
