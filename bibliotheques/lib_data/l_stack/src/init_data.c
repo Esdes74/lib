@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 10:51:00 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/11 14:19:01 by eslamber         ###   ########.fr       */
+/*   Created: 2022/10/11 14:40:40 by eslamber          #+#    #+#             */
+/*   Updated: 2022/10/11 14:44:45 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib_stack.h"
 
-t_list	*init_stack(t_type t, t_list *stk)
+t_data	*init_data(void *d, t_type t, t_data *cell)
 {
-	stk = (t_list *) malloc(sizeof(t_list));
-	stk->len = 0;
-	stk->type_lst = t;
-	stk->head = 0;
-	stk->tail = 0;
-	return (stk);
+	cell = (t_data *) malloc(sizeof(t_data));
+	cell->type_data = t;
+	cell->data = d;
+	return (cell);
 }

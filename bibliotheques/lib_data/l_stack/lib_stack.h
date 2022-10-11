@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 12:45:08 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/11 12:45:15 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/11 14:47:54 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,19 @@ typedef struct s_list {
 	t_cell	*tail;
 }	t_list;
 
+// Initialisation of data cells
+t_data	*init_cell(void *data, t_type t, t_data *cell);
+
 // Initialisation of queue list
-t_list	init_stack(t_type t, t_list lst);
+t_list	*init_stack(t_type t, t_list *lst);
 
 // Add element on first index of list
-void	stacking(t_list lst, t_data elem);
+void	stacking(t_list *lst, t_data *elem);
 
 // Remove first element and return it
-t_data	unstack(t_list lst);
+t_cell	*unstack(t_list *lst);
 
 // Remove first element and destroy it
-void	rmstack(t_list lst);
+void	rmstack(t_list *lst);
 
 #endif
