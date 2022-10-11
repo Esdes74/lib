@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib_data.h                                         :+:      :+:    :+:   */
+/*   lib_pile.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 10:38:47 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/11 11:59:20 by eslamber         ###   ########.fr       */
+/*   Created: 2022/10/10 11:10:29 by eslamber          #+#    #+#             */
+/*   Updated: 2022/10/11 12:23:36 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIB_DATA_H
-# define LIB_DATA_H
-# include <stdlib.h>
-# include <unistd.h>
+#ifndef LIB_STACK_H
+# define LIB_STACK_H
 
 typedef enum e_type {
 	CHAR,
+	STRING,
 	INT,
 	DOUBLE,
 	LONG,
@@ -27,7 +26,7 @@ typedef enum e_type {
 	LIST,
 	LIST_IND,
 	STACK,
-	PILE,
+	QUEUE,
 	DICO,
 	TREE,
 	ALEA
@@ -45,31 +44,21 @@ typedef struct s_cell {
 
 typedef struct s_list {
 	size_t	len;
-	t_type	type_list;
+	t_type	type_lst;
 	t_cell	*head;
 	t_cell	*tail;
 }	t_list;
 
-// Prototype
-typedef struct s_head_tree {
-	size_t	len_uplet;
-	t_data	*data;
-	t_list	*leaves
-}	t_tree;
+// Initialisation of queue list
+t_list	init_stack(t_type t, t_list lst);
 
-// LIB_LIST_H
-void	init_list();
+// Add element on first index of list
+void	stacking(t_list lst, t_data elem);
 
-// LIB_LIST_IND_H
-void	init_list_ind();
+// Remove first element and return it
+t_data	unstack(t_list lst);
 
-// LIB_PILE_H
-void	init_pile();
-
-// LIB_STACK_H
-void	init_stack();
-
-// LIB_TREE_H
-void	init_tree();
+// Remove first element and destroy it
+void	rmstack(t_list lst);
 
 #endif

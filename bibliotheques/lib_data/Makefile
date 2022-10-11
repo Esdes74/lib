@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 10:46:11 by eslamber          #+#    #+#              #
-#    Updated: 2022/10/11 11:17:36 by eslamber         ###   ########.fr        #
+#    Updated: 2022/10/11 12:27:33 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,9 @@ LIB_LIST_IND := l_list_ind/
 LIB_LIST_IND_SRC := $(LIB_LIST_IND)src/
 LIB_LIST_IND_OBJ := $(LIB_LIST_IND)obj/
 
-LIB_PILE := l_pile/
-LIB_PILE_SRC := $(LIB_PILE)src/
-LIB_PILE_OBJ := $(LIB_PILE)obj/
+LIB_QUEUE := l_queue/
+LIB_QUEUE_SRC := $(LIB_QUEUE)src/
+LIB_QUEUE_OBJ := $(LIB_QUEUE)obj/
 
 LIB_STACK := l_stack/
 LIB_STACK_SRC := $(LIB_STACK)src/
@@ -37,13 +37,13 @@ LIB_TREE_OBJ := $(LIB_TREE)obj/
 
 ALL_LIB_OBJ_DIR := $(LIB_LIST_OBJ) \
 				   $(LIB_LIST_IND_OBJ) \
-				   $(LIB_PILE_OBJ) \
+				   $(LIB_QUEUE_OBJ) \
 				   $(LIB_STACK_OBJ) \
 				   $(LIB_TREE_OBJ)
 
 ALL_LIB_SRC_DIR := $(LIB_LIST_SRC) \
 				   $(LIB_LIST_IND_SRC) \
-				   $(LIB_PILE_SRC) \
+				   $(LIB_QUEUE_SRC) \
 				   $(LIB_STACK_SRC) \
 				   $(LIB_TREE_SRC)
 
@@ -59,11 +59,15 @@ LIST_IND_LIB := init_list_ind.c
 LIST_IND_LIB_H := $(LIB_LIST_IND)lib_list_ind.h
 LIST_IND_OBJ_LIB := $(LIST_IND_LIB:%.c=$(LIB_LIST_IND_OBJ)%.o)
 
-PILE_LIB := init_pile.c
-PILE_LIB_H := $(LIB_PILE)lib_pile.h
-PILE_OBJ_LIB := $(PILE_LIB:%.c=$(LIB_PILE_OBJ)%.o)
+QUEUE_LIB := init_queue.c \
 
-STACK_LIB := init_stack.c
+QUEUE_LIB_H := $(LIB_QUEUE)lib_queue.h
+QUEUE_OBJ_LIB := $(QUEUE_LIB:%.c=$(LIB_QUEUE_OBJ)%.o)
+
+STACK_LIB := init_stack.c \
+			 stacking.c \
+			 unstack.c \
+			 rmstack.c 
 STACK_LIB_H := $(LIB_STACK)lib_stack.h
 STACK_OBJ_LIB := $(STACK_LIB:%.c=$(LIB_STACK_OBJ)%.o)
 
@@ -73,7 +77,7 @@ TREE_OBJ_LIB := $(TREE_LIB:%.c=$(LIB_TREE_OBJ)%.o)
 
 ALL_OBJ_LIB := $(LIST_OBJ_LIB) \
 			   $(LIST_IND_OBJ_LIB) \
-			   $(PILE_OBJ_LIB) \
+			   $(QUEUE_OBJ_LIB) \
 			   $(STACK_OBJ_LIB) \
 			   $(TREE_OBJ_LIB)
 
@@ -96,7 +100,7 @@ $(LIST_IND_OBJ_LIB): $(LIB_LIST_IND_OBJ)%.o: $(LIB_LIST_IND_SRC)%.c \
 $(LIST_IND_LIB_H)
 	$(CC) $(FLAGS) -c $< -o $@
 
-$(PILE_OBJ_LIB): $(LIB_PILE_OBJ)%.o: $(LIB_PILE_SRC)%.c $(PILE_LIB_H)
+$(QUEUE_OBJ_LIB): $(LIB_QUEUE_OBJ)%.o: $(LIB_QUEUE_SRC)%.c $(QUEUE_LIB_H)
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(STACK_OBJ_LIB): $(LIB_STACK_OBJ)%.o: $(LIB_STACK_SRC)%.c $(STACK_LIB_H)
