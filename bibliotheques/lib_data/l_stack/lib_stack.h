@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 12:45:08 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/11 15:03:30 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/11 15:30:19 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_data	*init_data(void *data, t_type t, t_data *cell);
 t_list	*init_stack(t_type t, t_list *lst);
 
 // Add element on first index of list
-void	stacking(t_list *lst, void *data, t_type t);
+int		stacking(t_list *lst, void *data, t_type t);
 
 // Remove first element and return it
 t_cell	*unstack(t_list *lst);
