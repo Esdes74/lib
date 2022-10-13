@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 10:46:11 by eslamber          #+#    #+#              #
-#    Updated: 2022/10/11 15:00:02 by eslamber         ###   ########.fr        #
+#    Updated: 2022/10/13 18:07:31 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,17 +35,23 @@ LIB_TREE := l_tree/
 LIB_TREE_SRC := $(LIB_TREE)src/
 LIB_TREE_OBJ := $(LIB_TREE)obj/
 
+LIB_GNRL := l_gnrl/
+LIB_GNRL_SRC := $(LIB_GNRL)src/
+LIB_GNRL_OBJ := $(LIB_GNRL)obj/
+
 ALL_LIB_OBJ_DIR := $(LIB_LIST_OBJ) \
 				   $(LIB_LIST_IND_OBJ) \
 				   $(LIB_QUEUE_OBJ) \
 				   $(LIB_STACK_OBJ) \
-				   $(LIB_TREE_OBJ)
+				   $(LIB_TREE_OBJ) \
+				   $(LIB_GNRL_OBJ)
 
 ALL_LIB_SRC_DIR := $(LIB_LIST_SRC) \
 				   $(LIB_LIST_IND_SRC) \
 				   $(LIB_QUEUE_SRC) \
 				   $(LIB_STACK_SRC) \
-				   $(LIB_TREE_SRC)
+				   $(LIB_TREE_SRC) \
+				   $(LIB_GNRL_SRC)
 
 # Definition of variables needed for librairie compilation
 
@@ -67,8 +73,7 @@ QUEUE_OBJ_LIB := $(QUEUE_LIB:%.c=$(LIB_QUEUE_OBJ)%.o)
 STACK_LIB := init_stack.c \
 			 stacking.c \
 			 unstack.c \
-			 rmstack.c \
-			 init_data.c
+			 rmstack.c
 STACK_LIB_H := $(LIB_STACK)lib_stack.h
 STACK_OBJ_LIB := $(STACK_LIB:%.c=$(LIB_STACK_OBJ)%.o)
 
@@ -76,11 +81,17 @@ TREE_LIB := init_tree.c
 TREE_LIB_H := $(LIB_TREE)lib_tree.h
 TREE_OBJ_LIB := $(TREE_LIB:%.c=$(LIB_TREE_OBJ)%.o)
 
+GNRL_LIB := init_data.c \
+			size.c
+GNRL_LIB_H := lib_data.h
+GNRL_OBJ_LIB := $(GNRL_LIB:%.c=$(LIB_GNRL_OBJ)%.o)
+
 ALL_OBJ_LIB := $(LIST_OBJ_LIB) \
 			   $(LIST_IND_OBJ_LIB) \
 			   $(QUEUE_OBJ_LIB) \
 			   $(STACK_OBJ_LIB) \
-			   $(TREE_OBJ_LIB)
+			   $(TREE_OBJ_LIB) \
+			   $(GNRL_OBJ_LIB)
 
 # Definitions of differents printed colors
 LIGHTBLUE := '\e[0;32m'
@@ -110,6 +121,16 @@ $(STACK_OBJ_LIB): $(LIB_STACK_OBJ)%.o: $(LIB_STACK_SRC)%.c $(STACK_LIB_H)
 $(TREE_OBJ_LIB): $(LIB_TREE_OBJ)%.o: $(LIB_TREE_SRC)%.c $(TREE_LIB_H)
 	$(CC) $(FLAGS) -c $< -o $@
 
+$(GNRL_OBJ_LIB): $(LIB_GNRL_OBJ)%.o: $(LIB_GNRL_SRC)%.c $(GNRL_LIB_H)
+	$(CC) $(FLAGS) -c $< -o $@
+
+#
+### Test rule
+#
+
+vartest:
+	@echo "ALL_OBJ_LIB = $(ALL_OBJ_LIB)"
+
 #
 ### Directories rules
 #
@@ -119,6 +140,10 @@ dir:
 	mkdir -p $(ALL_LIB_OBJ_DIR)
 	@echo -e $(LIGHTBLUE)done$(NEUTRAL)
 	@echo
+
+#
+### Print rules
+#
 
 # Compilation of librairie with print options
 print: print_ob $(ALL_OBJ_LIB) print_lb $(LIB) print_le

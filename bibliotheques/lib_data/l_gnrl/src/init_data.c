@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   unstack.c                                          :+:      :+:    :+:   */
+/*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 12:52:09 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/13 18:25:55 by eslamber         ###   ########.fr       */
+/*   Created: 2022/10/11 14:40:40 by eslamber          #+#    #+#             */
+/*   Updated: 2022/10/13 18:07:57 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib_stack.h"
+#include "../../lib_data.h"
 
-t_cell	*unstack(t_list *lst, int debug)
+t_data	*init_data(void *d, t_type t, t_data *cell)
 {
-	t_cell	*rm;
-
-	if (lst->type_lst != STACK)
-	{
-		if (debug == 1)
-			write(1, "ERROR : fct unstack : Utilisation of fct stack on non \
-					stack data structure\n", 76);
-		return (0);
-	}
-	if (lst->len > 0)
-	{
-		rm = lst->head;
-		lst->head = rm->next;
-	}
-	if (lst->len == 1)
-		lst->tail = 0;
-	else
-		rm = 0;
-	lst->len--;
-	return (rm);
+	cell->type_data = t;
+	cell->data = d;
+	return (cell);
 }

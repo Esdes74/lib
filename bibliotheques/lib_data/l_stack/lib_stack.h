@@ -6,13 +6,14 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 12:45:08 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/11 15:30:19 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/13 18:21:19 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIB_STACK_H
 # define LIB_STACK_H
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef enum e_type {
 	CHAR,
@@ -54,15 +55,16 @@ typedef struct s_list {
 t_data	*init_data(void *data, t_type t, t_data *cell);
 
 // Initialisation of queue list
-t_list	*init_stack(t_type t, t_list *lst);
+t_list	*init_stack(t_list *lst);
 
 // Add element on first index of list
-int		stacking(t_list *lst, void *data, t_type t);
+// Use debug = 1 to write problems
+int		stacking(t_list *lst, void *data, t_type t, int debug);
 
 // Remove first element and return it
-t_cell	*unstack(t_list *lst);
+t_cell	*unstack(t_list *lst, int debug);
 
 // Remove first element and destroy it
-void	rmstack(t_list *lst);
+void	rmstack(t_list *lst, int debug);
 
 #endif
