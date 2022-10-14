@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:38:47 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/13 18:08:45 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/14 16:02:13 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 typedef enum e_type {
 	CHAR,
 	INT,
+	STRING,
 	DOUBLE,
 	LONG,
 	UNSIGNED,
@@ -27,14 +28,20 @@ typedef enum e_type {
 	LIST,
 	LIST_IND,
 	STACK,
-	PILE,
+	QUEUE,
 	DICO,
 	TREE,
 	ALEA
 }	t_type;
 
+typedef enum e_bool{
+	FALSE,
+	TRUE
+}	t_bool;
+
 typedef struct s_data {
 	t_type	type_data;
+	t_bool	allowed;
 	void	*data;
 }	t_data;
 
@@ -74,13 +81,16 @@ void	init_pile();
 t_list	*init_stack(t_type t, t_list *lst);
 
 // Add element on first index of list
-int		stacking(t_list *lst, void *data, t_type t);
+int		stacking(t_list *lst, void *data, t_type t, int debug);
+
+// Add copy of variable on first index of list
+int		stacking_val(t_list *lst, void *data, t_type t, int debug);
 
 // Remove first element and return it
-t_cell	*unstack(t_list *lst);
+t_cell	*unstack(t_list *lst, int debug);
 
 // Remove first element and destroy it
-void	rmstack(t_list *lst);
+void	rmstack(t_list *lst, int debug);
 
 /*####################### TREE ########################*/
 // LIB_TREE_H
@@ -91,6 +101,7 @@ void	init_tree();
 t_data	*init_data(void *data, t_type t, t_data *cell);
 
 // Return size of type give to argument
-size_t	size(t_type t);
+// If a pointer is given as argument, return -1
+size_t	size(t_type t, int debug);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 11:18:56 by eslamber          #+#    #+#              #
-#    Updated: 2022/10/13 17:28:05 by eslamber         ###   ########.fr        #
+#    Updated: 2022/10/14 16:18:19 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ H := lib_stack.h
 
 L_SRC := init_stack.c \
 		 stacking.c \
+		 stacking_val.c \
 		 unstack.c \
 		 rmstack.c \
 		 init_data.c
