@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:10:07 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/10 15:17:00 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/14 16:31:43 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef enum e_type {
 
 typedef struct s_data {
 	t_type	type_data;
-	void	*data
+	void	*data;
 }	t_data;
 
 typedef struct s_cell {
@@ -54,7 +54,7 @@ typedef struct s_list {
 typedef struct s_head_tree {
 	size_t	len_uplet;
 	t_data	*data;
-	t_list	*leaves
+	t_list	*leaves;
 }	t_tree;
 
 // LIB_LIST_H

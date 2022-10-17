@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:42:31 by eslamber          #+#    #+#              #
-#    Updated: 2022/10/11 11:09:36 by eslamber         ###   ########.fr        #
+#    Updated: 2022/10/17 13:40:08 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,16 @@ TEST_EXE_DIR := $(TEST_DIR)exe/
 
 # Definitions of variables needed for test compilation
 SRC_TEST := oracle.c \
-			list.c
+			list.c \
+			stack.c \
+			gnrl.c \
+			test_init_stack.c \
+			test_init_data.c \
+			test_stacking.c \
+			test_stacking_val.c \
+			test_unstack.c \
+			test_rmstack.c \
+			test_size.c
 EXE := oracle
 NAME := $(EXE:%=$(TEST_EXE_DIR)%)
 
@@ -44,9 +53,9 @@ LIB_LIST_IND := $(LIB_DATA)l_list_ind/
 LIB_LIST_IND_SRC := $(LIB_LIST_IND)src/
 LIB_LIST_IND_OBJ := $(LIB_LIST_IND)obj/
 
-LIB_PILE := $(LIB_DATA)l_pile/
-LIB_PILE_SRC := $(LIB_PILE)src/
-LIB_PILE_OBJ := $(LIB_PILE)obj/
+LIB_QUEUE := $(LIB_DATA)l_queue/
+LIB_QUEUE_SRC := $(LIB_QUEUE)src/
+LIB_QUEUE_OBJ := $(LIB_QUEUE)obj/
 
 LIB_STACK := $(LIB_DATA)l_stack/
 LIB_STACK_SRC := $(LIB_STACK)src/
@@ -55,6 +64,10 @@ LIB_STACK_OBJ := $(LIB_STACK)obj/
 LIB_TREE := $(LIB_DATA)l_tree/
 LIB_TREE_SRC := $(LIB_TREE)src/
 LIB_TREE_OBJ := $(LIB_TREE)obj/
+
+LIB_GNRL := $(LIB_DATA)l_gnrl/
+LIB_GNRL_SRC := $(LIB_GNRL)src/
+LIB_GNRL_OBJ := $(LIB_GNRL)obj/
 
 LIB_MATH := $(LIB_FCT)lib_math/
 LIB_MATH_SRC := $(LIB_MATH)src/
@@ -66,7 +79,7 @@ LIB_STR_OBJ := $(LIB_STR)obj/
 
 ALL_LIB_OBJ_DIR := $(LIB_LIST_OBJ) \
 				   $(LIB_LIST_IND_OBJ) \
-				   $(LIB_PILE_OBJ) \
+				   $(LIB_QUEUE_OBJ) \
 				   $(LIB_STACK_OBJ) \
 				   $(LIB_TREE_OBJ) \
 				   $(LIB_MATH_OBJ) \
@@ -74,7 +87,7 @@ ALL_LIB_OBJ_DIR := $(LIB_LIST_OBJ) \
 
 ALL_LIB_SRC_DIR := $(LIB_LIST_SRC) \
 				   $(LIB_LIST_IND_SRC) \
-				   $(LIB_PILE_SRC) \
+				   $(LIB_QUEUE_SRC) \
 				   $(LIB_STACK_SRC) \
 				   $(LIB_TREE_SRC) \
 				   $(LIB_MATH_SRC) \
@@ -89,17 +102,26 @@ LIST_IND_LIB := init_list_ind.c
 LIST_IND_LIB_H := $(LIB_LIST_IND)lib_list_ind.h
 LIST_IND_OBJ_LIB := $(LIST_IND_LIB:%.c=$(LIB_LIST_IND_OBJ)%.o)
 
-PILE_LIB := init_pile.c
-PILE_LIB_H := $(LIB_PILE)lib_pile.h
-PILE_OBJ_LIB := $(PILE_LIB:%.c=$(LIB_PILE_OBJ)%.o)
+QUEUE_LIB := init_queue.c
+QUEUE_LIB_H := $(LIB_QUEUE)lib_queue.h
+QUEUE_OBJ_LIB := $(QUEUE_LIB:%.c=$(LIB_QUEUE_OBJ)%.o)
 
-STACK_LIB := init_stack.c
+STACK_LIB := init_stack.c \
+			 stacking.c \
+			 stacking_val.c \
+			 unstack.c \
+			 rmstack.c
 STACK_LIB_H := $(LIB_STACK)lib_stack.h
 STACK_OBJ_LIB := $(STACK_LIB:%.c=$(LIB_STACK_OBJ)%.o)
 
 TREE_LIB := init_tree.c
 TREE_LIB_H := $(LIB_TREE)lib_tree.h
 TREE_OBJ_LIB := $(TREE_LIB:%.c=$(LIB_TREE_OBJ)%.o)
+
+GNRL_LIB := init_data.c \
+			size.c
+GNRL_LIB_H := $(LIB_DATA)lib_data.h
+GNRL_OBJ_LIB := $(GNRL_LIB:%.c=$(LIB_GNRL_OBJ)%.o)
 
 MATH_LIB := ft_power.c
 MATH_LIB_H := $(LIB_MATH)lib_math.h
@@ -111,9 +133,10 @@ STR_OBJ_LIB := $(STR_LIB:%.c=$(LIB_STR_OBJ)%.o)
 
 ALL_OBJ_LIB := $(LIST_OBJ_LIB) \
 			   $(LIST_IND_OBJ_LIB) \
-			   $(PILE_OBJ_LIB) \
+			   $(QUEUE_OBJ_LIB) \
 			   $(STACK_OBJ_LIB) \
 			   $(TREE_OBJ_LIB) \
+			   $(GNRL_OBJ_LIB) \
 			   $(MATH_OBJ_LIB) \
 			   $(STR_OBJ_LIB)
 
@@ -146,13 +169,16 @@ $(LIST_IND_OBJ_LIB): $(LIB_LIST_IND_OBJ)%.o: $(LIB_LIST_IND_SRC)%.c \
 $(LIST_IND_LIB_H)
 	$(CC) $(FLAGS) -c $< -o $@
 
-$(PILE_OBJ_LIB): $(LIB_PILE_OBJ)%.o: $(LIB_PILE_SRC)%.c $(PILE_LIB_H)
+$(QUEUE_OBJ_LIB): $(LIB_QUEUE_OBJ)%.o: $(LIB_QUEUE_SRC)%.c $(QUEUE_LIB_H)
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(STACK_OBJ_LIB): $(LIB_STACK_OBJ)%.o: $(LIB_STACK_SRC)%.c $(STACK_LIB_H)
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(TREE_OBJ_LIB): $(LIB_TREE_OBJ)%.o: $(LIB_TREE_SRC)%.c $(TREE_LIB_H)
+	$(CC) $(FLAGS) -c $< -o $@
+
+$(GNRL_OBJ_LIB): $(LIB_GNRL_OBJ)%.o: $(LIB_GNRL_SRC)%.c $(GNRL_LIB_H)
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(MATH_OBJ_LIB): $(LIB_MATH_OBJ)%.o: $(LIB_MATH_SRC)%.c $(MATH_LIB_H)
@@ -273,9 +299,9 @@ cleandirtest:
 	@echo
 
 # Full cleaning rules
-fclean: cleanobjlib cleanobjexec cleanlib cleanexe cleandir make_dir
+fclean: cleanobjlib cleanobjexec cleanlib cleanexec cleandir make_dir
 
-fcleanlib: cleanobjlib bcleandirlib cleanlib dir_lib
+fcleanlib: cleanobjlib cleandirlib cleanlib dir_lib
 
 fcleantest: fclean dir_test
 
