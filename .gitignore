@@ -1,1 +1,3 @@
-test_lib/obj/
+*.o
+*.a
+*/exe/
