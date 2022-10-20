@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:12:01 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/13 17:55:06 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/20 18:15:15 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ typedef struct s_head_tree {
 	t_list	*leaves;
 }	t_tree;
 
-void	init_tree();
+void	init_tree(void);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:42:09 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/20 17:16:23 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/20 18:22:57 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../oracle.h"
 
-int	test_init_int()
+int	test_init_int(void)
 {
 	int		test;
 	int		*def;
@@ -41,12 +41,12 @@ int	test_init_int()
 	return (nbr_test);
 }
 
-int	test_init_allowed_int()
+int	test_init_allowed_int(void)
 {
 	return (0);
 }
 
-void	test_init_data()
+void	test_init_data(void)
 {
 	int	nbr_err;
 

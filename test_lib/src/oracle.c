@@ -6,13 +6,13 @@
 /*   By: eslamber <eslamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 18:29:19 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/20 17:01:49 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/20 18:25:54 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../oracle.h"
 
-int	main()
+int	main(void)
 {
 	test_gnrl();
 	test_stack();
@@ -28,6 +28,5 @@ int	main()
 	// iter_list
 	// find_list
 	// rm_elem_list
-	
 	return (0);
 }

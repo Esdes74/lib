@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:09:34 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/13 16:52:01 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/20 18:16:07 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ typedef struct s_list {
 	t_cell	*tail;
 }	t_list;
 
-void	init_list_ind();
+void	init_list_ind(void);
 
 #endif

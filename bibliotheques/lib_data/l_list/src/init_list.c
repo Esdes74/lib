@@ -6,13 +6,13 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 10:55:02 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/10 11:15:48 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/20 18:17:14 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib_list.h"
 
-void	init_list()
+void	init_list(void)
 {
 	return ;
 }

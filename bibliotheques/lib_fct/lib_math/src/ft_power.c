@@ -6,13 +6,13 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 10:57:08 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/10 11:15:22 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/20 18:16:21 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib_math.h"
 
-void	ft_power()
+void	ft_power(void)
 {
 	return ;
 }

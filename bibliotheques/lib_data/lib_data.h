@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:38:47 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/20 17:06:17 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/20 17:34:26 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,13 @@ typedef struct s_head_tree {
 }	t_tree;
 
 /*####################### LIST ########################*/
-void	init_list();
+void	init_list(void);
 
 /*##################### LIST_IND ######################*/
-void	init_list_ind();
+void	init_list_ind(void);
 
 /*###################### QUEUE ########################*/
-void	init_queue();
+void	init_queue(void);
 
 /*###################### STACK ########################*/
 // Initialisation of queue list
@@ -90,7 +90,7 @@ t_cell	*unstack(t_list *lst, int debug);
 void	rmstack(t_list *lst, int debug);
 
 /*####################### TREE ########################*/
-void	init_tree();
+void	init_tree(void);
 
 /*####################### GNRL ########################*/
 // Initialisation of data cells

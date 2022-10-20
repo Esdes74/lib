@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:10:07 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/20 17:06:27 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/20 17:33:35 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,13 @@ typedef struct s_head_tree {
 }	t_tree;
 
 /*##################### LIST ##########################*/
-void	init_list();
+void	init_list(void);
 
 /*################### LIST_IND ########################*/
-void	init_list_ind();
+void	init_list_ind(void);
 
 /*#################### QUEUE ##########################*/
-void	init_queue();
+void	init_queue(void);
 
 /*###################### STACK ########################*/
 // Initialisation of queue list
@@ -89,7 +89,7 @@ t_cell	*unstack(t_list *lst, int debug);
 void	rmstack(t_list *lst, int debug);
 
 /*##################### TREE ##########################*/
-void	init_tree();
+void	init_tree(void);
 
 /*##################### GNRL ##########################*/
 // Initialisation of data cells
@@ -100,7 +100,7 @@ t_data	*init_data(void *data, t_type t, t_bool allow, t_data *cell);
 size_t	size(t_type t, int debug);
 
 /*##################### MATH ##########################*/
-void	ft_power();
+void	ft_power(void);
 
 /*##################### STR ###########################*/
 size_t	ft_strlen(char *str);

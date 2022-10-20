@@ -6,13 +6,13 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 12:21:49 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/10 12:21:54 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/20 18:19:49 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib_str.h"
 
-size_t ft_strlen(char *str)
+size_t	ft_strlen(char *str)
 {
 	size_t	len;
 
