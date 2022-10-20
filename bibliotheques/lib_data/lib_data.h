@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:38:47 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/14 16:02:13 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/20 17:06:17 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,13 @@ typedef struct s_head_tree {
 }	t_tree;
 
 /*####################### LIST ########################*/
-// LIB_LIST_H
 void	init_list();
 
 /*##################### LIST_IND ######################*/
-// LIB_LIST_IND_H
 void	init_list_ind();
 
-/*####################### PILE ########################*/
-// LIB_PILE_H
-void	init_pile();
+/*###################### QUEUE ########################*/
+void	init_queue();
 
 /*###################### STACK ########################*/
 // Initialisation of queue list
@@ -93,12 +90,11 @@ t_cell	*unstack(t_list *lst, int debug);
 void	rmstack(t_list *lst, int debug);
 
 /*####################### TREE ########################*/
-// LIB_TREE_H
 void	init_tree();
 
 /*####################### GNRL ########################*/
 // Initialisation of data cells
-t_data	*init_data(void *data, t_type t, t_data *cell);
+t_data	*init_data(void *data, t_type t, t_bool allow, t_data *cell);
 
 // Return size of type give to argument
 // If a pointer is given as argument, return -1

@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:10:07 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/14 16:31:43 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/20 17:06:27 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,14 @@ typedef enum e_type {
 	ALEA
 }	t_type;
 
+typedef enum e_bool{
+	FALSE,
+	TRUE
+}	t_bool;
+
 typedef struct s_data {
 	t_type	type_data;
+	t_bool	allowed;
 	void	*data;
 }	t_data;
 
@@ -57,25 +63,46 @@ typedef struct s_head_tree {
 	t_list	*leaves;
 }	t_tree;
 
-// LIB_LIST_H
+/*##################### LIST ##########################*/
 void	init_list();
 
-// LIB_LIST_IND_H
+/*################### LIST_IND ########################*/
 void	init_list_ind();
 
-// LIB_PILE_H
-void	init_pile();
+/*#################### QUEUE ##########################*/
+void	init_queue();
 
-// LIB_STACK_H
-void	init_stack();
+/*###################### STACK ########################*/
+// Initialisation of queue list
+t_list	*init_stack(t_type t, t_list *lst);
 
-// LIB_TREE_H
+// Add element on first index of list
+int		stacking(t_list *lst, void *data, t_type t, int debug);
+
+// Add copy of variable on first index of list
+int		stacking_val(t_list *lst, void *data, t_type t, int debug);
+
+// Remove first element and return it
+t_cell	*unstack(t_list *lst, int debug);
+
+// Remove first element and destroy it
+void	rmstack(t_list *lst, int debug);
+
+/*##################### TREE ##########################*/
 void	init_tree();
 
-// LIB_MATH_H
+/*##################### GNRL ##########################*/
+// Initialisation of data cells
+t_data	*init_data(void *data, t_type t, t_bool allow, t_data *cell);
+
+// Return size of type give to argument
+// If a pointer is given as argument, return -1
+size_t	size(t_type t, int debug);
+
+/*##################### MATH ##########################*/
 void	ft_power();
 
-// LIB_STR_H
+/*##################### STR ###########################*/
 size_t	ft_strlen(char *str);
 
 #endif

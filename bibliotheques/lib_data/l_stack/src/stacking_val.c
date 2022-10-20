@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 15:48:12 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/14 15:59:13 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/20 17:08:11 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,7 @@ int	stacking_val(t_list *lst, void *data, t_type t, int debug)
 		debugger(debug, 1);
 	if (d_cell == 0 || cell == 0 || new_data == 0)
 		return (0);
-	init_data(new_data, t, d_cell);
-	d_cell->allowed = TRUE;
+	init_data(new_data, t, TRUE, d_cell);
 	cell->data_cell = d_cell;
 	if (lst->len == 0)
 		lst->tail = cell;
