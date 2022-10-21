@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:42:31 by eslamber          #+#    #+#              #
-#    Updated: 2022/10/21 16:07:45 by eslamber         ###   ########.fr        #
+#    Updated: 2022/10/21 16:09:55 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -325,9 +325,9 @@ gitignor:
 # Full cleaning rules
 fclean: cleanobjlib cleanobjexec cleanlib cleanexec cleandir make_dir gitignor
 
-fcleanlib: cleanobjlib cleandirlib cleanlib dir_lib
+fcleanlib: cleanobjlib cleandirlib cleanlib dir_lib gitignor
 
-fcleantest: fclean dir_test
+fcleantest: fclean dir_test gitignor
 
 # Remake rules
 re: fcleanlib all
