@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:42:09 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/20 18:22:57 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/21 11:08:56 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	test_init_int(void)
 	nbr_test = 3;
 	cell = (t_data *) malloc(sizeof(t_data));
 	test = 10;
-	init_data(&test, INT, cell);
+	init_data(&test, INT, FALSE, cell);
 	if (cell->type_data != INT || cell->allowed != FALSE)
 		write(1, "Error : test 1 of init_data failed (test_init_int)\n", 51);
 	else
