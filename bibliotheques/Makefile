@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:42:31 by eslamber          #+#    #+#              #
-#    Updated: 2022/10/21 14:25:56 by eslamber         ###   ########.fr        #
+#    Updated: 2022/10/21 14:29:19 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,6 +91,7 @@ ALL_LIB_SRC_DIR := $(LIB_LIST_SRC) \
 				   $(LIB_QUEUE_SRC) \
 				   $(LIB_STACK_SRC) \
 				   $(LIB_TREE_SRC) \
+				   $(LIB_GNRL_SRC) \
 				   $(LIB_MATH_SRC) \
 				   $(LIB_STR_SRC)
 
