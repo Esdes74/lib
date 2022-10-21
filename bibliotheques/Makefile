@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:42:31 by eslamber          #+#    #+#              #
-#    Updated: 2022/10/20 16:54:14 by eslamber         ###   ########.fr        #
+#    Updated: 2022/10/21 14:25:56 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,6 +82,7 @@ ALL_LIB_OBJ_DIR := $(LIB_LIST_OBJ) \
 				   $(LIB_QUEUE_OBJ) \
 				   $(LIB_STACK_OBJ) \
 				   $(LIB_TREE_OBJ) \
+				   $(LIB_GNRL_OBJ) \
 				   $(LIB_MATH_OBJ) \
 				   $(LIB_STR_OBJ)
 
