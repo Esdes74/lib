@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:42:31 by eslamber          #+#    #+#              #
-#    Updated: 2022/10/21 16:03:27 by eslamber         ###   ########.fr        #
+#    Updated: 2022/10/21 16:04:58 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -303,7 +303,7 @@ cleandirtest:
 gitignor: 
 	@echo -e $(LIGHTBLUE)reediting of differents $(RED)gitignores$(NEUTRAL)
 	touch ../test_lib/obj/.gitignore
-	@echo * > ../test_lib/obj/.gitignore
+	@echo "*" > ../test_lib/obj/.gitignore
 	@echo !.gitignore >> ../test_lib/obj/.gitignore
 	cp ../test_lib/obj/.gitignore ../test_lib/exe/
 	cp ../test_lib/obj/.gitignore lib_data/l_gnrl/obj
