@@ -6,9 +6,13 @@
 #    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:42:31 by eslamber          #+#    #+#              #
-#    Updated: 2022/10/21 16:04:58 by eslamber         ###   ########.fr        #
+#    Updated: 2022/10/21 16:07:45 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+#
+### Definitions of variables
+#
 
 # Definitions of compilation options
 FLAGS := -Wall -Werror -Wextra -fsanitize=address -fno-omit-frame-pointer
@@ -146,8 +150,10 @@ ALL_OBJ_LIB := $(LIST_OBJ_LIB) \
 LIGHTBLUE := '\e[0;32m'
 RED := '\e[0;31m'
 NEUTRAL := '\e[0m'
+#
+### Compilations rules
+#
 
-# Compilations rules
 # only lib
 all: $(LIB)
 
