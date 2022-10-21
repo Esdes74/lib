@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:42:31 by eslamber          #+#    #+#              #
-#    Updated: 2022/10/21 15:13:41 by eslamber         ###   ########.fr        #
+#    Updated: 2022/10/21 15:58:45 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -300,8 +300,24 @@ cleandirtest:
 	@rm -rfv $(TEST_OBJ_DIR) $(TEST_EXE_DIR)
 	@echo
 
+gitignor: 
+	@echo -e $(LIGHTBLUE)reediting of differents $(RED)gitignores$(NEUTRAL)
+	touch ../test_lib/obj/.gitignore
+	@echo * > ../test_lib/obj/.gitignore
+	@echo !.gitignore > ../test_lib/obj/.gitignore
+	cp ../test_lib/obj/.gitignore ../test_lib/exe/
+	cp ../test_lib/obj/.gitignore lib_data/l_gnrl/obj
+	cp lib_data/l_gnrl/obj/.gitignore lib_data/l_list/obj
+	cp lib_data/l_gnrl/obj/.gitignore lib_data/l_list_ind/obj
+	cp lib_data/l_gnrl/obj/.gitignore lib_data/l_stack/obj
+	cp lib_data/l_gnrl/obj/.gitignore lib_data/l_queue/obj
+	cp lib_data/l_gnrl/obj/.gitignore lib_data/l_tree/obj
+	cp lib_data/l_gnrl/obj/.gitignore lib_fct/lib_math/obj
+	cp lib_data/l_gnrl/obj/.gitignore lib_fct/lib_str/obj
+	@echo
+
 # Full cleaning rules
-fclean: cleanobjlib cleanobjexec cleanlib cleanexec cleandir make_dir
+fclean: cleanobjlib cleanobjexec cleanlib cleanexec cleandir make_dir gitignor
 
 fcleanlib: cleanobjlib cleandirlib cleanlib dir_lib
 
