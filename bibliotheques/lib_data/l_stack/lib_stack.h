@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 12:45:08 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/20 17:10:03 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/21 23:28:22 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,27 @@
 # include <unistd.h>
 
 typedef enum e_type {
-	CHAR,
-	STRING,
-	INT,
-	DOUBLE,
-	LONG,
-	UNSIGNED,
-	LONG_LONG,
-	LONG_UNSIGNED,
-	LONG_LONG_UNSIGNED,
-	LIST,
-	LIST_IND,
-	STACK,
-	QUEUE,
-	DICO,
-	TREE,
-	ALEA
+	CHAR = 0,
+	INT = 1,
+	STRING = 2,
+	DOUBLE = 3,
+	LONG = 4,
+	UNSIGNED = 5,
+	LONG_LONG = 6,
+	LONG_UNSIGNED = 7,
+	LONG_LONG_UNSIGNED = 8,
+	LIST = 9,
+	LIST_IND = 10,
+	STACK = 11,
+	QUEUE = 12,
+	DICO = 13,
+	TREE = 14,
+	ALEA = 15
 }	t_type;
 
 typedef enum e_bool{
-	FALSE,
-	TRUE
+	FALSE = 0,
+	TRUE = 1
 }	t_bool;
 
 typedef struct s_data {

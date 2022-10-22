@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 14:31:44 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/14 15:18:26 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/21 22:52:03 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,25 +61,26 @@ void	debugger(int debug, t_type t, int mod)
 	}
 }
 
-size_t	size(t_type t, int debug)
+long long int	size(t_type t, int debug)
 {
 	debugger(debug, t, 0);
 	debugger(debug, t, 1);
 	if (t == INT)
-		return (sizeof(int));
+		return (long long int) (sizeof(int));
 	else if (t == CHAR)
-		return (sizeof(char));
+		return (long long int) (sizeof(char));
 	else if (t == DOUBLE)
-		return (sizeof(double));
+		return (long long int) (sizeof(double));
 	else if (t == LONG)
-		return (sizeof(long));
+		return (long long int) (sizeof(long));
 	else if (t == UNSIGNED)
-		return (sizeof(unsigned));
+		return (long long int) (sizeof(unsigned));
 	else if (t == LONG_LONG)
-		return (sizeof(long long));
+		return (long long int) (sizeof(long long));
 	else if (t == LONG_UNSIGNED)
-		return (sizeof(long unsigned));
+		return (long long int) (sizeof(long unsigned));
 	else if (t == LONG_LONG_UNSIGNED)
-		return (sizeof(long long unsigned));
-	return (-1);
+		return (long long int) (sizeof(long long unsigned));
+	else
+		return (-1);
 }
