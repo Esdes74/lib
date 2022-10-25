@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:42:09 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/21 11:08:56 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/25 13:22:01 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,12 @@ int	test_init_int(void)
 	return (nbr_test);
 }
 
-int	test_init_allowed_int(void)
-{
-	return (0);
-}
-
 void	test_init_data(void)
 {
 	int	nbr_err;
 
 	nbr_err = 0;
 	nbr_err += test_init_int();
-	nbr_err += test_init_allowed_int();
 	if (nbr_err == 0)
 		write(1, "INIT_DATA tests are successfull\n", 32);
 	return ;
