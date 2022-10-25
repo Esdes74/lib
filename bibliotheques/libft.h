@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:10:07 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/21 23:23:37 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/25 13:52:36 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void			init_queue(void);
 
 /*###################### STACK ########################*/
 // Initialisation of queue list
-t_list			*init_stack(t_type t, t_list *lst);
+t_list			*init_stack(t_list *lst);
 
 // Add element on first index of list
 int				stacking(t_list *lst, void *data, t_type t, int debug);
