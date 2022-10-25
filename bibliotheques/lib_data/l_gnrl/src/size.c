@@ -6,13 +6,13 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 14:31:44 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/21 22:52:03 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/25 16:07:09 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../lib_data.h"
 
-void	following_debugger(t_type t)
+void	following_debugger_size(t_type t)
 {		
 	if (t == LONG_LONG_UNSIGNED)
 		write(1, "LONG_LONG_UNSIGNED\n", 19);
@@ -32,7 +32,7 @@ void	following_debugger(t_type t)
 		write(1, "ALEA\n", 5);
 }
 
-void	debugger(int debug, t_type t, int mod)
+void	debugger_size(int debug, t_type t, int mod)
 {
 	if (debug == 1)
 	{
@@ -56,15 +56,15 @@ void	debugger(int debug, t_type t, int mod)
 				write(1, "LONG_LONG\n", 10);
 			if (t == LONG_UNSIGNED)
 				write(1, "LONG_UNSIGNED\n", 14);
-			following_debugger(t);
+			following_debugger_size(t);
 		}
 	}
 }
 
 long long int	size(t_type t, int debug)
 {
-	debugger(debug, t, 0);
-	debugger(debug, t, 1);
+	debugger_size(debug, t, 0);
+	debugger_size(debug, t, 1);
 	if (t == INT)
 		return (long long int) (sizeof(int));
 	else if (t == CHAR)

@@ -6,13 +6,13 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 12:50:42 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/20 17:07:38 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/25 17:07:01 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib_stack.h"
 
-void	debugger(int debug, int mod)
+void	debuger_stacking(int debug, int mod)
 {
 	if (debug == 1)
 	{
@@ -30,17 +30,18 @@ int	stacking(t_list *lst, void *data, t_type t, int debug)
 	t_cell	*cell;
 
 	if (lst->type_lst != STACK && debug == 1)
-		debugger(debug, 0);
+		debuger_stacking(debug, 0);
 	if (lst->type_lst != STACK)
 		return (0);
 	d_cell = (t_data *) malloc(sizeof(t_data));
 	cell = (t_cell *) malloc(sizeof(t_cell));
 	if (debug == 1 && (d_cell == 0 || cell == 0))
-		debugger(debug, 1);
+		debuger_stacking(debug, 1);
 	if (d_cell == 0 || cell == 0)
 		return (0);
 	init_data(data, t, FALSE, d_cell);
 	cell->data_cell = d_cell;
+	cell->next = 0;
 	if (lst->len == 0)
 		lst->tail = cell;
 	else
