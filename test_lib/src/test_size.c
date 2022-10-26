@@ -6,12 +6,11 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:54:39 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/21 23:15:36 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/26 18:00:13 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../oracle.h"
-#include <stdio.h>
 
 void	test_size(void)
 {

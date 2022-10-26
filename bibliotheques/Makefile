@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:42:31 by eslamber          #+#    #+#              #
-#    Updated: 2022/10/26 16:21:51 by eslamber         ###   ########.fr        #
+#    Updated: 2022/10/26 16:48:19 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -168,7 +168,8 @@ $(LIB): $(ALL_OBJ_LIB)
 $(NAME): $(OBJ_TEST)
 	$(CC) $(FLAGS) -o $@ $^ -L. $(LIB)
 
-$(OBJ_TEST): $(TEST_OBJ_DIR)%.o: $(TEST_SRC_DIR)%.c libft.h $(TEST_DIR)oracle.h
+$(OBJ_TEST): $(TEST_OBJ_DIR)%.o: $(TEST_SRC_DIR)%.c libft.h $(TEST_DIR)oracle.h\
+	$(LIB)
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(LIST_OBJ_LIB): $(LIB_LIST_OBJ)%.o: $(LIB_LIST_SRC)%.c $(LIST_LIB_H)

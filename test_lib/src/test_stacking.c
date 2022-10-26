@@ -6,12 +6,11 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:40:42 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/26 14:03:16 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/26 18:00:23 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../oracle.h"
-#include <stdio.h>
 
 int	test_stacked_val(t_list *lst, int ind)
 {
