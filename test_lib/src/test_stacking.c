@@ -6,11 +6,12 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:40:42 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/25 17:45:25 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/26 10:38:59 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../oracle.h"
+#include <stdio.h>
 
 int	test_stacked_val(t_list *lst, int ind)
 {
@@ -22,7 +23,7 @@ int	test_stacked_val(t_list *lst, int ind)
 		val = (int *) lst->head->data_cell->data;
 		nbr_test = 1;
 		if (*val != 15)
-			write(1, "Error : test 0.6 of stacking failed (data stacked)", 50);
+			write(1, "Error : test 0.6 of stacking failed (data stack)\n", 50);
 		else
 			nbr_test--;
 	}
@@ -30,12 +31,11 @@ int	test_stacked_val(t_list *lst, int ind)
 	{
 		val = (int *) lst->tail->data_cell->data;
 		nbr_test = 1;
-		if (*val != 15)
-			write(1, "Error : test 1.5 of stacking failed (data stacked)", 50);
+		if (*val != 45)
+			write(1, "Error : test 1.6 of stacking failed (data stack)\n", 50);
 		else
 			nbr_test--;
 	}
-	write(1, "\n", 1);
 	return (nbr_test);
 }
 
@@ -43,7 +43,7 @@ int	first_test_stacking(t_list lst)
 {
 	int	nbr_test;
 
-	nbr_test = 4;
+	nbr_test = 5;
 	if (lst.head != lst.tail || lst.head == 0 || lst.tail == 0)
 		write(1, "Error : test 0.1 of stacking failed (head/tail init)\n", 53);
 	else
@@ -73,7 +73,7 @@ int	second_test_stacking(t_list lst)
 	int	nbr_test;
 
 	nbr_test = 5;
-	if (lst.head == lst.tail || lst.head == 0 || lst.tail == 0)
+	if (lst.head == lst.tail || lst.head == 0 || lst.tail == 0 || lst.len != 2)
 		write(1, "Error : test 1.1 of stacking failed (head/tail init)\n", 53);
 	else
 		nbr_test--;
@@ -99,9 +99,7 @@ int	second_test_stacking(t_list lst)
 
 void	annihilation_test_stacking(t_list *lst)
 {
-	if (lst->head == 0)
-		free(lst);
-	else
+	if (lst->head != 0)
 	{
 		free(lst->head->data_cell);
 		lst->tail = lst->head->next;
