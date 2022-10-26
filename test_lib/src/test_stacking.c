@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:40:42 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/26 10:38:59 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/26 14:03:16 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,10 +120,10 @@ void	test_stacking(void)
 	val_test = 15;
 	nbr_err = 0;
 	init_stack(&test);
-	stacking(&test, point_test, INT, 1);
+	stacking(&test, point_test, INT, 0);
 	nbr_err += first_test_stacking(test);
 	val_test = 45;
-	stacking(&test, point_test, INT, 1);
+	stacking(&test, point_test, INT, 0);
 	nbr_err += second_test_stacking(test);
 	if (nbr_err == 0)
 		write(1, "STACKING tests are succesfull\n", 30);
