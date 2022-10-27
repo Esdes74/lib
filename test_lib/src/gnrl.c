@@ -6,14 +6,16 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:52:16 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/21 22:30:12 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/27 16:29:45 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../oracle.h"
 
-void	test_gnrl(void)
+int	test_gnrl(void)
 {
 	test_size();
-	test_init_data();
+	if (test_init_data() == 0)
+		return (0);
+	return (1);
 }

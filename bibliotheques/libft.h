@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:10:07 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/25 16:06:50 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/27 16:22:41 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int				stacking_val(t_list *lst, void *data, t_type t, int debug);
 t_cell			*unstack(t_list *lst, int debug);
 
 // Remove first element and destroy it
-void			rmstack(t_list *lst, int debug);
+void			rmstack(t_list *lst, t_bool allow, int debug);
 
 /*##################### TREE ##########################*/
 void			init_tree(void);

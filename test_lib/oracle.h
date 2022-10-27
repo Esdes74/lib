@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 17:03:18 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/20 18:21:17 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/27 16:31:12 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 void	test_list(void);
 
 // ################# STACK ###################
-void	test_stack(void);
+int		test_stack(void);
 
 void	test_init_stack(void);
 
@@ -29,12 +29,12 @@ void	test_stacking_val(void);
 
 void	test_unstack(void);
 
-void	test_rmstack(void);
+int		test_rmstack(void);
 
 // ################# GNRL ####################
-void	test_gnrl(void);
+int		test_gnrl(void);
 
-void	test_init_data(void);
+int		test_init_data(void);
 
 void	test_size(void);
 

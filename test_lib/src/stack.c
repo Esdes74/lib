@@ -6,17 +6,19 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 18:39:11 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/25 14:33:44 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/27 16:33:23 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../oracle.h"
 
-void	test_stack(void)
+int	test_stack(void)
 {
 	test_init_stack();
 	test_stacking();
 	test_unstack();
-	test_rmstack();
+	if (test_rmstack() == 0)
+		return (0);
 	test_stacking_val();
+	return (1);
 }
