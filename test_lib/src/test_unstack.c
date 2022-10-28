@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:38:49 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/26 18:00:32 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/10/28 18:40:00 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,17 @@ int	following_test(t_list *lst, t_cell *cel)
 
 	cel = following_value(lst, cel);
 	val = (int *) cel->data_cell->data;
-	nbr_test = 2;
+	nbr_test = 3;
 	if (*val != 1)
 		write(1, "Error : test 4 of unstack (unstack forth)\n", 42);
 	else
 		nbr_test--;
 	if (lst->head != 0 || lst->tail != 0)
 		write(1, "Error : test 5 of unstack (head/tail point null)\n", 49);
+	else
+		nbr_test--;
+	if (lst->len != 0)
+		write(1, "Error : test 6 of unstack (len calcul)\n", 39);
 	else
 		nbr_test--;
 	free(cel->data_cell->data);
