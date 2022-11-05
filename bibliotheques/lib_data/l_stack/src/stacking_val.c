@@ -6,11 +6,12 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 15:48:12 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/25 15:53:59 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/11/05 17:18:27 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib_stack.h"
+#include <stdio.h>
 
 void	debugger_stacking_val(int debug, int mod)
 {
@@ -29,16 +30,23 @@ void	*data_cpy(void *data)
 	void	*new;
 	size_t	i;
 	size_t	size;
-	int		*cpy_new;
-	int		*cpy_data;
+	void	*cpy_new;
+	void	*cpy_data;
 
 	size = sizeof(*data);
-	new = malloc(size);
+	printf("size = %ld\n", size);
+	new = (int *) malloc(sizeof(int));
+	cpy_new = (int *) cpy_new;
 	cpy_new = (int *) new;
+	cpy_data = (int *) cpy_data;
 	cpy_data = (int *) data;
 	i = 0;
 	while (i < size)
+	{
+		printf("i = %ld\n", i);
 		cpy_new[i] = cpy_data[i];
+		i++;
+	}
 	new = (void *) cpy_new;
 	return (new);
 }

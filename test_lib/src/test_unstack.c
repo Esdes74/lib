@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:38:49 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/28 18:40:00 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/11/05 16:54:17 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	first_test_unstack(t_list *lst)
 		nbr_test--;
 	cel = following_value(lst, cel);
 	val = (int *) cel->data_cell->data;
-	if (*val != 3)
+	if (*val != 3 && lst->len != 3)
 		write(1, "Error : test 2 of unstack (unstack second)\n", 43);
 	else
 		nbr_test--;
