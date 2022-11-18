@@ -1,23 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 14:49:28 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/17 20:43:18 by eslamber         ###   ########.fr       */
+/*   Created: 2022/11/09 23:24:17 by eslamber          #+#    #+#             */
+/*   Updated: 2022/11/10 19:29:56 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib_str.h"
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strnstr(const char *big, const char *little, size_t n)
 {
 	size_t	len;
+	size_t	len_test;
+	size_t	i;
+	char	*c;
 
+	c = "";
+	if (little == c)
+		return ((char *)big);
 	len = 0;
-	while (s[len] != '\0')
+	len_test = 0;
+	while (big[len] != '\0' && len < n)
+	{
+		i = len;
+		len_test = 0;
+		while (big[i] == little[len_test] && big[i] != '\0')
+		{
+			i++;
+			len_test++;
+		}
+		if (little[len_test] == '\0')
+			return ((char *) big + len);
 		len++;
-	return (len);
+	}
+	return (0);
 }

@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 14:49:28 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/17 20:43:18 by eslamber         ###   ########.fr       */
+/*   Created: 2022/11/14 14:45:41 by eslamber          #+#    #+#             */
+/*   Updated: 2022/11/14 14:59:03 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib_str.h"
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strjoin(const char *dest, const char *src)
 {
-	size_t	len;
+	size_t	len_tot;
+	char	*new;
 
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
+	len_tot = ft_strlen(dest) + ft_strlen(src) + 1;
+	new = ft_substr(dest, 0, len_tot);
+	if (new == 0)
+		return (0);
+	ft_strlcat(new, src, len_tot);
+	return (new);
 }

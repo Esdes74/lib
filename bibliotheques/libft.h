@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:10:07 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/27 16:22:41 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/11/17 20:16:31 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,11 @@ typedef struct s_list {
 	t_cell	*tail;
 }	t_list;
 
+typedef struct s_listft{
+	void			*content;
+	struct s_listft	*next;
+}	t_listft;
+
 // Prototype
 typedef struct s_head_tree {
 	size_t	len_uplet;
@@ -88,6 +93,34 @@ t_cell			*unstack(t_list *lst, int debug);
 
 // Remove first element and destroy it
 void			rmstack(t_list *lst, t_bool allow, int debug);
+
+/*################# LIST_SIMPLE #######################*/
+// Creat a new cell with next = 0 and content = new_content
+t_listft		*ft_lstnew(void *new_content);
+
+// Add new in front of list pointed by lst
+void			ft_lstadd_front(t_listft **lst, t_listft *new);
+
+// Return lenght of lst
+int				ft_lstsize(t_listft *lst);
+
+// Return last cell of list
+t_listft		*ft_lstlast(t_listft *lst);
+
+// Add new at the end of list
+void			ft_lstadd_back(t_listft **lst, t_listft *new);
+
+// Remove one element of list
+void			ft_lstdelone(t_listft *lst, void (*del)(void *));
+
+// Clear all the list
+void			ft_lstclear(t_listft **lst, void (*del)(void *));
+
+// Apply f function to all contents of list
+void			ft_lstiter(t_listft *lst, void (*f)(void *));
+
+// Apply f function to all contents and creat a new list with modifications
+t_listft		*ft_lstmap(t_listft *l, void *(*f)(void *), void (*d)(void *));
 
 /*##################### TREE ##########################*/
 void			init_tree(void);

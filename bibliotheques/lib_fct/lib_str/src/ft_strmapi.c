@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 14:49:28 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/17 20:43:18 by eslamber         ###   ########.fr       */
+/*   Created: 2022/11/15 16:12:06 by eslamber          #+#    #+#             */
+/*   Updated: 2022/11/17 14:08:58 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib_str.h"
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strmapi(const char *src, char (*f)(unsigned int, char))
 {
-	size_t	len;
+	char	*new;
+	size_t	ind;
 
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
+	ind = 0;
+	new = ft_strdup(src);
+	if (new == 0)
+		return (0);
+	while (new[ind] != '\0')
+	{
+		new[ind] = f(ind, new[ind]);
+		ind++;
+	}
+	return (new);
 }
