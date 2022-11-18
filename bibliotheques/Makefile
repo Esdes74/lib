@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:42:31 by eslamber          #+#    #+#              #
-#    Updated: 2022/11/18 12:57:49 by eslamber         ###   ########.fr        #
+#    Updated: 2022/11/18 19:07:28 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,12 +44,14 @@ NAME := $(EXE:%=$(TEST_EXE_DIR)%)
 OBJ_TEST := $(SRC_TEST:%.c=$(TEST_OBJ_DIR)%.o)
 
 # Definition of variable librairie
-LIB := libft.a
-
-# Definitions of librairies repositories
 LIB_FCT := lib_fct/
 LIB_DATA := lib_data/
 
+LIB := libft.a
+HEADERS := $(LIB_DATA)lib_data.h \
+		   $(LIB_FCT)lib_fct.h
+
+# Definitions of librairies repositories
 LIB_LIST := $(LIB_DATA)l_list/
 LIB_LIST_SRC := $(LIB_LIST)src/
 LIB_LIST_OBJ := $(LIB_LIST)obj/
@@ -243,41 +245,51 @@ $(NAME): $(OBJ_TEST)
 	$(CC) $(FLAGS) -o $@ $^ -L. $(LIB)
 
 $(OBJ_TEST): $(TEST_OBJ_DIR)%.o: $(TEST_SRC_DIR)%.c libft.h $(TEST_DIR)oracle.h\
-	$(LIB)
+	$(LIB) $(HEADERS)
 	$(CC) $(FLAGS) -c $< -o $@
 
-$(LIST_OBJ_LIB): $(LIB_LIST_OBJ)%.o: $(LIB_LIST_SRC)%.c $(LIST_LIB_H)
+$(LIST_OBJ_LIB): $(LIB_LIST_OBJ)%.o: $(LIB_LIST_SRC)%.c $(LIST_LIB_H) \
+	$(LIB_DATA)lib_data.h
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(LIST_IND_OBJ_LIB): $(LIB_LIST_IND_OBJ)%.o: $(LIB_LIST_IND_SRC)%.c \
-$(LIST_IND_LIB_H)
+	$(LIST_IND_LIB_H) $(LIB_DATA)lib_data.h
 	$(CC) $(FLAGS) -c $< -o $@
 
-$(QUEUE_OBJ_LIB): $(LIB_QUEUE_OBJ)%.o: $(LIB_QUEUE_SRC)%.c $(QUEUE_LIB_H)
+$(QUEUE_OBJ_LIB): $(LIB_QUEUE_OBJ)%.o: $(LIB_QUEUE_SRC)%.c $(QUEUE_LIB_H) \
+	$(LIB_DATA)lib_data.h
 	$(CC) $(FLAGS) -c $< -o $@
 
-$(STACK_OBJ_LIB): $(LIB_STACK_OBJ)%.o: $(LIB_STACK_SRC)%.c $(STACK_LIB_H)
+$(STACK_OBJ_LIB): $(LIB_STACK_OBJ)%.o: $(LIB_STACK_SRC)%.c $(STACK_LIB_H) \
+	$(LIB_DATA)lib_data.h
 	$(CC) $(FLAGS) -c $< -o $@
 
-$(SIMPLE_OBJ_LIB): $(LIB_SIMPLE_OBJ)%.o: $(LIB_SIMPLE_SRC)%.c $(SIMPLE_LIB_H)
+$(SIMPLE_OBJ_LIB): $(LIB_SIMPLE_OBJ)%.o: $(LIB_SIMPLE_SRC)%.c $(SIMPLE_LIB_H) \
+	$(LIB_DATA)lib_data.h
 	$(CC) $(FLAGS) -c $< -o $@
 
-$(TREE_OBJ_LIB): $(LIB_TREE_OBJ)%.o: $(LIB_TREE_SRC)%.c $(TREE_LIB_H)
+$(TREE_OBJ_LIB): $(LIB_TREE_OBJ)%.o: $(LIB_TREE_SRC)%.c $(TREE_LIB_H) \
+	$(LIB_DATA)lib_data.h
 	$(CC) $(FLAGS) -c $< -o $@
 
-$(GNRL_OBJ_LIB): $(LIB_GNRL_OBJ)%.o: $(LIB_GNRL_SRC)%.c $(GNRL_LIB_H)
+$(GNRL_OBJ_LIB): $(LIB_GNRL_OBJ)%.o: $(LIB_GNRL_SRC)%.c $(GNRL_LIB_H) \
+	$(LIB_DATA)lib_data.h
 	$(CC) $(FLAGS) -c $< -o $@
 
-$(MATH_OBJ_LIB): $(LIB_MATH_OBJ)%.o: $(LIB_MATH_SRC)%.c $(MATH_LIB_H)
+$(MATH_OBJ_LIB): $(LIB_MATH_OBJ)%.o: $(LIB_MATH_SRC)%.c $(MATH_LIB_H) \
+	$(LIB_FCT)lib_fct.h
 	$(CC) $(FLAGS) -c $< -o $@
 
-$(MEM_OBJ_LIB): $(LIB_MEM_OBJ)%.o: $(LIB_MEM_SRC)%.c $(MEM_LIB_H)
+$(MEM_OBJ_LIB): $(LIB_MEM_OBJ)%.o: $(LIB_MEM_SRC)%.c $(MEM_LIB_H) \
+	$(LIB_FCT)lib_fct.h
 	$(CC) $(FLAGS) -c $< -o $@
 
-$(PRINT_OBJ_LIB): $(LIB_PRINT_OBJ)%.o: $(LIB_PRINT_SRC)%.c $(PRINT_LIB_H)
+$(PRINT_OBJ_LIB): $(LIB_PRINT_OBJ)%.o: $(LIB_PRINT_SRC)%.c $(PRINT_LIB_H) \
+	$(LIB_FCT)lib_fct.h
 	$(CC) $(FLAGS) -c $< -o $@
 
-$(STR_OBJ_LIB): $(LIB_STR_OBJ)%.o: $(LIB_STR_SRC)%.c $(STR_LIB_H)
+$(STR_OBJ_LIB): $(LIB_STR_OBJ)%.o: $(LIB_STR_SRC)%.c $(STR_LIB_H) \
+	$(LIB_FCT)lib_fct.h
 	$(CC) $(FLAGS) -c $< -o $@
 
 #

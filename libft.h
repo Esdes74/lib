@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib_data.h                                         :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 10:38:47 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/18 19:20:04 by eslamber         ###   ########.fr       */
+/*   Created: 2022/10/05 18:10:07 by eslamber          #+#    #+#             */
+/*   Updated: 2022/11/17 20:16:31 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIB_DATA_H
-# define LIB_DATA_H
+#ifndef LIBFT_H
+# define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
-# include "l_simple/lib_simple.h"
 
 typedef enum e_type {
 	CHAR = 0,
@@ -58,6 +57,11 @@ typedef struct s_list {
 	t_cell	*tail;
 }	t_list;
 
+typedef struct s_listft{
+	void			*content;
+	struct s_listft	*next;
+}	t_listft;
+
 // Prototype
 typedef struct s_head_tree {
 	size_t	len_uplet;
@@ -65,13 +69,13 @@ typedef struct s_head_tree {
 	t_list	*leaves;
 }	t_tree;
 
-/*####################### LIST ########################*/
+/*##################### LIST ##########################*/
 void			init_list(void);
 
-/*##################### LIST_IND ######################*/
+/*################### LIST_IND ########################*/
 void			init_list_ind(void);
 
-/*###################### QUEUE ########################*/
+/*#################### QUEUE ##########################*/
 void			init_queue(void);
 
 /*###################### STACK ########################*/
@@ -90,15 +94,49 @@ t_cell			*unstack(t_list *lst, int debug);
 // Remove first element and destroy it
 void			rmstack(t_list *lst, t_bool allow, int debug);
 
-/*####################### TREE ########################*/
+/*################# LIST_SIMPLE #######################*/
+// Creat a new cell with next = 0 and content = new_content
+t_listft		*ft_lstnew(void *new_content);
+
+// Add new in front of list pointed by lst
+void			ft_lstadd_front(t_listft **lst, t_listft *new);
+
+// Return lenght of lst
+int				ft_lstsize(t_listft *lst);
+
+// Return last cell of list
+t_listft		*ft_lstlast(t_listft *lst);
+
+// Add new at the end of list
+void			ft_lstadd_back(t_listft **lst, t_listft *new);
+
+// Remove one element of list
+void			ft_lstdelone(t_listft *lst, void (*del)(void *));
+
+// Clear all the list
+void			ft_lstclear(t_listft **lst, void (*del)(void *));
+
+// Apply f function to all contents of list
+void			ft_lstiter(t_listft *lst, void (*f)(void *));
+
+// Apply f function to all contents and creat a new list with modifications
+t_listft		*ft_lstmap(t_listft *l, void *(*f)(void *), void (*d)(void *));
+
+/*##################### TREE ##########################*/
 void			init_tree(void);
 
-/*####################### GNRL ########################*/
+/*##################### GNRL ##########################*/
 // Initialisation of data cells
 t_data			*init_data(void *data, t_type t, t_bool allow, t_data *cell);
 
 // Return size of type give to argument
 // If a pointer is given as argument, return -1
 long long int	size(t_type t, int debug);
+
+/*##################### MATH ##########################*/
+void			ft_power(void);
+
+/*##################### STR ###########################*/
+size_t			ft_strlen(char *str);
 
 #endif
