@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 13:26:23 by eslamber          #+#    #+#              #
-#    Updated: 2022/11/18 13:51:33 by eslamber         ###   ########.fr        #
+#    Updated: 2022/11/18 14:23:45 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,9 +107,9 @@ clean_git:
 
 gitignor: 
 	@echo -e $(LIGHTBLUE)reediting of differents $(RED)gitignores$(NEUTRAL)
-	touch ./l_simple/obj/.gitignore
-	@echo "*" > ./l_list/obj/.gitignore
-	@echo !.gitignore >> ./l_list/obj/.gitignore
+	touch ./obj/.gitignore
+	@echo "*" > ./obj/.gitignore
+	@echo !.gitignore >> ./obj/.gitignore
 	@echo
 
 # Full cleaning rules
