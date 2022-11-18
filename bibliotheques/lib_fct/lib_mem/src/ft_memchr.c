@@ -6,11 +6,11 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 18:36:00 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/11 18:48:10 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:27:36 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../lib_mem.h"
 
 void	*ft_memchr(const void *src, int c, size_t n)
 {

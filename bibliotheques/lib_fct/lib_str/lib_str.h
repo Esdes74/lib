@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:06:15 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/17 20:53:13 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:06:46 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,4 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 
 // Affect the fontion f for each caracteres
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
-
 #endif

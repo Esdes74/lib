@@ -6,11 +6,11 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 17:25:26 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/16 18:19:11 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:24:12 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../lib_print.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

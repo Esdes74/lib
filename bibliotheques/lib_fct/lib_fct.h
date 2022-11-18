@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   lib_fct.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 19:35:25 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/18 12:27:06 by eslamber         ###   ########.fr       */
+/*   Created: 2022/11/18 13:20:40 by eslamber          #+#    #+#             */
+/*   Updated: 2022/11/18 13:22:02 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib_mem.h"
+#ifndef LIB_FCT_H
+# define LIB_FCT_H
+# include "./lib_math/lib_math.h"
+# include "./lib_mem/lib_mem.h"
+# include "./lib_str/lib_str.h"
+# include "./lib_print/lib_print.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
-{
-	long long int	len;
-
-	if (dest > src)
-	{
-		len = n - 1;
-		while (len >= 0)
-		{
-			((unsigned char *)dest)[len] = ((unsigned char *) src)[len];
-			len--;
-		}
-	}
-	else
-		ft_memcpy(dest, src, n);
-	return (dest);
-}
+#endif

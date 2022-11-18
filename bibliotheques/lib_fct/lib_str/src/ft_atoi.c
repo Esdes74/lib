@@ -6,12 +6,11 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:07:50 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/14 13:32:49 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:17:27 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
+#include "../lib_str.h"
 
 int	ft_iswhitespace(int c)
 {

@@ -6,11 +6,11 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 23:24:17 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/10 19:29:56 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:22:11 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../lib_str.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t n)
 {

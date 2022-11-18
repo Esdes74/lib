@@ -6,11 +6,11 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 23:05:26 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/10 16:05:09 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:19:59 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../lib_str.h"
 
 char	*ft_strrchr(const char *s, int c)
 {

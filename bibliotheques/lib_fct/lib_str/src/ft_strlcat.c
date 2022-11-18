@@ -6,11 +6,18 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 17:12:16 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/17 19:51:49 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:15:00 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib_str.h"
+
+size_t	max(size_t x, size_t y)
+{
+	if (x > y)
+		return (x);
+	return (y);
+}
 
 size_t	ft_strlcat(char *dest, const char *src, size_t n)
 {

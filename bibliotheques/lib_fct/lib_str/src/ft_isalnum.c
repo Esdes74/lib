@@ -6,11 +6,11 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:38:48 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/09 17:02:11 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:22:48 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../lib_str.h"
 
 int	ft_isalnum(int c)
 {

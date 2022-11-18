@@ -6,11 +6,11 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:38:02 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/14 14:39:40 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:24:05 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../lib_print.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {

@@ -6,11 +6,11 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 19:50:47 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/17 19:51:40 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:15:15 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib_str.h"
+#include "../lib_math.h"
 
 size_t	max(size_t x, size_t y)
 {

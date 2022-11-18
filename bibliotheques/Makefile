@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:42:31 by eslamber          #+#    #+#              #
-#    Updated: 2022/11/17 20:41:16 by eslamber         ###   ########.fr        #
+#    Updated: 2022/11/18 12:57:49 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,6 +82,14 @@ LIB_MATH := $(LIB_FCT)lib_math/
 LIB_MATH_SRC := $(LIB_MATH)src/
 LIB_MATH_OBJ := $(LIB_MATH)obj/
 
+LIB_PRINT := $(LIB_FCT)lib_print/
+LIB_PRINT_SRC := $(LIB_PRINT)src/
+LIB_PRINT_OBJ := $(LIB_PRINT)obj/
+
+LIB_MEM := $(LIB_FCT)lib_mem/
+LIB_MEM_SRC := $(LIB_MEM)src/
+LIB_MEM_OBJ := $(LIB_MEM)obj/
+
 LIB_STR := $(LIB_FCT)lib_str/
 LIB_STR_SRC := $(LIB_STR)src/
 LIB_STR_OBJ := $(LIB_STR)obj/
@@ -94,6 +102,8 @@ ALL_LIB_OBJ_DIR := $(LIB_LIST_OBJ) \
 				   $(LIB_TREE_OBJ) \
 				   $(LIB_GNRL_OBJ) \
 				   $(LIB_MATH_OBJ) \
+				   $(LIB_PRINT_OBJ) \
+				   $(LIB_MEM_OBJ) \
 				   $(LIB_STR_OBJ)
 
 ALL_LIB_SRC_DIR := $(LIB_LIST_SRC) \
@@ -104,6 +114,8 @@ ALL_LIB_SRC_DIR := $(LIB_LIST_SRC) \
 				   $(LIB_TREE_SRC) \
 				   $(LIB_GNRL_SRC) \
 				   $(LIB_MATH_SRC) \
+				   $(LIB_PRINT_SRC) \
+				   $(LIB_MEM_SRC) \
 				   $(LIB_STR_SRC)
 
 # Definition of variables needed to librairie's compilation
@@ -148,11 +160,52 @@ GNRL_LIB := init_data.c \
 GNRL_LIB_H := $(LIB_DATA)lib_data.h
 GNRL_OBJ_LIB := $(GNRL_LIB:%.c=$(LIB_GNRL_OBJ)%.o)
 
-MATH_LIB := ft_power.c
+MATH_LIB := ft_power.c \
+			ft_max.c
 MATH_LIB_H := $(LIB_MATH)lib_math.h
 MATH_OBJ_LIB := $(MATH_LIB:%.c=$(LIB_MATH_OBJ)%.o)
 
-STR_LIB := ft_strlen.c
+MEM_LIB := ft_bzero.c \
+		   ft_calloc.c \
+		   ft_memchr.c \
+		   ft_memcmp.c \
+		   ft_memcpy.c \
+		   ft_memmove.c \
+		   ft_memset.c
+MEM_LIB_H := $(LIB_MEM)lib_mem.h
+MEM_OBJ_LIB := $(MEM_LIB:%.c=$(LIB_MEM_OBJ)%.o)
+
+PRINT_LIB := ft_putchar_fd.c \
+			 ft_putendl_fd.c \
+			 ft_putnbr_fd.c \
+			 ft_putstr_fd.c
+PRINT_LIB_H := $(LIB_PRINT)lib_print.h
+PRINT_OBJ_LIB := $(PRINT_LIB:%.c=$(LIB_PRINT_OBJ)%.o)
+
+STR_LIB := ft_atoi.c \
+		   ft_isalnum.c \
+		   ft_isascii.c \
+		   ft_isprint.c \
+		   ft_split.c \
+		   ft_strdup.c \
+		   ft_strjoin.c \
+		   ft_strlcpy.c \
+		   ft_strmapi.c \
+		   ft_strnstr.c \
+		   ft_strtrim.c \
+		   ft_tolower.c \
+		   ft_in.c \
+		   ft_isalpha.c \
+		   ft_isdigit.c \
+		   ft_itoa.c \
+		   ft_strchr.c \
+		   ft_striteri.c \
+		   ft_strlcat.c \
+		   ft_strlen.c \
+		   ft_strncmp.c \
+		   ft_strrchr.c \
+		   ft_substr.c \
+		   ft_toupper.c
 STR_LIB_H := $(LIB_STR)lib_str.h
 STR_OBJ_LIB := $(STR_LIB:%.c=$(LIB_STR_OBJ)%.o)
 
@@ -164,6 +217,8 @@ ALL_OBJ_LIB := $(LIST_OBJ_LIB) \
 			   $(TREE_OBJ_LIB) \
 			   $(GNRL_OBJ_LIB) \
 			   $(MATH_OBJ_LIB) \
+			   $(MEM_OBJ_LIB) \
+			   $(PRINT_OBJ_LIB) \
 			   $(STR_OBJ_LIB)
 
 # Definitions of differents printed colors
@@ -214,6 +269,12 @@ $(GNRL_OBJ_LIB): $(LIB_GNRL_OBJ)%.o: $(LIB_GNRL_SRC)%.c $(GNRL_LIB_H)
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(MATH_OBJ_LIB): $(LIB_MATH_OBJ)%.o: $(LIB_MATH_SRC)%.c $(MATH_LIB_H)
+	$(CC) $(FLAGS) -c $< -o $@
+
+$(MEM_OBJ_LIB): $(LIB_MEM_OBJ)%.o: $(LIB_MEM_SRC)%.c $(MEM_LIB_H)
+	$(CC) $(FLAGS) -c $< -o $@
+
+$(PRINT_OBJ_LIB): $(LIB_PRINT_OBJ)%.o: $(LIB_PRINT_SRC)%.c $(PRINT_LIB_H)
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(STR_OBJ_LIB): $(LIB_STR_OBJ)%.o: $(LIB_STR_SRC)%.c $(STR_LIB_H)
@@ -330,6 +391,12 @@ cleandirtest:
 	@rm -rfv $(TEST_OBJ_DIR) $(TEST_EXE_DIR)
 	@echo
 
+clean_git:
+	@echo -e $(LIGHTBLUE)remove all $(RED)gitignore files$(NEUTRAL)
+	@rm -rfv ./lib_*/*/obj/.gitignore
+	@rm -rfv ../test_lib/*/.gitignore
+	@echo
+
 gitignor: 
 	@echo -e $(LIGHTBLUE)reediting of differents $(RED)gitignores$(NEUTRAL)
 	touch ../test_lib/obj/.gitignore
@@ -350,7 +417,8 @@ gitignor:
 	@echo
 
 # Full cleaning rules
-fclean: cleanobjlib cleanobjexec cleanlib cleanexec cleandir make_dir gitignor
+fclean: cleanobjlib cleanobjexec cleanlib cleanexec clean_git \
+	cleandir make_dir gitignor
 
 fcleanlib: cleanobjlib cleandirlib cleanlib dir_lib gitignor
 
@@ -370,4 +438,4 @@ reprinttest: fclean print
 .PHONY: print_otb print_ote reprinttest
 .PHONY: re dir_lib dir_test vartest all test make_dir retest
 .PHONY: fcleantest cleandirtest fclean clean cleandir cleanlib cleanexec 
-.PHONY: fcleanlib cleandirlib cleanobjlib cleanobjexec
+.PHONY: fcleanlib cleandirlib cleanobjlib cleanobjexec clean_git

@@ -6,11 +6,11 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:28:01 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/11 18:35:22 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:27:59 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../lib_mem.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {

@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 15:48:12 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/05 17:18:27 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/11/18 11:49:09 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,20 @@ void	*data_cpy(void *data)
 	size_t	i;
 	size_t	size;
 	void	*cpy_new;
-	void	*cpy_data;
+	/* void	*cpy_data; */
 
 	size = sizeof(*data);
 	printf("size = %ld\n", size);
 	new = (int *) malloc(sizeof(int));
-	cpy_new = (int *) cpy_new;
+	/* cpy_new = (int *) cpy_new; */
 	cpy_new = (int *) new;
-	cpy_data = (int *) cpy_data;
-	cpy_data = (int *) data;
+	/* cpy_data = (int *) cpy_data; */
+	/* cpy_data = (int *) data; */
 	i = 0;
 	while (i < size)
 	{
 		printf("i = %ld\n", i);
-		cpy_new[i] = cpy_data[i];
+		/* cpy_new[i] = cpy_data[i]; */
 		i++;
 	}
 	new = (void *) cpy_new;

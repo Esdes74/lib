@@ -6,11 +6,11 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 16:12:06 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/17 14:08:58 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:16:40 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../lib_str.h"
 
 char	*ft_strmapi(const char *src, char (*f)(unsigned int, char))
 {
