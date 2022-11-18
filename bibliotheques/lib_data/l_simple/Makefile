@@ -5,87 +5,65 @@
 #                                                     +:+ +:+         +:+      #
 #    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/18 12:59:41 by eslamber          #+#    #+#              #
-#    Updated: 2022/11/18 13:46:15 by eslamber         ###   ########.fr        #
+#    Created: 2022/11/18 13:26:23 by eslamber          #+#    #+#              #
+#    Updated: 2022/11/18 13:51:33 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-#
-### Definitions of variables
-#
 
 # Definitions of compilation options
 FLAGS := -Wall -Werror -Wextra -fsanitize=address -fno-omit-frame-pointer
 CC := gcc
 
-# Definition of variable librairie
-LIB := libft.a
+# Definitions of librairies repertories
+LIB_SIMPLE_SRC := src/
+LIB_SIMPLE_OBJ := obj/
 
-LIB_STR_SRC := src/
-LIB_STR_OBJ := obj/
+# Definition of variables needed for librairie compilation
+LIB := lib_data.a
 
-# Definition of variables needed to librairie's compilation
-
-STR_LIB := ft_atoi.c \
-		   ft_isalnum.c \
-		   ft_isascii.c \
-		   ft_isprint.c \
-		   ft_split.c \
-		   ft_strdup.c \
-		   ft_strjoin.c \
-		   ft_strlcpy.c \
-		   ft_strmapi.c \
-		   ft_strnstr.c \
-		   ft_strtrim.c \
-		   ft_tolower.c \
-		   ft_in.c \
-		   ft_isalpha.c \
-		   ft_isdigit.c \
-		   ft_itoa.c \
-		   ft_strchr.c \
-		   ft_striteri.c \
-		   ft_strlcat.c \
-		   ft_strlen.c \
-		   ft_strncmp.c \
-		   ft_strrchr.c \
-		   ft_substr.c \
-		   ft_toupper.c
-STR_LIB_H := $(LIB_STR)lib_str.h
-STR_OBJ_LIB := $(STR_LIB:%.c=$(LIB_STR_OBJ)%.o)
+SIMPLE_LIB := ft_lstadd_back.c \
+			  ft_lstadd_front.c \
+			  ft_lstclear.c \
+			  ft_lstdelone.c \
+			  ft_lstiter.c \
+			  ft_lstlast.c \
+			  ft_lstmap.c \
+			  ft_lstnew.c \
+			  ft_lstsize.c
+SIMPLE_LIB_H := $(LIB_SIMPLE)lib_simple.h
+SIMPLE_OBJ_LIB := $(SIMPLE_LIB:%.c=$(LIB_SIMPLE_OBJ)%.o)
 
 # Definitions of differents printed colors
 LIGHTBLUE := '\e[0;32m'
 RED := '\e[0;31m'
 NEUTRAL := '\e[0m'
-#
-### Compilations rules
-#
 
+# Compilations rules
 all: $(LIB)
 
-$(LIB): $(STR_OBJ_LIB)
+$(LIB): $(SIMPLE_OBJ_LIB)
 	ar rc $@ $^
 	ranlib $@
 
-$(STR_OBJ_LIB): $(LIB_STR_OBJ)%.o: $(LIB_STR_SRC)%.c $(STR_LIB_H)
+$(SIMPLE_OBJ_LIB): $(LIB_SIMPLE_OBJ)%.o: $(LIB_SIMPLE_SRC)%.c $(SIMPLE_LIB_H)
 	$(CC) $(FLAGS) -c $< -o $@
 
 #
 ### Directories rules
 #
 
-make_dir:
+dir:
 	@echo -e $(LIGHTBLUE)make librairies directories$(NEUTRAL)
-	mkdir -p $(LIB_STR_OBJ)
+	mkdir -p $(LIB_SIMPLE_OBJ)
 	@echo -e $(LIGHTBLUE)done$(NEUTRAL)
 	@echo
 
 #
-### Prints rules
+### Print rules
 #
 
 # Compilation of librairie with print options
-print: print_ob $(STR_OBJ_LIB) print_lb $(LIB) print_le
+print: print_ob $(SIMPLE_OBJ_LIB) print_lb $(LIB) print_le
 
 print_ob:
 	@echo -e $(LIGHTBLUE)compilation lib objects files$(NEUTRAL)
@@ -107,8 +85,8 @@ print_le:
 
 # Classiques cleaning rules
 clean:
-	@echo -e $(LIGHTBLUE)remove all $(RED)objects files$(NEUTRAL)
-	@rm -v $(STR_OBJ_LIB)
+	@echo -e $(LIGHTBLUE)remove all $(RED)librairires objects files$(NEUTRAL)
+	@rm -v $(SIMPLE_OBJ_LIB)
 	@echo
 
 cleanlib: 
@@ -116,25 +94,26 @@ cleanlib:
 	@rm -v $(LIB)
 	@echo
 
+# Directories cleaning rules
 cleandir: 
-	@echo -e $(LIGHTBLUE)remove all $(RED)directories$(NEUTRAL)
-	@rm -rfv $(LIB_STR_OBJ)
+	@echo -e $(LIGHTBLUE)remove all $(RED)librairies directories$(NEUTRAL)
+	@rm -rfv $(LIB_SIMPLE_OBJ)
 	@echo
 
 clean_git:
 	@echo -e $(LIGHTBLUE)remove all $(RED)gitignore files$(NEUTRAL)
-	@rm -rfv ./obj/.gitignore
+	@rm -rfv /obj/.gitignore
 	@echo
 
 gitignor: 
 	@echo -e $(LIGHTBLUE)reediting of differents $(RED)gitignores$(NEUTRAL)
-	touch ./obj/.gitignore
-	@echo "*" > ./obj/.gitignore
-	@echo !.gitignore >> ./obj/.gitignore
+	touch ./l_simple/obj/.gitignore
+	@echo "*" > ./l_list/obj/.gitignore
+	@echo !.gitignore >> ./l_list/obj/.gitignore
 	@echo
 
 # Full cleaning rules
-fclean: clean cleanlib clean_git cleandir make_dir gitignor
+fclean: clean cleanlib clean_git cleandir dir gitignor
 
 # Remake rules
 re: fclean all
@@ -142,5 +121,6 @@ re: fclean all
 # Remakes rules with print options
 reprint: fclean print
 
-.PHONY: all make_dir print print_ob print_oe print_lb print_le clean cleandir
-.PHONY: clean_git gitignor flcean re reprint cleanlib
+.PHONY: print_oe print_ob print_le print_lb reprint print
+.PHONY: re all dir gitignor
+.PHONY: fclean clean cleanlib cleandir clean_git

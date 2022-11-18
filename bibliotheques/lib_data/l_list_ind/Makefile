@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 11:18:56 by eslamber          #+#    #+#              #
-#    Updated: 2022/10/13 17:18:17 by eslamber         ###   ########.fr        #
+#    Updated: 2022/11/18 13:53:18 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,8 +106,20 @@ cleandir:
 	@rm -rfv $(OBJ)
 	@echo
 
+clean_git:
+	@echo -e $(LIGHTBLUE)remove all $(RED)gitignore files$(NEUTRAL)
+	@rm -rfv /obj/.gitignore
+	@echo
+
+gitignor: 
+	@echo -e $(LIGHTBLUE)reediting of differents $(RED)gitignores$(NEUTRAL)
+	touch ./l_simple/obj/.gitignore
+	@echo "*" > ./l_list/obj/.gitignore
+	@echo !.gitignore >> ./l_list/obj/.gitignore
+	@echo
+
 # Full cleaning rules
-fclean: clean cleanlib cleandir dir
+fclean: clean cleanlib clean_git cleandir dir gitignor
 
 # Remake rules
 re: fclean all
@@ -116,5 +128,5 @@ re: fclean all
 reprint: fclean print
 
 .PHONY: print_oe print_ob print_le print_lb reprint print
-.PHONY: re all dir
-.PHONY: fclean clean cleanlib cleandir
+.PHONY: re all dir gitignor
+.PHONY: fclean clean cleanlib cleandir clean_git

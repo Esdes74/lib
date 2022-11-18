@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 12:35:34 by eslamber          #+#    #+#              #
-#    Updated: 2022/11/18 12:56:58 by eslamber         ###   ########.fr        #
+#    Updated: 2022/11/18 13:45:20 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -170,6 +170,11 @@ clean:
 	@rm -v $(ALL_OBJ_LIB)
 	@echo
 
+cleanlib: 
+	@echo -e $(LIGHTBLUE)remove $(RED)lib file$(NEUTRAL)
+	@rm -v $(LIB)
+	@echo
+
 cleandir: 
 	@echo -e $(LIGHTBLUE)remove all $(RED)directories$(NEUTRAL)
 	@rm -rfv $(ALL_LIB_OBJ_DIR)
@@ -191,7 +196,7 @@ gitignor:
 	@echo
 
 # Full cleaning rules
-fclean: clean clean_git cleandir make_dir gitignor
+fclean: clean cleanlib clean_git cleandir make_dir gitignor
 
 # Remake rules
 re: fclean all
@@ -200,4 +205,4 @@ re: fclean all
 reprint: fclean print
 
 .PHONY: all make_dir print print_ob print_oe print_lb print_le clean cleandir
-.PHONY: clea_git gitignor flcean re reprint
+.PHONY: clean_git gitignor flcean re reprint clean_lib

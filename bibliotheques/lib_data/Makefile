@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 10:46:11 by eslamber          #+#    #+#              #
-#    Updated: 2022/11/17 20:31:45 by eslamber         ###   ########.fr        #
+#    Updated: 2022/11/18 13:57:10 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,6 @@ ALL_LIB_SRC_DIR := $(LIB_LIST_SRC) \
 				   $(LIB_GNRL_SRC)
 
 # Definition of variables needed for librairie compilation
-
 LIB := lib_data.a
 
 LIST_LIB := init_list.c
@@ -206,8 +205,26 @@ cleandir:
 	@rm -rfv $(ALL_LIB_OBJ_DIR)
 	@echo
 
+clean_git:
+	@echo -e $(LIGHTBLUE)remove all $(RED)gitignore files$(NEUTRAL)
+	@rm -rfv ./*/obj/.gitignore
+	@echo
+
+gitignor: 
+	@echo -e $(LIGHTBLUE)reediting of differents $(RED)gitignores$(NEUTRAL)
+	touch ./l_list/obj/.gitignore
+	@echo "*" > ./l_list/obj/.gitignore
+	@echo !.gitignore >> ./l_list/obj/.gitignore
+	cp ./l_list/obj/.gitignore ./l_simple/obj
+	cp ./l_list/obj/.gitignore ./l_queue/obj
+	cp ./l_list/obj/.gitignore ./l_list_ind/obj
+	cp ./l_list/obj/.gitignore ./l_gnrl/obj
+	cp ./l_list/obj/.gitignore ./l_stack/obj
+	cp ./l_list/obj/.gitignore ./l_tree/obj
+	@echo
+
 # Full cleaning rules
-fclean: clean cleanlib cleandir dir
+fclean: clean cleanlib clean_git cleandir dir gitignor
 
 # Remake rules
 re: fclean all
@@ -216,5 +233,5 @@ re: fclean all
 reprint: fclean print
 
 .PHONY: print_oe print_ob print_le print_lb reprint print
-.PHONY: re all dir
-.PHONY: fclean clean cleanlib cleandir
+.PHONY: re all dir gitignore
+.PHONY: fclean clean cleanlib cleandir clean_git
