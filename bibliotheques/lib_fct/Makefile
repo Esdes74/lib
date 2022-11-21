@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 12:35:34 by eslamber          #+#    #+#              #
-#    Updated: 2022/11/18 19:25:34 by eslamber         ###   ########.fr        #
+#    Updated: 2022/11/21 10:49:22 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -168,7 +168,7 @@ print_le:
 # Classiques cleaning rules
 clean:
 	@echo -e $(LIGHTBLUE)remove all $(RED)objects files$(NEUTRAL)
-	@rm -v $(ALL_OBJ_LIB)
+	@rm -rfv $(ALL_OBJ_LIB)
 	@echo
 
 cleanlib: 
