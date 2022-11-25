@@ -3,17 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
+/*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:07:50 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/18 12:17:27 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/11/25 14:15:52 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib_str.h"
 
-int	ft_iswhitespace(int c)
+static int	ft_iswhitespace(int car)
 {
+	char	c;
+
+	c = (char) car;
 	if (c == '\n' || c == ' ' || c == '\t' || c == '\v' || c == '\f')
 		return (1);
 	else if (c == '\r')
@@ -21,45 +24,30 @@ int	ft_iswhitespace(int c)
 	return (0);
 }
 
-void	analyse(int *minus, size_t *len, const char *s)
+int	ft_atoi(const char *str)
 {
-	*minus = 1;
-	*len = 0;
-	while (ft_iswhitespace(s[*len]) == 1)
-		*len = *len + 1;
-	if (s[*len] == '-')
-	{
-		*minus = -1;
-		*len = *len + 1;
-	}
-	else if (s[*len] == '+')
-		*len = *len + 1;
-}
+	long long	res;
+	size_t		ind;
+	int			minus;
 
-int	ft_atoi(const char *s)
-{
-	size_t			len;
-	size_t			s_len;
-	int				minus;
-	int				res;
-	long int		mult;
-
+	ind = 0;
 	res = 0;
-	mult = 1;
-	analyse(&minus, &len, s);
-	s_len = len;
-	while (ft_isdigit(s[s_len]) == 1)
+	minus = 1;
+	while (str[ind] != '\0' && ft_iswhitespace(str[ind]) == 1)
+		ind++;
+	if (str[ind] == '-')
 	{
-		s_len++;
-		mult = mult * 10;
+		ind++;
+		minus = -1;
 	}
-	mult = mult / 10;
-	while (ft_isdigit(s[len]) == 1)
+	else if (str[ind] == '+')
+		ind++;
+	while (str[ind] && ft_isdigit(str[ind]))
 	{
-		res = res + (mult * (s[len] - '0'));
-		mult = mult / 10;
-		len++;
+		if (ft_isdigit(str[ind]))
+			res = res * 10 + (str[ind] - '0');
+		ind++;
 	}
 	res = res * minus;
-	return (res);
+	return ((int) res);
 }

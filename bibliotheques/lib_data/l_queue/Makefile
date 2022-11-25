@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
+#    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 11:18:56 by eslamber          #+#    #+#              #
-#    Updated: 2022/11/18 14:25:44 by eslamber         ###   ########.fr        #
+#    Updated: 2022/11/25 14:30:40 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,12 +92,12 @@ vartest:
 # Classiques cleaning rules
 clean:
 	@echo -e $(LIGHTBLUE)remove all $(RED)librairires objects files$(NEUTRAL)
-	@rm -v $(L_OBJ)
+	@rm -rfv $(L_OBJ)
 	@echo
 
 cleanlib: 
 	@echo -e $(LIGHTBLUE)remove $(RED)lib file$(NEUTRAL)
-	@rm -v $(LIB)
+	@rm -rfv $(LIB)
 	@echo
 
 # Directories cleaning rules

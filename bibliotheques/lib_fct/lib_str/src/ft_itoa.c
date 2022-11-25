@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
+/*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 17:23:17 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/18 12:20:23 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/11/25 14:19:57 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib_str.h"
 
-int	calc_len(int n)
+static int	calc_len(int n)
 {
 	int			len;
 	long int	nbr;

@@ -3,20 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
+/*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:31:51 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/18 12:24:20 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/11/25 13:59:21 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib_print.h"
 
-void	ft_putstr_fd(char *s, int fd)
+static size_t	ft_strlen(const char *s)
 {
-	size_t	ind;
+	size_t	len;
 
-	ind = 0;
-	while (s[ind] != '\0')
-		ft_putchar_fd(s[ind++], fd);
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
+}
+
+size_t	ft_putstr_fd(char *s, int fd)
+{
+	return (write(fd, s, ft_strlen(s)));
 }

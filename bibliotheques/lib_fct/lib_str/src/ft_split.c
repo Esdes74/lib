@@ -3,70 +3,74 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
+/*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 13:39:07 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/18 12:23:16 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/11/25 14:26:54 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib_str.h"
 
-void	*ft_calloc(size_t nbr, size_t size)
+static int	check_char(char *s, char c)
 {
-	void					*new;
-	long long unsigned int	len;
-	long long unsigned int	tot;
+	size_t	len;
 
 	len = 0;
-	tot = size * nbr;
-	new = malloc(tot);
-	if (new == 0)
-		return (0);
-	while (len < tot)
-	{
-		((unsigned char *)new)[len] = 0;
+	while (s[len] == c && s[len] != '\0')
 		len++;
-	}
-	return (new);
+	if (s[len] == '\0')
+		return (0);
+	return (1);
 }
 
-size_t	analyse(char *s, char c, size_t *len)
+static size_t	analyse(char *s, char c, size_t *len)
 {
 	size_t	nbr;
+	size_t	ind;
 
 	*len = 0;
-	nbr = 1;
+	if (ft_strncmp(s, "", ft_strlen(s)) == 0 || check_char(s, c) == 0)
+		nbr = 0;
+	else
+		nbr = 1;
 	while (s[*len] != '\0')
 	{
 		if (s[*len] == c)
 			s[*len] = '\0';
 		if (*len != 0 && s[*len] == '\0' && s[*len - 1] != '\0')
-			nbr++;
-		*len = *len + 1;
+		{
+			ind = *len + 1;
+			while (s[ind] == c)
+				ind++;
+			if (s[ind] != '\0')
+				nbr++;
+		}
+		(*len)++;
 	}
 	return (nbr);
 }
 
-void	annihilation(char **s)
+static void	annihilation(char **new, char *s)
 {
 	size_t	len;
 
 	len = 0;
-	while (s[len] != 0)
-		free(s[len++]);
+	while (new[len])
+		free(new[len++]);
 	free(s);
+	free(new);
 }
 
-int	construc_new(char **new, const char *s, size_t *len_n, size_t *nbr_w)
+static int	const_new(char **new, char *s, size_t *len_n, size_t *nbr_w)
 {
 	if ((*len_n == 0 && s[*len_n] != '\0') \
-			|| (s[*len_n - 1] == '\0' && s[*len_n] != '\0'))
+			|| (*len_n != 0 && s[(*len_n) - 1] == '\0' && s[*len_n] != '\0'))
 	{
 		new[*nbr_w] = ft_strdup(&s[*len_n]);
 		if (new[*nbr_w] == 0)
 		{
-			annihilation(new);
+			annihilation(new, s);
 			return (0);
 		}
 		*nbr_w = *nbr_w + 1;
@@ -83,17 +87,20 @@ char	**ft_split(const char *s, char c)
 	char	**new;
 	char	*src;
 
+	len_new = 0;
 	src = ft_strdup(s);
 	if (src == 0)
 		return (0);
 	nbr_word = analyse(src, c, &len);
-	new = (char **) ft_calloc(nbr_word + 1, sizeof(char *));
+	new = ft_calloc_str(nbr_word + 1, sizeof(char *));
 	if (new == 0)
+	{
+		free(src);
 		return (0);
-	len_new = 0;
+	}
 	nbr_word = 0;
 	while (len_new < len)
-		if (construc_new(new, src, &len_new, &nbr_word) == 0)
+		if (const_new(new, src, &len_new, &nbr_word) == 0)
 			return (0);
 	free(src);
 	return (new);

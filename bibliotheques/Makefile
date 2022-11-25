@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
+#    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:42:31 by eslamber          #+#    #+#              #
-#    Updated: 2022/11/18 19:07:28 by eslamber         ###   ########.fr        #
+#    Updated: 2022/11/25 14:38:04 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -364,27 +364,27 @@ print_le:
 # Classiques cleaning rules
 clean:
 	@echo -e $(LIGHTBLUE)remove all $(RED)objects files$(NEUTRAL)
-	@rm -v $(OBJ_TEST) $(ALL_OBJ_LIB)
+	@rm -rfv $(OBJ_TEST) $(ALL_OBJ_LIB)
 	@echo
 
 cleanobjlib:
 	@echo -e $(LIGHTBLUE)remove all $(RED)librairires objects files$(NEUTRAL)
-	@rm -v $(ALL_OBJ_LIB)
+	@rm -rfv $(ALL_OBJ_LIB)
 	@echo
 
 cleanobjexec:
 	@echo -e $(LIGHTBLUE)remove all $(RED)executables objects files$(NEUTRAL)
-	@rm -v $(OBJ_TEST)
+	@rm -rfv $(OBJ_TEST)
 	@echo
 
 cleanexec: 
 	@echo -e $(LIGHTBLUE)remove all $(RED)executables$(NEUTRAL)
-	@rm -v $(NAME)
+	@rm -rfv $(NAME)
 	@echo
 
 cleanlib: 
 	@echo -e $(LIGHTBLUE)remove $(RED)lib file$(NEUTRAL)
-	@rm -v $(LIB)
+	@rm -rfv $(LIB)
 	@echo
 
 # Directories cleaning rules

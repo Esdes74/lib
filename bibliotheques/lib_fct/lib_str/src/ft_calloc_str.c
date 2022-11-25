@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   unstack.c                                          :+:      :+:    :+:   */
+/*   ft_calloc_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 12:52:09 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/25 14:26:14 by eslamber         ###   ########.fr       */
+/*   Created: 2022/11/14 13:45:53 by eslamber          #+#    #+#             */
+/*   Updated: 2022/11/25 13:51:06 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib_stack.h"
+#include "../lib_str.h"
 
-t_cell	*unstack(t_list *lst, int debug)
+void	*ft_calloc_str(size_t nbr, size_t size)
 {
-	t_cell	*rm;
+	void					*new;
+	long long unsigned int	len;
+	long long unsigned int	tot;
 
-	rm = 0;
-	if (lst->type_lst != STACK)
-	{
-		if (debug == 1)
-		{
-			write(1, "ERROR : fct unstack : Utilisation of fct stack on", 49);
-			write(1, " non stack data structure\n", 26);
-		}
+	if (size != 0 && nbr > SIZE_MAX / size)
 		return (0);
-	}
-	if (lst->len > 0)
+	len = 0;
+	tot = size * nbr;
+	new = malloc(tot);
+	if (new == 0)
+		return (0);
+	while (len < tot)
 	{
-		rm = lst->head;
-		lst->head = rm->next;
+		((unsigned char *)new)[len] = 0;
+		len++;
 	}
-	if (lst->len == 1)
-		lst->tail = 0;
-	lst->len--;
-	return (rm);
+	return (new);
 }
