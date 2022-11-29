@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
+#    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 12:35:34 by eslamber          #+#    #+#              #
-#    Updated: 2022/11/21 10:49:22 by eslamber         ###   ########.fr        #
+#    Updated: 2022/11/25 14:31:22 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,7 +94,8 @@ STR_LIB := ft_atoi.c \
 		   ft_strncmp.c \
 		   ft_strrchr.c \
 		   ft_substr.c \
-		   ft_toupper.c
+		   ft_toupper.c \
+		   ft_calloc_str.c
 STR_LIB_H := $(LIB_STR)lib_str.h
 STR_OBJ_LIB := $(STR_LIB:%.c=$(LIB_STR_OBJ)%.o)
 
@@ -173,7 +174,7 @@ clean:
 
 cleanlib: 
 	@echo -e $(LIGHTBLUE)remove $(RED)lib file$(NEUTRAL)
-	@rm -v $(LIB)
+	@rm -rfv $(LIB)
 	@echo
 
 cleandir: 

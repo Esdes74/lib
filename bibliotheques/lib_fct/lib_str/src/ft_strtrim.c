@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
+/*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:07:36 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/18 12:16:56 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/11/25 14:20:20 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib_str.h"
 
-void	ft_analyse(const char *src, const char *set, size_t *len, size_t *len_f)
+static void	ft_analyse(const char *src, const char *set, size_t *len, size_t *len_f)
 {
 	size_t	save_len;
 

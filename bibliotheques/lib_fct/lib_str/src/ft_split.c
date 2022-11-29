@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
+/*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 13:39:07 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/24 21:39:12 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/11/25 14:26:54 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ char	**ft_split(const char *s, char c)
 	if (src == 0)
 		return (0);
 	nbr_word = analyse(src, c, &len);
-	new = ft_calloc(nbr_word + 1, sizeof(char *));
+	new = ft_calloc_str(nbr_word + 1, sizeof(char *));
 	if (new == 0)
 	{
 		free(src);

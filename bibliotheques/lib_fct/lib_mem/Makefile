@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+         #
+#    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 12:59:41 by eslamber          #+#    #+#              #
-#    Updated: 2022/11/18 13:47:05 by eslamber         ###   ########.fr        #
+#    Updated: 2022/11/25 14:31:39 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,12 +91,12 @@ print_le:
 # Classiques cleaning rules
 clean:
 	@echo -e $(LIGHTBLUE)remove all $(RED)objects files$(NEUTRAL)
-	@rm -v $(MEM_OBJ_LIB)
+	@rm -rfv $(MEM_OBJ_LIB)
 	@echo
 
 cleanlib: 
 	@echo -e $(LIGHTBLUE)remove $(RED)lib file$(NEUTRAL)
-	@rm -v $(LIB)
+	@rm -rfv $(LIB)
 	@echo
 
 cleandir: 
