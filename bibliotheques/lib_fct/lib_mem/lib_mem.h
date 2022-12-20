@@ -6,13 +6,14 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 20:54:48 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/18 12:07:37 by eslamber         ###   ########.fr       */
+/*   Updated: 2022/12/14 15:00:44 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIB_MEM_H
 # define LIB_MEM_H
 # include <stdlib.h>
+# include <stdint.h>
 
 // Set the n first bytes at c in the memorie pointed by s
 void	*ft_memset(void *s, int c, size_t n);
