@@ -6,13 +6,14 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:08:39 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/21 23:33:51 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/02 18:49:27 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIB_LIST_H
 # define LIB_LIST_H
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef enum e_type {
 	CHAR = 0,
@@ -56,6 +57,12 @@ typedef struct s_list {
 	t_cell	*tail;
 }	t_list;
 
-void	init_list(void);
+// Initailisation of head of list
+t_list	*init_list(t_list *lst);
 
+// Initialisation of datain cells
+t_data	*init_data(void *d, t_type t, t_bool allow, t_data *cell);
+
+// Stacking values in a list (add in first place)
+int	stacking_list(t_list *lst, void *data, t_type t, int debug);
 #endif

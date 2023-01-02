@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 10:46:11 by eslamber          #+#    #+#              #
-#    Updated: 2022/11/25 14:30:09 by eslamber         ###   ########.fr        #
+#    Updated: 2023/01/02 18:48:34 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,8 @@ ALL_LIB_SRC_DIR := $(LIB_LIST_SRC) \
 # Definition of variables needed for librairie compilation
 LIB := lib_data.a
 
-LIST_LIB := init_list.c
+LIST_LIB := init_list.c \
+			stacking_list.c
 LIST_LIB_H := $(LIB_LIST)lib_list.h
 LIST_OBJ_LIB := $(LIST_LIB:%.c=$(LIB_LIST_OBJ)%.o)
 

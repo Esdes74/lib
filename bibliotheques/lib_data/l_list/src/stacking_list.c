@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stacking.c                                         :+:      :+:    :+:   */
+/*   stacking_list.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 12:50:42 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/02 18:35:17 by eslamber         ###   ########.fr       */
+/*   Created: 2023/01/02 18:45:12 by eslamber          #+#    #+#             */
+/*   Updated: 2023/01/02 18:46:34 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib_stack.h"
+#include "../lib_list.h"
 
 static void	debuger_stacking(int debug, int mod)
 {
 	if (debug == 1)
 	{
 		if (mod == 0)
-			write(1, "ERROR : fct stacking : Utilisation of fct stack on non \
-					stack data structure\n", 77);
+			write(1, "ERROR : fct stacking_list : Utilisation of fct stack on \
+					non stack data structure\n", 77);
 		if (mod == 1)
-			write(1, "ERROR : fct stacking : Malloc not OK\n", 35);
+			write(1, "ERROR : fct stacking_list : Malloc not OK\n", 35);
 	}
 }
 
-int	stacking(t_list *lst, void *data, t_type t, int debug)
+int	stacking_list(t_list *lst, void *data, t_type t, int debug)
 {
 	t_data	*d_cell;
 	t_cell	*cell;
 
-	if (lst->type_lst != STACK && debug == 1)
+	if (lst->type_lst != LIST && debug == 1)
 		debuger_stacking(debug, 0);
-	if (lst->type_lst != STACK)
+	if (lst->type_lst != LIST)
 		return (0);
 	d_cell = (t_data *) malloc(sizeof(t_data));
 	cell = (t_cell *) malloc(sizeof(t_cell));
@@ -50,3 +50,4 @@ int	stacking(t_list *lst, void *data, t_type t, int debug)
 	lst->head = cell;
 	return (1);
 }
+

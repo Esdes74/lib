@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 11:18:56 by eslamber          #+#    #+#              #
-#    Updated: 2022/11/25 14:30:22 by eslamber         ###   ########.fr        #
+#    Updated: 2023/01/02 18:50:08 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,9 @@ OBJ := obj/
 LIB := lib_list.a
 H := lib_list.h
 
-L_SRC := init_list.c
+L_SRC := init_list.c \
+		 init_data.c \
+		 stacking_list.c
 L_OBJ := $(L_SRC:%.c=$(OBJ)%.o)
 
 # Definitions of differents printed colors
