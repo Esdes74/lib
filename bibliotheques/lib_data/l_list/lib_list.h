@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:08:39 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/02 18:49:27 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/03 20:59:28 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,13 @@ t_data	*init_data(void *d, t_type t, t_bool allow, t_data *cell);
 
 // Stacking values in a list (add in first place)
 int	stacking_list(t_list *lst, void *data, t_type t, int debug);
+
+// Add value in a list (add in last place)
+int	addback_list(t_list *lst, void *data, t_type t, int debug);
+
+// remove cell from the front of list and return it
+t_cell	*unstack_list(t_list *lst, int debug);
+
+// Remove cell from the front of list and free it
+void	rmstack_list(t_list *lst, t_bool allow, int debug);
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stacking_list.c                                    :+:      :+:    :+:   */
+/*   addback_list.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 18:45:12 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/03 20:50:42 by eslamber         ###   ########.fr       */
+/*   Created: 2023/01/03 20:54:05 by eslamber          #+#    #+#             */
+/*   Updated: 2023/01/03 20:58:12 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	debuger_stacking(int debug, int mod)
 	}
 }
 
-int	stacking_list(t_list *lst, void *data, t_type t, int debug)
+int	addback_list(t_list *lst, void *data, t_type t, int debug)
 {
 	t_data	*d_cell;
 	t_cell	*cell;
@@ -42,12 +42,11 @@ int	stacking_list(t_list *lst, void *data, t_type t, int debug)
 	init_data(data, t, FALSE, d_cell);
 	cell->data_cell = d_cell;
 	cell->next = 0;
+	if (lst->len > 0)
+		lst->tail->next = cell;
+	lst->tail = cell;
 	if (lst->len == 0)
-		lst->tail = cell;
-	else
-		cell->next = lst->head;
+		lst->head = cell;
 	lst->len++;
-	lst->head = cell;
 	return (1);
 }
-

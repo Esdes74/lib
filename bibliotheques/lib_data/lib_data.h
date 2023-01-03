@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:38:47 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/18 19:20:04 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/03 20:59:09 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,20 @@ typedef struct s_head_tree {
 }	t_tree;
 
 /*####################### LIST ########################*/
-void			init_list(void);
+// Initailisation of head of list
+t_list	*init_list(t_list *lst);
+
+// Stacking values in a list (add in first place)
+int	stacking_list(t_list *lst, void *data, t_type t, int debug);
+
+// Add value in a list (add in last place)
+int	addback_list(t_list *lst, void *data, t_type t, int debug);
+
+// remove cell from the front of list and return it
+t_cell	*unstack_list(t_list *lst, int debug);
+
+// Remove cell from the front of list and free it
+void	rmstack_list(t_list *lst, t_bool allow, int debug);
 
 /*##################### LIST_IND ######################*/
 void			init_list_ind(void);
