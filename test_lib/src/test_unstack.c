@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:38:49 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/04 20:09:42 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/04 20:48:48 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ int	following_test(t_list *lst, t_cell *cel)
 		write(1, "Error : test 6 of unstack (len calcul)\n", 39);
 	else
 		nbr_test--;
-	printf("type_data = %d\n", cel->data_cell->type_data);
 	cel = following_value(lst, cel);
 	if (cel != 0 || lst->len != 0 || lst->head != 0 || lst->tail != 0)
 		write(1, "Error : test 7 of unstack (too much unstack)\n", 45);
