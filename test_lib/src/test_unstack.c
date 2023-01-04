@@ -6,11 +6,12 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:38:49 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/05 16:54:17 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/04 20:09:42 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../oracle.h"
+#include <stdio.h>
 
 int	init_test_unstack(t_list *lst)
 {
@@ -55,7 +56,7 @@ int	following_test(t_list *lst, t_cell *cel)
 
 	cel = following_value(lst, cel);
 	val = (int *) cel->data_cell->data;
-	nbr_test = 3;
+	nbr_test = 4;
 	if (*val != 1)
 		write(1, "Error : test 4 of unstack (unstack forth)\n", 42);
 	else
@@ -68,9 +69,12 @@ int	following_test(t_list *lst, t_cell *cel)
 		write(1, "Error : test 6 of unstack (len calcul)\n", 39);
 	else
 		nbr_test--;
-	free(cel->data_cell->data);
-	free(cel->data_cell);
-	free(cel);
+	printf("type_data = %d\n", cel->data_cell->type_data);
+	cel = following_value(lst, cel);
+	if (cel != 0 || lst->len != 0 || lst->head != 0 || lst->tail != 0)
+		write(1, "Error : test 7 of unstack (too much unstack)\n", 45);
+	else
+		nbr_test--;
 	return (nbr_test);
 }
 
@@ -83,19 +87,19 @@ int	first_test_unstack(t_list *lst)
 	nbr_test = 3;
 	cel = unstack(lst, 1);
 	val = (int *) cel->data_cell->data;
-	if (*val != 4)
+	if (*val != 4 || lst->tail->prev != lst->head->next)
 		write(1, "Error : test 1 of unstack (unstack first)\n", 42);
 	else
 		nbr_test--;
 	cel = following_value(lst, cel);
 	val = (int *) cel->data_cell->data;
-	if (*val != 3 && lst->len != 3)
+	if (*val != 3 || lst->len != 2 || lst->tail->prev != lst->head)
 		write(1, "Error : test 2 of unstack (unstack second)\n", 43);
 	else
 		nbr_test--;
 	cel = following_value(lst, cel);
 	val = (int *) cel->data_cell->data;
-	if (*val != 2)
+	if (*val != 2 || lst->tail->prev != 0)
 		write(1, "Error : test 3 of unstack (unstack third)\n", 42);
 	else
 		nbr_test--;

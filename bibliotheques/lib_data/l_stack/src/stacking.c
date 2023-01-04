@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 12:50:42 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/04 14:32:45 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/04 16:08:15 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	init_cell(t_cell *cell, t_data *d_cell)
 {
 	cell->data_cell = d_cell;
 	cell->next = 0;
-	cell->prec = 0;
+	cell->prev = 0;
 }
 
 int	stacking(t_list *lst, void *data, t_type t, int debug)
@@ -52,7 +52,7 @@ int	stacking(t_list *lst, void *data, t_type t, int debug)
 		lst->tail = cell;
 	else
 	{
-		lst->head->prec = cell;
+		lst->head->prev = cell;
 		cell->next = lst->head;
 	}
 	lst->len++;

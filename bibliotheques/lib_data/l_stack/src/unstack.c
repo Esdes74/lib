@@ -6,11 +6,12 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 12:52:09 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/04 14:51:37 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/04 18:46:50 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib_stack.h"
+#include <stdio.h>
 
 t_cell	*unstack(t_list *lst, int debug)
 {
@@ -30,8 +31,9 @@ t_cell	*unstack(t_list *lst, int debug)
 	{
 		rm = lst->head;
 		lst->head = rm->next;
-		lst->head->prec = 0;
 	}
+	if (lst->len > 1)
+		lst->head->prev = 0;
 	if (lst->len == 1)
 		lst->tail = 0;
 	lst->len--;

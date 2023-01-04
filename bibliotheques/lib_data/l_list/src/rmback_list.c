@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 11:14:29 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/04 11:49:20 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/04 16:14:32 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,15 @@ t_cell	*rmback_list(t_list *lst, int debug)
 		}
 		return (0);
 	}
-	rm = lst->head;
+	rm = lst->tail;
 	if (lst->len > 1)
-	{
-		while (rm->next->next != 0)
-			rm = rm->next;
-		lst->tail = rm;
-		rm = rm->next;
-	}
+		lst->tail = rm->prev;;
 	lst->tail->next = 0;
 	if (lst->len == 1)
-		return (lst->head = 0, lst->tail = 0, lst->len--, rm);
+	{
+		lst->head = 0;
+		lst->tail = 0;
+	}
 	lst->len--;
 	return (rm);
 }
