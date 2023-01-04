@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:17:06 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/04 10:49:09 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/04 14:45:40 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ t_cell	*unstack_list(t_list *lst, int debug)
 	{
 		rm = lst->head;
 		lst->head = rm->next;
+		lst->head->prec = 0;
 	}
 	if (lst->len == 1)
 		lst->tail = 0;

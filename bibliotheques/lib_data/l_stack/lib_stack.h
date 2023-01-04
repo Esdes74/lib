@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 12:45:08 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/27 16:21:19 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/04 14:27:30 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_data {
 
 typedef struct s_cell {
 	t_data			*data_cell;
+	struct s_cell	*prec;
 	struct s_cell	*next;
 }	t_cell;
 

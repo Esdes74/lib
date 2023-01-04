@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 12:50:42 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/04 10:59:35 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/04 14:32:45 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ static void	debuger_stacking(int debug, int mod)
 		if (mod == 1)
 			write(1, "ERROR : fct stacking : Malloc not OK\n", 35);
 	}
+}
+
+static void	init_cell(t_cell *cell, t_data *d_cell)
+{
+	cell->data_cell = d_cell;
+	cell->next = 0;
+	cell->prec = 0;
 }
 
 int	stacking(t_list *lst, void *data, t_type t, int debug)
@@ -40,12 +47,14 @@ int	stacking(t_list *lst, void *data, t_type t, int debug)
 	if (d_cell == 0 || cell == 0)
 		return (0);
 	init_data(data, t, FALSE, d_cell);
-	cell->data_cell = d_cell;
-	cell->next = 0;
+	init_cell(cell, d_cell);
 	if (lst->len == 0)
 		lst->tail = cell;
 	else
+	{
+		lst->head->prec = cell;
 		cell->next = lst->head;
+	}
 	lst->len++;
 	lst->head = cell;
 	return (1);
