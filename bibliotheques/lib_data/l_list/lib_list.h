@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:08:39 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/04 11:05:28 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/04 11:58:55 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,16 @@ int		stacking_list(t_list *lst, void *data, t_type t, int debug);
 // Add value in a list (add in last place)
 int		addback_list(t_list *lst, void *data, t_type t, int debug);
 
-// remove cell from the front of list and return it
+// Remove cell from the front of list and return it
 t_cell	*unstack_list(t_list *lst, int debug);
 
 // Remove cell from the front of list and free it
 void	rmstack_list(t_list *lst, t_bool allow, int debug);
+
+// Remove cell from the back of list and return it
+t_cell	*rmback_list(t_list *lst, int debug);
+
+// Remove cell from the back of list and free it
+void	delback_list(t_list *lst, t_bool allow, int debug);
+	
 #endif

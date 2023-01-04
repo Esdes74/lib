@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 10:46:11 by eslamber          #+#    #+#              #
-#    Updated: 2023/01/03 21:00:57 by eslamber         ###   ########.fr        #
+#    Updated: 2023/01/04 12:02:26 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,9 @@ LIST_LIB := init_list.c \
 			stacking_list.c \
 			addback_list.c \
 			unstack_list.c \
-			rmstack_list.c
+			rmstack_list.c \
+			rmback_list.c \
+			delback_list.c
 LIST_LIB_H := $(LIB_LIST)lib_list.h
 LIST_OBJ_LIB := $(LIST_LIB:%.c=$(LIB_LIST_OBJ)%.o)
 

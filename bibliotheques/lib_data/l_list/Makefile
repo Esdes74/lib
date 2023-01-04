@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 11:18:56 by eslamber          #+#    #+#              #
-#    Updated: 2023/01/03 21:02:38 by eslamber         ###   ########.fr        #
+#    Updated: 2023/01/04 12:03:59 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,9 @@ L_SRC := init_list.c \
 		 stacking_list.c \
 		 addback_list.c \
 		 unstack_list.c \
-		 rmstack_list.c
+		 rmstack_list.c \
+		 rmback_list.c \
+		 delback_list.c
 L_OBJ := $(L_SRC:%.c=$(OBJ)%.o)
 
 # Definitions of differents printed colors

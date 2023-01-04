@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:38:47 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/04 11:00:54 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/04 12:01:07 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,12 @@ t_cell			*unstack_list(t_list *lst, int debug);
 
 // Remove cell from the front of list and free it
 void			rmstack_list(t_list *lst, t_bool allow, int debug);
+
+// Remove cell from the back of list and return it
+t_cell	*rmback_list(t_list *lst, int debug);
+
+// Remove cell from the back of list and free it
+void	delback_list(t_list *lst, t_bool allow, int debug);
 
 /*##################### LIST_IND ######################*/
 void			init_list_ind(void);
