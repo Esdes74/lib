@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 18:45:12 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/03 20:50:42 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/04 11:05:56 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,3 @@ int	stacking_list(t_list *lst, void *data, t_type t, int debug)
 	lst->head = cell;
 	return (1);
 }
-

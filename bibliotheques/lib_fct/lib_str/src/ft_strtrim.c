@@ -6,36 +6,36 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:07:36 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/25 14:20:20 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/04 11:10:39 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib_str.h"
 
-static void	ft_analyse(const char *src, const char *set, size_t *len, size_t *len_f)
+static void	ft_analyse(const char *src, const char *c, size_t *l, size_t *l_f)
 {
-	size_t	save_len;
+	size_t	save_l;
 
-	*len = 0;
-	while (ft_in(src[*len], set) == 1)
-		(*len)++;
-	save_len = *len;
-	*len_f = *len;
-	while (src[save_len] != '\0')
+	*l = 0;
+	while (ft_in(src[*l], c) == 1)
+		(*l)++;
+	save_l = *l;
+	*l_f = *l;
+	while (src[save_l] != '\0')
 	{
-		if (ft_in(src[save_len], set) == 0)
-			*len_f = save_len;
-		save_len++;
+		if (ft_in(src[save_l], c) == 0)
+			*l_f = save_l;
+		save_l++;
 	}
 }
 
-char	*ft_strtrim(const char *src, const char *set)
+char	*ft_strtrim(const char *src, const char *c)
 {
 	size_t	begin;
 	size_t	end;
 	char	*new;
 
-	ft_analyse(src, set, &begin, &end);
+	ft_analyse(src, c, &begin, &end);
 	new = ft_substr(src, (unsigned int) begin, end - begin + 1);
 	if (new == 0)
 		return (0);

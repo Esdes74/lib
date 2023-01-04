@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:50:07 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/17 20:27:32 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/04 11:05:05 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_lstsize(t_listft *lst)
 {
-	int		len;
+	int			len;
 	t_listft	*count;
 
 	len = 0;

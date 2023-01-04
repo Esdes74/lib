@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 23:11:33 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/23 20:43:08 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/04 11:10:58 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strncmp(const char *first, const char *sec, size_t n)
 {
-	size_t	len;
+	size_t			len;
 	unsigned char	*u_first;
 	unsigned char	*u_sec;
 

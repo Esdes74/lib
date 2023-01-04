@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 18:38:58 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/03 20:22:02 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/04 11:06:31 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,3 @@ t_data	*init_data(void *d, t_type t, t_bool allow, t_data *cell)
 	cell->data = d;
 	return (cell);
 }
-

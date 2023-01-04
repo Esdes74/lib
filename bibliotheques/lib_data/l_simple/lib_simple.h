@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   lib_simple.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 20:10:49 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/25 14:22:52 by eslamber         ###   ########.fr       */
+/*   Created: 2023/01/04 11:03:37 by eslamber          #+#    #+#             */
+/*   Updated: 2023/01/04 11:04:19 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef L_SIMPLE_H
-# define L_SIMPLE_H
+#ifndef LIB_SIMPLE_H
+# define LIB_SIMPLE_H
 # include <stdlib.h>
 
 typedef struct s_listft{
