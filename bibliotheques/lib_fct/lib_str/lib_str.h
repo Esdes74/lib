@@ -6,14 +6,14 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:06:15 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/25 13:52:53 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/04 20:41:48 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIB_STR_H
 # define LIB_STR_H
 # include <stdlib.h>
-
+# include <stdint.h>
 // Return 1 if src is in test
 int		ft_in(const char src, const char *test);
 
