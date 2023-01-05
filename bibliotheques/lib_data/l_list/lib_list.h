@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lib_list.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
+/*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:08:39 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/04 16:07:08 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/05 17:18:35 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,4 @@ t_cell	*rmback_list(t_list *lst, int debug);
 
 // Remove cell from the back of list and free it
 void	delback_list(t_list *lst, t_bool allow, int debug);
-	
 #endif

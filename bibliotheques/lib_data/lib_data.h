@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lib_data.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
+/*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:38:47 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/04 17:19:37 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/05 17:50:07 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIB_DATA_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 # include "l_simple/lib_simple.h"
 
 typedef enum e_type {
@@ -83,10 +84,10 @@ t_cell			*unstack_list(t_list *lst, int debug);
 void			rmstack_list(t_list *lst, t_bool allow, int debug);
 
 // Remove cell from the back of list and return it
-t_cell	*rmback_list(t_list *lst, int debug);
+t_cell			*rmback_list(t_list *lst, int debug);
 
 // Remove cell from the back of list and free it
-void	delback_list(t_list *lst, t_bool allow, int debug);
+void			delback_list(t_list *lst, t_bool allow, int debug);
 
 /*##################### LIST_IND ######################*/
 void			init_list_ind(void);
@@ -120,4 +121,25 @@ t_data			*init_data(void *data, t_type t, t_bool allow, t_data *cell);
 // Return size of type give to argument
 // If a pointer is given as argument, return -1
 long long int	size(t_type t, int debug);
+
+// Print the charactere c in file descriptor fd
+size_t			ft_putchar_fd(char c, int fd);
+
+// Print the number n in filedescriptor fd
+size_t			ft_putnbr_fd(int n, int fd);
+
+// Print the string s in file descriptor fd
+size_t			ft_putstr_fd(char *s, int fd);
+
+// Convert number in base 10 to a number in base 16
+void			conv_ten_to_hex(int nbr, char dep, int *res);
+
+// Print the adress of pointer nbr
+void			print_adress(long long int nbr, char dep, int *res, int mod);
+
+// Printf by 42
+int				ft_printf(const char *str, ...);
+
+// Print the list given
+void			print_list(t_list *lst);
 #endif

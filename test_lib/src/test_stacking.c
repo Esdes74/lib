@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_stacking.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
+/*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:40:42 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/04 17:19:33 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/05 18:04:24 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	test_stacked_val(t_list *lst, int ind)
 {
 	int	nbr_test;
 	int	*val;
+	int	*sec_val;
 
 	if (ind == 0)
 	{
@@ -28,10 +29,13 @@ int	test_stacked_val(t_list *lst, int ind)
 	}
 	else
 	{
-		val = (int *) lst->tail->data_cell->data;
+		val = (int *) lst->head->data_cell->data;
+		sec_val = (int *) lst->tail->data_cell->data;
 		nbr_test = 1;
 		if (*val != 45)
 			write(1, "Error : test 1.6 of stacking failed (data stack)\n", 50);
+		else if (*sec_val != 15)
+			write(1, "Error : test 1.7 of stacking failed (data stack)\n", 50);
 		else
 			nbr_test--;
 	}
@@ -122,6 +126,7 @@ void	test_stacking(void)
 	int		nbr_err;
 	int		*point_test;
 	int		val_test;
+	int		sec_val_test;
 
 	point_test = &val_test;
 	val_test = 15;
@@ -129,7 +134,8 @@ void	test_stacking(void)
 	init_stack(&test);
 	stacking(&test, point_test, INT, 0);
 	nbr_err += first_test_stacking(test);
-	val_test = 45;
+	point_test = &sec_val_test;
+	sec_val_test = 45;
 	stacking(&test, point_test, INT, 0);
 	nbr_err += second_test_stacking(test);
 	if (nbr_err == 0)
