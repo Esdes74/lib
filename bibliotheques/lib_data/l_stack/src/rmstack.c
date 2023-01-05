@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 12:53:14 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/27 16:21:50 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/05 20:35:46 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	rmstack(t_list *lst, t_bool allow, int debug)
 {
 	t_cell	*u_data;
 
-	if (lst->type_lst == STACK)
+	if (lst->type_lst == STACK && lst->len != 0)
 	{
 		u_data = unstack(lst, debug);
 		if (u_data->data_cell->allowed == TRUE || allow == TRUE)
@@ -25,7 +25,7 @@ void	rmstack(t_list *lst, t_bool allow, int debug)
 		free(u_data);
 	}
 	else
-		if (debug == 1)
+		if (debug == 1 && lst->type_lst != STACK)
 			write(1, "ERROR : fct rmstack : Utilisation of fct stack on non \
 					stack data structure\n", 76);
 }

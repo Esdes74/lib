@@ -6,13 +6,13 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:38:02 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/28 18:41:16 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/05 20:47:41 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../oracle.h"
 
-int	init_test_rmstack(t_list *lst)
+static int	init_test_rmstack(t_list *lst)
 {
 	int	*f_test;
 	int	*s_test;
@@ -39,6 +39,26 @@ int	init_test_rmstack(t_list *lst)
 	return (0);
 }
 
+static int	test_lst(t_list *lst)
+{
+	t_cell	*cell;
+	int		i;
+
+	i = 1;
+	cell = lst->tail;
+	while (cell != 0)
+	{
+		if (*((int *)cell->data_cell->data) != i)
+		{
+			ft_printf("Error : test %d of rmstack (values test)\n", i);
+			return (1);
+		}
+		i++;
+		cell = cell->prev;
+	}
+	return (0);
+}
+
 int	test_rmstack(void)
 {
 	t_list	*lst_test;
@@ -52,8 +72,13 @@ int	test_rmstack(void)
 	if (nbr_err == 1)
 		return (0);
 	rmstack(lst_test, TRUE, 0);
+	test_lst(lst_test);
 	rmstack(lst_test, TRUE, 0);
+	test_lst(lst_test);
 	rmstack(lst_test, TRUE, 0);
+	test_lst(lst_test);
+	rmstack(lst_test, TRUE, 0);
+	test_lst(lst_test);
 	rmstack(lst_test, TRUE, 0);
 	if (nbr_err == 0)
 		write(1, "RMSTACK tests are succesfull\n", 29);
