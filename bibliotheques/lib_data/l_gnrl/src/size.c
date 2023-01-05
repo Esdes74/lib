@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   size.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
+/*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 14:31:44 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/04 14:18:34 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/05 18:50:42 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,21 +66,21 @@ long long int	size(t_type t, int debug)
 	debugger_size(debug, t, 0);
 	debugger_size(debug, t, 1);
 	if (t == INT)
-		return ((long long int) (sizeof(int)));
+		return ((long long int)(sizeof(int)));
 	else if (t == CHAR)
-		return ((long long int) (sizeof(char)));
+		return ((long long int)(sizeof(char)));
 	else if (t == DOUBLE)
-		return ((long long int) (sizeof(double)));
+		return ((long long int)(sizeof(double)));
 	else if (t == LONG)
-		return ((long long int) (sizeof(long)));
+		return ((long long int)(sizeof(long)));
 	else if (t == UNSIGNED)
-		return ((long long int) (sizeof(unsigned)));
+		return ((long long int)(sizeof(unsigned)));
 	else if (t == LONG_LONG)
-		return ((long long int) (sizeof(long long)));
+		return ((long long int)(sizeof(long long)));
 	else if (t == LONG_UNSIGNED)
-		return ((long long int) (sizeof(long unsigned)));
+		return ((long long int)(sizeof(long unsigned)));
 	else if (t == LONG_LONG_UNSIGNED)
-		return ((long long int) (sizeof(long long unsigned)));
+		return ((long long int)(sizeof(long long unsigned)));
 	else
 		return (-1);
 }
