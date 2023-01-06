@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 17:03:18 by eslamber          #+#    #+#             */
-/*   Updated: 2022/10/27 16:31:12 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/06 19:51:22 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,15 @@
 # include <stdlib.h>
 # include "../bibliotheques/libft.h"
 
+// ################# LIST ####################
+
 void	test_list(void);
+
+void	test_init_list(void);
+
+void	test_stacking_list(void);
+
+void	test_unstack_list(void);
 
 // ################# STACK ###################
 int		test_stack(void);

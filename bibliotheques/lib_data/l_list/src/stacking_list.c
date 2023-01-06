@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 18:45:12 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/04 16:08:47 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/06 20:04:37 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	debuger_stacking(int debug, int mod)
 	{
 		if (mod == 0)
 			write(1, "ERROR : fct stacking_list : Utilisation of fct list on \
-					non stack data structure\n", 81);
+					non list data structure\n", 80);
 		if (mod == 1)
 			write(1, "ERROR : fct stacking_list : Malloc not OK\n", 42);
 	}

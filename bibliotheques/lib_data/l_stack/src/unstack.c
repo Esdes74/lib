@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 12:52:09 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/04 18:46:50 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/06 20:28:03 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_cell	*unstack(t_list *lst, int debug)
 {
 	t_cell	*rm;
 
-	rm = 0;
+	rm = lst->head;
 	if (lst->type_lst != STACK || lst->len == 0)
 	{
 		if (debug == 1 && lst->type_lst != STACK)
@@ -28,10 +28,7 @@ t_cell	*unstack(t_list *lst, int debug)
 		return (0);
 	}
 	if (lst->len > 0)
-	{
-		rm = lst->head;
 		lst->head = rm->next;
-	}
 	if (lst->len > 1)
 		lst->head->prev = 0;
 	if (lst->len == 1)
