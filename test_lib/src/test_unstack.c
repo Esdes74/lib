@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:38:49 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/06 20:10:15 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/07 20:15:50 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static int	first_test_unstack(t_list *lst)
 	nbr_test = 3;
 	cel = unstack(lst, 1);
 	val = (int *) cel->data_cell->data;
-	if (*val != 4 || lst->tail->prev != lst->head->next)
+	if (*val != 4 || lst->tail->prev != lst->head->next || lst->head->prev != 0)
 		write(1, "Error : test 1 of unstack (unstack first)\n", 42);
 	else
 		nbr_test--;
@@ -97,7 +97,7 @@ static int	first_test_unstack(t_list *lst)
 		nbr_test--;
 	cel = following_value(lst, cel);
 	val = (int *) cel->data_cell->data;
-	if (*val != 2 || lst->tail->prev != 0)
+	if (*val != 2 || lst->tail->prev != 0 || lst->head->prev != 0)
 		write(1, "Error : test 3 of unstack (unstack third)\n", 42);
 	else
 		nbr_test--;

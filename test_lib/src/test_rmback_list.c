@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 15:17:02 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/07 15:32:47 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/07 20:06:06 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static int	first_test_rmback(t_list *lst)
 	nbr_test = 3;
 	cel = rmback_list(lst, 1);
 	val = (int *) cel->data_cell->data;
-	if (*val != 1 || lst->tail->prev != lst->head->next)
+	if (*val != 1 || lst->tail->prev != lst->head->next || lst->tail->next != 0)
 		write(1, "Error : test 1 of rmback_list (untail first)\n", 45);
 	else
 		nbr_test--;
@@ -97,7 +97,7 @@ static int	first_test_rmback(t_list *lst)
 		nbr_test--;
 	cel = following_value(lst, cel);
 	val = (int *) cel->data_cell->data;
-	if (*val != 3 || lst->tail->prev != 0)
+	if (*val != 3 || lst->tail->prev != 0 || lst->tail->next != 0)
 		write(1, "Error : test 3 of rmback_list (untail third)\n", 45);
 	else
 		nbr_test--;
