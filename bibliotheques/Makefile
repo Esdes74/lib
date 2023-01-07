@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:42:31 by eslamber          #+#    #+#              #
-#    Updated: 2023/01/06 19:58:37 by eslamber         ###   ########.fr        #
+#    Updated: 2023/01/07 15:30:57 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,8 @@ SRC_TEST := oracle.c \
 			test_size.c \
 			test_init_list.c \
 			test_stacking_list.c \
-			test_unstack_list.c
+			test_unstack_list.c \
+			test_rmback_list.c
 EXE := oracle
 NAME := $(EXE:%=$(TEST_EXE_DIR)%)
 

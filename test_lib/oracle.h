@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   oracle.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
+/*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 17:03:18 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/06 19:51:22 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/07 15:16:05 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	test_init_list(void);
 void	test_stacking_list(void);
 
 void	test_unstack_list(void);
+
+void	test_rmback_list(void);
 
 // ################# STACK ###################
 int		test_stack(void);

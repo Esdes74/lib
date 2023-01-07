@@ -36,30 +36,18 @@ static char	*ft_strjoin(char *dest, char *src)
 	return (new);
 }
 
-static char	*treat(char *line, char *buff)
+static int	ft_in(char src, char *test, size_t n)
 {
 	size_t	ind;
-	size_t	ind_buff;
-	size_t	save_ind;
-	char	*new;
 
 	ind = 0;
-	while (line[ind] != '\0')
-		if (line[ind++] == '\n')
-			break ;
-	ind_buff = 0;
-	save_ind = ind;
-	while (line[ind] != '\0' && ind_buff < BUFFER_SIZE)
-		buff[ind_buff++] = line[ind++];
-	ind = save_ind;
-	line[save_ind] = '\0';
-	new = ft_strdup(line);
-	if (!new)
-		return (free(line), line = NULL, NULL);
-	while (ind_buff < BUFFER_SIZE)
-		buff[ind_buff++] = '\0';
-	free(line);
-	return (new);
+	while (test[ind] != '\0' && ind < n)
+	{
+		if (test[ind] == src)
+			return (1);
+		ind++;
+	}
+	return (0);
 }
 
 static char	*read_line(char *line, char *buff, ssize_t ret, int fd)

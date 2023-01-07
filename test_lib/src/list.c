@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
+/*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:26:26 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/06 19:51:47 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/07 15:15:46 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,4 +17,5 @@ void	test_list(void)
 	test_init_list();
 	test_stacking_list();
 	test_unstack_list();
+	test_rmback_list();
 }

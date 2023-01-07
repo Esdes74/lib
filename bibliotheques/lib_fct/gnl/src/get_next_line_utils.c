@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 13:17:30 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/07 14:33:51 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/07 15:25:59 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,16 +80,28 @@ char	*ft_strdup(const char *src)
 	return (new);
 }
 
-int	ft_in(char src, char *test, size_t n)
+char	*treat(char *line, char *buff)
 {
 	size_t	ind;
+	size_t	ind_buff;
+	size_t	save_ind;
+	char	*new;
 
 	ind = 0;
-	while (test[ind] != '\0' && ind < n)
-	{
-		if (test[ind] == src)
-			return (1);
-		ind++;
-	}
-	return (0);
+	while (line[ind] != '\0')
+		if (line[ind++] == '\n')
+			break ;
+	ind_buff = 0;
+	save_ind = ind;
+	while (line[ind] != '\0' && ind_buff < BUFFER_SIZE)
+		buff[ind_buff++] = line[ind++];
+	ind = save_ind;
+	line[save_ind] = '\0';
+	new = ft_strdup(line);
+	if (!new)
+		return (free(line), line = NULL, NULL);
+	while (ind_buff < BUFFER_SIZE)
+		buff[ind_buff++] = '\0';
+	free(line);
+	return (new);
 }
