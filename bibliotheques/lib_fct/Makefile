@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 12:35:34 by eslamber          #+#    #+#              #
-#    Updated: 2023/01/04 20:26:05 by eslamber         ###   ########.fr        #
+#    Updated: 2023/01/07 14:39:27 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,15 +38,21 @@ LIB_STR := lib_str/
 LIB_STR_SRC := $(LIB_STR)src/
 LIB_STR_OBJ := $(LIB_STR)obj/
 
+LIB_GNL := gnl/
+LIB_GNL_SRC := $(LIB_GNL)src/
+LIB_GNL_OBJ := $(LIB_GNL)obj/
+
 ALL_LIB_OBJ_DIR := $(LIB_MATH_OBJ) \
 				   $(LIB_PRINT_OBJ) \
 				   $(LIB_MEM_OBJ) \
-				   $(LIB_STR_OBJ)
+				   $(LIB_STR_OBJ) \
+				   $(LIB_GNL_OBJ)
 
 ALL_LIB_SRC_DIR := $(LIB_MATH_SRC) \
 				   $(LIB_PRINT_SRC) \
 				   $(LIB_MEM_SRC) \
-				   $(LIB_STR_SRC)
+				   $(LIB_STR_SRC) \
+				   $(LIB_GNL_SRC)
 
 # Definition of variables needed to librairie's compilation
 MATH_LIB := ft_power.c \
@@ -101,10 +107,16 @@ STR_LIB := ft_atoi.c \
 STR_LIB_H := $(LIB_STR)lib_str.h
 STR_OBJ_LIB := $(STR_LIB:%.c=$(LIB_STR_OBJ)%.o)
 
+GNL_LIB := get_next_line.c \
+			get_next_line_utils.c
+GNL_LIB_H := $(LIB_GNL)get_next_line.h
+GNL_OBJ_LIB := $(GNL_LIB:%.c=$(LIB_GNL_OBJ)%.o)
+
 ALL_OBJ_LIB := $(MATH_OBJ_LIB) \
 			   $(MEM_OBJ_LIB) \
 			   $(PRINT_OBJ_LIB) \
-			   $(STR_OBJ_LIB)
+			   $(STR_OBJ_LIB) \
+			   $(GNL_OBJ_LIB)
 
 # Definitions of differents printed colors
 LIGHTBLUE := '\e[0;32m'
@@ -131,6 +143,9 @@ $(PRINT_OBJ_LIB): $(LIB_PRINT_OBJ)%.o: $(LIB_PRINT_SRC)%.c $(PRINT_LIB_H) \
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(STR_OBJ_LIB): $(LIB_STR_OBJ)%.o: $(LIB_STR_SRC)%.c $(STR_LIB_H) lib_fct.h
+	$(CC) $(FLAGS) -c $< -o $@
+
+$(GNL_OBJ_LIB): $(LIB_GNL_OBJ)%.o: $(LIB_GNL_SRC)%.c $(GNL_LIB_H) lib_fct.h
 	$(CC) $(FLAGS) -c $< -o $@
 
 #

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lib_fct.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
+/*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 13:20:40 by eslamber          #+#    #+#             */
-/*   Updated: 2022/11/18 13:22:02 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/07 14:34:33 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@
 # include "./lib_mem/lib_mem.h"
 # include "./lib_str/lib_str.h"
 # include "./lib_print/lib_print.h"
+# include "./gnl/get_next_line.h"
 
 #endif
