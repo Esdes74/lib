@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 12:59:41 by eslamber          #+#    #+#              #
-#    Updated: 2022/11/25 14:31:57 by eslamber         ###   ########.fr        #
+#    Updated: 2023/01/08 15:27:04 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,8 @@ STR_LIB := ft_atoi.c \
 		   ft_strrchr.c \
 		   ft_substr.c \
 		   ft_toupper.c \
-		   ft_calloc_str.c
+		   ft_calloc_str.c \
+		   get_next_line.c
 STR_LIB_H := $(LIB_STR)lib_str.h
 STR_OBJ_LIB := $(STR_LIB:%.c=$(LIB_STR_OBJ)%.o)
 

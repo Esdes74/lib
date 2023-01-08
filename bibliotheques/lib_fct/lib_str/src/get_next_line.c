@@ -10,33 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../get_next_line.h"
-#include <fcntl.h>
+#include "../lib_str.h"
 
-static char	*ft_strjoin(char *dest, char *src)
+static char	*treat(char *line, char *buff)
 {
-	size_t	len_tot;
+	size_t	ind;
+	size_t	ind_buff;
+	size_t	save_ind;
 	char	*new;
 
-	if (dest == 0 && src == 0)
-		return (NULL);
-	if (dest == 0)
-		return (ft_strdup(src));
-	if (src == 0)
-		return (ft_strdup(dest));
-	len_tot = ft_strlen(dest) + ft_strlen(src) + 1;
-	new = (char *) malloc(sizeof(char) * len_tot);
-	if (new == 0)
-		return (free(dest), dest = NULL, NULL);
-	new[0] = '\0';
-	ft_strlcat(new, dest, len_tot);
-	ft_strlcat(new, src, len_tot);
-	free(dest);
-	dest = NULL;
+	ind = 0;
+	while (line[ind] != '\0')
+		if (line[ind++] == '\n')
+			break ;
+	ind_buff = 0;
+	save_ind = ind;
+	while (line[ind] != '\0' && ind_buff < BUFFER_SIZE)
+		buff[ind_buff++] = line[ind++];
+	ind = save_ind;
+	line[save_ind] = '\0';
+	new = ft_strdup(line);
+	if (!new)
+		return (free(line), line = NULL, NULL);
+	while (ind_buff < BUFFER_SIZE)
+		buff[ind_buff++] = '\0';
+	free(line);
 	return (new);
 }
 
-static int	ft_in(char src, char *test, size_t n)
+static int	in_buff(char src, char *test, size_t n)
 {
 	size_t	ind;
 
@@ -56,8 +58,8 @@ static char	*read_line(char *line, char *buff, ssize_t ret, int fd)
 		return (line);
 	if (ret <= 0 && !buff[0])
 		return (free(line), buff[0] = 0, NULL);
-	while (ft_in('\n', buff, BUFFER_SIZE) == 0 && \
-	ft_in('\0', buff, BUFFER_SIZE) == 0 && ret != 0)
+	while (in_buff('\n', buff, BUFFER_SIZE) == 0 && \
+	in_buff('\0', buff, BUFFER_SIZE) == 0 && ret != 0)
 	{
 		buff[ret] = 0;
 		line = ft_strjoin(line, buff);
@@ -68,7 +70,7 @@ static char	*read_line(char *line, char *buff, ssize_t ret, int fd)
 			return (free(line), buff[0] = 0, NULL);
 	}
 	buff[ret] = 0;
-	if (ft_in('\n', buff, BUFFER_SIZE) == 1 || buff[0] == '\n')
+	if (in_buff('\n', buff, BUFFER_SIZE) == 1 || buff[0] == '\n')
 		line = ft_strjoin(line, buff);
 	if (line == 0)
 		return (free(line), NULL);
@@ -79,7 +81,7 @@ static int	treat_buff(char **line, char *buff)
 {
 	int	flag;
 
-	if (ft_in('\n', buff, BUFFER_SIZE) == 1)
+	if (in_buff('\n', buff, BUFFER_SIZE) == 1)
 		flag = 1;
 	else
 		flag = 0;
