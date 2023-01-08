@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:42:31 by eslamber          #+#    #+#              #
-#    Updated: 2023/01/08 12:37:05 by eslamber         ###   ########.fr        #
+#    Updated: 2023/01/08 15:52:08 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -103,10 +103,6 @@ LIB_STR := $(LIB_FCT)lib_str/
 LIB_STR_SRC := $(LIB_STR)src/
 LIB_STR_OBJ := $(LIB_STR)obj/
 
-LIB_GNL := $(LIB_FCT)gnl/
-LIB_GNL_SRC := $(LIB_GNL)src/
-LIB_GNL_OBJ := $(LIB_GNL)obj/
-
 ALL_LIB_OBJ_DIR := $(LIB_LIST_OBJ) \
 				   $(LIB_LIST_IND_OBJ) \
 				   $(LIB_QUEUE_OBJ) \
@@ -117,8 +113,7 @@ ALL_LIB_OBJ_DIR := $(LIB_LIST_OBJ) \
 				   $(LIB_MATH_OBJ) \
 				   $(LIB_PRINT_OBJ) \
 				   $(LIB_MEM_OBJ) \
-				   $(LIB_STR_OBJ) \
-				   $(LIB_GNL_OBJ)
+				   $(LIB_STR_OBJ)
 
 ALL_LIB_SRC_DIR := $(LIB_LIST_SRC) \
 				   $(LIB_LIST_IND_SRC) \
@@ -130,10 +125,20 @@ ALL_LIB_SRC_DIR := $(LIB_LIST_SRC) \
 				   $(LIB_MATH_SRC) \
 				   $(LIB_PRINT_SRC) \
 				   $(LIB_MEM_SRC) \
-				   $(LIB_STR_SRC) \
-				   $(LIB_GNL_SRC)
+				   $(LIB_STR_SRC)
 
 # Definition of variables needed to librairie's compilation
+GNRL_LIB := init_data.c \
+			size.c \
+			ft_putchar_fd.c \
+			ft_putstr_fd.c \
+			ft_putnbr_fd.c \
+			ft_printf.c \
+			conv_ten_to_hex.c \
+			print_list.c
+GNRL_LIB_H := $(LIB_DATA)lib_data.h
+GNRL_OBJ_LIB := $(GNRL_LIB:%.c=$(LIB_GNRL_OBJ)%.o)
+
 LIST_LIB := init_list.c \
 			stacking_list.c \
 			addback_list.c \
@@ -175,17 +180,6 @@ SIMPLE_OBJ_LIB := $(SIMPLE_LIB:%.c=$(LIB_SIMPLE_OBJ)%.o)
 TREE_LIB := init_tree.c
 TREE_LIB_H := $(LIB_TREE)lib_tree.h
 TREE_OBJ_LIB := $(TREE_LIB:%.c=$(LIB_TREE_OBJ)%.o)
-
-GNRL_LIB := init_data.c \
-			size.c \
-			ft_putchar_fd.c \
-			ft_putstr_fd.c \
-			ft_putnbr_fd.c \
-			ft_printf.c \
-			conv_ten_to_hex.c \
-			print_list.c
-GNRL_LIB_H := $(LIB_DATA)lib_data.h
-GNRL_OBJ_LIB := $(GNRL_LIB:%.c=$(LIB_GNRL_OBJ)%.o)
 
 MATH_LIB := ft_power.c \
 			ft_max.c
@@ -232,14 +226,10 @@ STR_LIB := ft_atoi.c \
 		   ft_strncmp.c \
 		   ft_strrchr.c \
 		   ft_substr.c \
-		   ft_toupper.c
+		   ft_toupper.c \
+		   get_next_line.c
 STR_LIB_H := $(LIB_STR)lib_str.h
 STR_OBJ_LIB := $(STR_LIB:%.c=$(LIB_STR_OBJ)%.o)
-
-GNL_LIB := get_next_line.c \
-			get_next_line_utils.c
-GNL_LIB_H := $(LIB_GNL)get_next_line.h
-GNL_OBJ_LIB := $(GNL_LIB:%.c=$(LIB_GNL_OBJ)%.o)
 
 ALL_OBJ_LIB := $(LIST_OBJ_LIB) \
 			   $(LIST_IND_OBJ_LIB) \
@@ -251,8 +241,7 @@ ALL_OBJ_LIB := $(LIST_OBJ_LIB) \
 			   $(MATH_OBJ_LIB) \
 			   $(MEM_OBJ_LIB) \
 			   $(PRINT_OBJ_LIB) \
-			   $(STR_OBJ_LIB) \
-			   $(GNL_OBJ_LIB)
+			   $(STR_OBJ_LIB)
 
 # Definitions of differents printed colors
 LIGHTBLUE := '\e[0;32m'
