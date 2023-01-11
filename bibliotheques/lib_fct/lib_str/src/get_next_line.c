@@ -6,11 +6,34 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 11:43:03 by eslamber          #+#    #+#             */
-/*   Updated: 2022/12/09 09:5 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/11 13:49:47 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib_str.h"
+
+static char	*ft_g_strjoin(char *dest, char *src)
+{
+	size_t	len_tot;
+	char	*new;
+
+	if (dest == 0 && src == 0)
+		return (NULL);
+	if (dest == 0)
+		return (ft_strdup(src));
+	if (src == 0)
+		return (ft_strdup(dest));
+	len_tot = ft_strlen(dest) + ft_strlen(src) + 1;
+	new = (char *) malloc(sizeof(char) * len_tot);
+	if (new == 0)
+		return (free(dest), dest = NULL, NULL);
+	new[0] = '\0';
+	ft_strlcat(new, dest, len_tot);
+	ft_strlcat(new, src, len_tot);
+	free(dest);
+	dest = NULL;
+	return (new);
+}
 
 static char	*treat(char *line, char *buff)
 {
@@ -38,31 +61,17 @@ static char	*treat(char *line, char *buff)
 	return (new);
 }
 
-static int	in_buff(char src, char *test, size_t n)
-{
-	size_t	ind;
-
-	ind = 0;
-	while (test[ind] != '\0' && ind < n)
-	{
-		if (test[ind] == src)
-			return (1);
-		ind++;
-	}
-	return (0);
-}
-
 static char	*read_line(char *line, char *buff, ssize_t ret, int fd)
 {
 	if (ret == 0 && !buff[0] && line[0] != 0)
 		return (line);
 	if (ret <= 0 && !buff[0])
 		return (free(line), buff[0] = 0, NULL);
-	while (in_buff('\n', buff, BUFFER_SIZE) == 0 && \
-	in_buff('\0', buff, BUFFER_SIZE) == 0 && ret != 0)
+	while (ft_g_in('\n', buff, BUFFER_SIZE) == 0 && \
+	ft_g_in('\0', buff, BUFFER_SIZE) == 0 && ret != 0)
 	{
 		buff[ret] = 0;
-		line = ft_strjoin(line, buff);
+		line = ft_g_strjoin(line, buff);
 		if (!line)
 			return (free(line), NULL);
 		ret = read(fd, buff, BUFFER_SIZE);
@@ -70,8 +79,8 @@ static char	*read_line(char *line, char *buff, ssize_t ret, int fd)
 			return (free(line), buff[0] = 0, NULL);
 	}
 	buff[ret] = 0;
-	if (in_buff('\n', buff, BUFFER_SIZE) == 1 || buff[0] == '\n')
-		line = ft_strjoin(line, buff);
+	if (ft_g_in('\n', buff, BUFFER_SIZE) == 1 || buff[0] == '\n')
+		line = ft_g_strjoin(line, buff);
 	if (line == 0)
 		return (free(line), NULL);
 	return (line);
@@ -81,11 +90,11 @@ static int	treat_buff(char **line, char *buff)
 {
 	int	flag;
 
-	if (in_buff('\n', buff, BUFFER_SIZE) == 1)
+	if (ft_g_in('\n', buff, BUFFER_SIZE) == 1)
 		flag = 1;
 	else
 		flag = 0;
-	*line = ft_strjoin(*line, buff);
+	*line = ft_g_strjoin(*line, buff);
 	if (!(*line))
 		return (-1);
 	*line = treat(*line, buff);

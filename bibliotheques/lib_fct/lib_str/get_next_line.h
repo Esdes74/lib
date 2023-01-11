@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 11:44:57 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/07 15:28:59 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/11 11:29:31 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 #  define BUFFER_SIZE 42
 # endif
 
-// Treat the buffer
-char	*treat(char *line, char *buff);
+// Return first occurence of little
+int		ft_g_in(char src, char *test, size_t n);
 
 // Return new string what is src concatenated to dest
-char	*ft_strdup(const char *dest);
+/* char	*ft_strdup(const char *dest); */
 
 // Return length of s
 size_t	ft_strlen(const char *s);

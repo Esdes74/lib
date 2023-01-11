@@ -6,13 +6,13 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 13:17:30 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/07 15:25:59 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/11 13:50:03 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../get_next_line.h"
+#include "../lib_str.h"
 
-static size_t	max(size_t x, size_t y)
+static size_t	g_max(size_t x, size_t y)
 {
 	if (x > y)
 		return (x);
@@ -54,7 +54,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t n)
 	dest[len_d] = '\0';
 	if (n < save_len_d)
 		return (n + ft_strlen(src));
-	return (max(len_d, save_len_d + ft_strlen(src)));
+	return (g_max(len_d, save_len_d + ft_strlen(src)));
 }
 
 char	*ft_strdup(const char *src)
@@ -80,28 +80,16 @@ char	*ft_strdup(const char *src)
 	return (new);
 }
 
-char	*treat(char *line, char *buff)
+int	ft_g_in(char src, char *test, size_t n)
 {
 	size_t	ind;
-	size_t	ind_buff;
-	size_t	save_ind;
-	char	*new;
 
 	ind = 0;
-	while (line[ind] != '\0')
-		if (line[ind++] == '\n')
-			break ;
-	ind_buff = 0;
-	save_ind = ind;
-	while (line[ind] != '\0' && ind_buff < BUFFER_SIZE)
-		buff[ind_buff++] = line[ind++];
-	ind = save_ind;
-	line[save_ind] = '\0';
-	new = ft_strdup(line);
-	if (!new)
-		return (free(line), line = NULL, NULL);
-	while (ind_buff < BUFFER_SIZE)
-		buff[ind_buff++] = '\0';
-	free(line);
-	return (new);
+	while (test[ind] != '\0' && ind < n)
+	{
+		if (test[ind] == src)
+			return (1);
+		ind++;
+	}
+	return (0);
 }
