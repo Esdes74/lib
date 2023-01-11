@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 13:17:30 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/11 13:50:03 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/11 20:31:46 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static size_t	g_max(size_t x, size_t y)
 	return (y);
 }
 
-size_t	ft_strlen(const char *s)
+size_t	ft_g_strlen(const char *s)
 {
 	size_t	len;
 
@@ -29,7 +29,7 @@ size_t	ft_strlen(const char *s)
 	return (len);
 }
 
-size_t	ft_strlcat(char *dest, const char *src, size_t n)
+size_t	ft_g_strlcat(char *dest, const char *src, size_t n)
 {
 	size_t	len_d;
 	size_t	len;
@@ -37,7 +37,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t n)
 
 	if ((src == 0 || dest == 0) && n == 0)
 		return (0);
-	len_d = ft_strlen(dest);
+	len_d = ft_g_strlen(dest);
 	save_len_d = len_d;
 	if (n != 0)
 	{
@@ -50,26 +50,26 @@ size_t	ft_strlcat(char *dest, const char *src, size_t n)
 		}
 	}
 	else
-		return (ft_strlen(src));
+		return (ft_g_strlen(src));
 	dest[len_d] = '\0';
 	if (n < save_len_d)
-		return (n + ft_strlen(src));
-	return (g_max(len_d, save_len_d + ft_strlen(src)));
+		return (n + ft_g_strlen(src));
+	return (g_max(len_d, save_len_d + ft_g_strlen(src)));
 }
 
-char	*ft_strdup(const char *src)
+char	*ft_g_strdup(const char *src)
 {
 	char	*new;
 	size_t	len;
 	size_t	len_cpy;
 	size_t	n;
 
-	len = ft_strlen(src) + 1;
+	len = ft_g_strlen(src) + 1;
 	new = (char *) malloc(sizeof(char) * len);
 	if (new == 0)
 		return (0);
 	len_cpy = 0;
-	n = ft_strlen(src) + 1;
+	n = ft_g_strlen(src) + 1;
 	while (len_cpy < n - 1 && src[len_cpy] != '\0' && n != 0)
 	{
 		new[len_cpy] = src[len_cpy];
