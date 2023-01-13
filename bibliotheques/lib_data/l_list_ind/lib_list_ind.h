@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:09:34 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/04 16:07:54 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/13 13:37:49 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_cell {
 
 typedef struct s_list {
 	size_t	len;
+	size_t	len_ind;
 	t_type	type_list;
 	t_cell	*head;
 	t_cell	*tail;

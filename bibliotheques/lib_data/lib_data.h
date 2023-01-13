@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:38:47 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/08 12:46:58 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/01/13 13:36:54 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_cell {
 
 typedef struct s_list {
 	size_t	len;
+	size_t	len_ind;
 	t_type	type_lst;
 	t_cell	*head;
 	t_cell	*tail;
@@ -75,7 +76,7 @@ t_list			*init_list(t_list *lst);
 int				stacking_list(t_list *lst, void *data, t_type t, int debug);
 
 // Add value in a list (add in last place)
-int				addback_list(t_list *lst, void *data, t_type t, int debug);
+int				tailing_list(t_list *lst, void *data, t_type t, int debug);
 
 // remove cell from the front of list and return it
 t_cell			*unstack_list(t_list *lst, int debug);
@@ -84,10 +85,10 @@ t_cell			*unstack_list(t_list *lst, int debug);
 void			rmstack_list(t_list *lst, t_bool allow, int debug);
 
 // Remove cell from the back of list and return it
-t_cell			*rmback_list(t_list *lst, int debug);
+t_cell			*untail_list(t_list *lst, int debug);
 
 // Remove cell from the back of list and free it
-void			delback_list(t_list *lst, t_bool allow, int debug);
+void			rmtail_list(t_list *lst, t_bool allow, int debug);
 
 /*##################### LIST_IND ######################*/
 void			init_list_ind(void);
