@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:42:31 by eslamber          #+#    #+#              #
-#    Updated: 2023/02/10 18:10:14 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/10 21:19:20 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -135,7 +135,10 @@ GNRL_LIB := init_data.c \
 			ft_putnbr_fd.c \
 			ft_printf.c \
 			conv_ten_to_hex.c \
-			print_list.c
+			print_list.c \
+			change_type.c \
+			clear_cell.c \
+			annihilation.c
 GNRL_LIB_H := $(LIB_DATA)lib_data.h
 GNRL_OBJ_LIB := $(GNRL_LIB:%.c=$(LIB_GNRL_OBJ)%.o)
 
