@@ -6,12 +6,13 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 10:46:11 by eslamber          #+#    #+#              #
-#    Updated: 2023/01/13 13:58:02 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/10 17:42:16 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Definitions of compilation options
-FLAGS := -Wall -Werror -Wextra -fsanitize=address -fno-omit-frame-pointer
+FLAGS := -Wall -Werror -Wextra
+FLAGS_DBG := -Wall -Werror -Wextra -fsanitize=address -fno-omit-frame-pointer
 CC := gcc
 
 # Definitions of librairies repertories
@@ -61,6 +62,7 @@ ALL_LIB_SRC_DIR := $(LIB_LIST_SRC) \
 
 # Definition of variables needed for librairie compilation
 LIB := lib_data.a
+LIB_DEB := lib_data_debug.a
 
 LIST_LIB := init_list.c \
 			stacking_list.c \
@@ -71,15 +73,17 @@ LIST_LIB := init_list.c \
 			rmtail_list.c
 LIST_LIB_H := $(LIB_LIST)lib_list.h
 LIST_OBJ_LIB := $(LIST_LIB:%.c=$(LIB_LIST_OBJ)%.o)
+LIST_OBJ_LIB_DEB := $(LIST_LIB:%.c=$(LIB_LIST_OBJ)%_debug.o)
 
 LIST_IND_LIB := init_list_ind.c
 LIST_IND_LIB_H := $(LIB_LIST_IND)lib_list_ind.h
 LIST_IND_OBJ_LIB := $(LIST_IND_LIB:%.c=$(LIB_LIST_IND_OBJ)%.o)
+LIST_IND_OBJ_LIB_DEB := $(LIST_IND_LIB:%.c=$(LIB_LIST_IND_OBJ)%_debug.o)
 
-QUEUE_LIB := init_queue.c \
-
+QUEUE_LIB := init_queue.c
 QUEUE_LIB_H := $(LIB_QUEUE)lib_queue.h
 QUEUE_OBJ_LIB := $(QUEUE_LIB:%.c=$(LIB_QUEUE_OBJ)%.o)
+QUEUE_OBJ_LIB_DEB := $(QUEUE_LIB:%.c=$(LIB_QUEUE_OBJ)%_debug.o)
 
 STACK_LIB := init_stack.c \
 			 stacking.c \
@@ -88,6 +92,7 @@ STACK_LIB := init_stack.c \
 			 rmstack.c
 STACK_LIB_H := $(LIB_STACK)lib_stack.h
 STACK_OBJ_LIB := $(STACK_LIB:%.c=$(LIB_STACK_OBJ)%.o)
+STACK_OBJ_LIB_DEB := $(STACK_LIB:%.c=$(LIB_STACK_OBJ)%_debug.o)
 
 SIMPLE_LIB := ft_lstadd_back.c \
 			  ft_lstadd_front.c \
@@ -100,10 +105,12 @@ SIMPLE_LIB := ft_lstadd_back.c \
 			  ft_lstsize.c
 SIMPLE_LIB_H := $(LIB_SIMPLE)lib_simple.h
 SIMPLE_OBJ_LIB := $(SIMPLE_LIB:%.c=$(LIB_SIMPLE_OBJ)%.o)
+SIMPLE_OBJ_LIB_DEB := $(SIMPLE_LIB:%.c=$(LIB_SIMPLE_OBJ)%_debug.o)
 
 TREE_LIB := init_tree.c
 TREE_LIB_H := $(LIB_TREE)lib_tree.h
 TREE_OBJ_LIB := $(TREE_LIB:%.c=$(LIB_TREE_OBJ)%.o)
+TREE_OBJ_LIB_DEB := $(TREE_LIB:%.c=$(LIB_TREE_OBJ)%_debug.o)
 
 GNRL_LIB := init_data.c \
 			size.c \
@@ -116,6 +123,7 @@ GNRL_LIB := init_data.c \
 			change_type.c
 GNRL_LIB_H := lib_data.h
 GNRL_OBJ_LIB := $(GNRL_LIB:%.c=$(LIB_GNRL_OBJ)%.o)
+GNRL_OBJ_LIB_DEB := $(GNRL_LIB:%.c=$(LIB_GNRL_OBJ)%_debug.o)
 
 ALL_OBJ_LIB := $(LIST_OBJ_LIB) \
 			   $(LIST_IND_OBJ_LIB) \
@@ -124,6 +132,14 @@ ALL_OBJ_LIB := $(LIST_OBJ_LIB) \
 			   $(SIMPLE_OBJ_LIB) \
 			   $(TREE_OBJ_LIB) \
 			   $(GNRL_OBJ_LIB)
+
+ALL_OBJ_LIB_DEB := $(LIST_OBJ_LIB_DEB) \
+				   $(LIST_IND_OBJ_LIB_DEB) \
+				   $(QUEUE_OBJ_LIB_DEB) \
+				   $(STACK_OBJ_LIB_DEB) \
+				   $(SIMPLE_OBJ_LIB_DEB) \
+				   $(TREE_OBJ_LIB_DEB) \
+				   $(GNRL_OBJ_LIB_DEB)
 
 # Definitions of differents printed colors
 LIGHTBLUE := '\e[0;32m'
@@ -145,15 +161,15 @@ $(LIST_IND_LIB_H) lib_data.h
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(QUEUE_OBJ_LIB): $(LIB_QUEUE_OBJ)%.o: $(LIB_QUEUE_SRC)%.c $(QUEUE_LIB_H) \
-	lib_data.h
+lib_data.h
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(STACK_OBJ_LIB): $(LIB_STACK_OBJ)%.o: $(LIB_STACK_SRC)%.c $(STACK_LIB_H) \
-	lib_data.h
+lib_data.h
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(SIMPLE_OBJ_LIB): $(LIB_SIMPLE_OBJ)%.o: $(LIB_SIMPLE_SRC)%.c $(SIMPLE_LIB_H) \
-	lib_data.h
+lib_data.h
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(TREE_OBJ_LIB): $(LIB_TREE_OBJ)%.o: $(LIB_TREE_SRC)%.c $(TREE_LIB_H) lib_data.h
@@ -161,6 +177,17 @@ $(TREE_OBJ_LIB): $(LIB_TREE_OBJ)%.o: $(LIB_TREE_SRC)%.c $(TREE_LIB_H) lib_data.h
 
 $(GNRL_OBJ_LIB): $(LIB_GNRL_OBJ)%.o: $(LIB_GNRL_SRC)%.c $(GNRL_LIB_H) lib_data.h
 	$(CC) $(FLAGS) -c $< -o $@
+
+#
+### Debug rules
+#
+
+debug:
+	make -C ./ "FLAGS+= -Wall -Werror -Wextra -fsanitize=address \
+	-fno-omit-frame-pointer"
+
+valgrind_deb:
+	make -C ./ "FLAGS+= -Wall -Werror -Wextra -g"
 
 #
 ### Test rule
@@ -245,9 +272,13 @@ fclean: clean cleanlib clean_git cleandir dir gitignor
 # Remake rules
 re: fclean all
 
+re_deb: fclean debug
+
+re_val: fclean valgrind_deb
+
 # Remakes rules with print options
 reprint: fclean print
 
 .PHONY: print_oe print_ob print_le print_lb reprint print
-.PHONY: re all dir gitignore
+.PHONY: re all dir gitignore debug valgrind_deb re_deb re_val
 .PHONY: fclean clean cleanlib cleandir clean_git

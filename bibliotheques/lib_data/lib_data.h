@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:38:47 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/13 13:36:54 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/10 16:32:12 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include "l_simple/lib_simple.h"
+# define DEBUG 1
+# define NODEB 0
 
 typedef enum e_type {
 	CHAR = 0,

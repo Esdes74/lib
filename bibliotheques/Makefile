@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:42:31 by eslamber          #+#    #+#              #
-#    Updated: 2023/01/11 13:55:48 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/10 17:49:09 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -319,6 +319,17 @@ $(GNL_OBJ_LIB): $(LIB_GNL_OBJ)%.o: $(LIB_GNL_SRC)%.c $(GNL_LIB_H) \
 	$(CC) $(FLAGS) -c $< -o $@
 
 #
+### Debug rules
+#
+
+debug:
+	make -C ./ "FLAGS+= -Wall -Werror -Wextra -fsanitize=address \
+	-fno-omit-frame-pointer"
+
+valgrind_deb:
+	make -C ./ "FLAGS+= -Wall -Werror -Wextra -g"
+
+#
 ### Directories rules
 #
 
@@ -467,6 +478,10 @@ re: fcleanlib all
 
 retest: fclean test
 
+re_deb: fclean debug
+
+re_val: fclean valgrind_deb
+
 # Remakes rules with print options
 reprint: fcleanlib printlib
 
@@ -474,6 +489,7 @@ reprinttest: fclean print
 
 .PHONY: print_oe print_eb print_ee print_ob print_le print_lb reprint print
 .PHONY: print_otb print_ote reprinttest
-.PHONY: re dir_lib dir_test vartest all test make_dir retest
+.PHONY: re dir_lib dir_test vartest all test make_dir retest re_deb re_val
+.PHONY: debug valgrind_deb
 .PHONY: fcleantest cleandirtest fclean clean cleandir cleanlib cleanexec 
 .PHONY: fcleanlib cleandirlib cleanobjlib cleanobjexec clean_git

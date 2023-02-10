@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 12:59:41 by eslamber          #+#    #+#              #
-#    Updated: 2023/01/04 20:43:58 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/10 17:51:05 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,17 @@ $(LIB): $(PRINT_OBJ_LIB)
 
 $(PRINT_OBJ_LIB): $(LIB_PRINT_OBJ)%.o: $(LIB_PRINT_SRC)%.c $(PRINT_LIB_H)
 	$(CC) $(FLAGS) -c $< -o $@
+
+#
+### Debug rules
+#
+
+debug:
+	make -C ./ "FLAGS+= -Wall -Werror -Wextra -fsanitize=address \
+	-fno-omit-frame-pointer"
+
+valgrind_deb:
+	make -C ./ "FLAGS+= -Wall -Werror -Wextra -g"
 
 #
 ### Directories rules
@@ -121,8 +132,13 @@ fclean: clean cleanlib clean_git cleandir make_dir gitignor
 # Remake rules
 re: fclean all
 
+re_deb: fclean debug
+
+re_val: fclean valgrind_deb
+
 # Remakes rules with print options
 reprint: fclean print
 
 .PHONY: all make_dir print print_ob print_oe print_lb print_le clean cleandir
-.PHONY: clean_git gitignor flcean re reprint cleanlib
+.PHONY: clean_git gitignor flcean re reprint cleanlib debug valgrind_deb re_deb
+.PHONY: re_val
