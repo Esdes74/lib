@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 12:35:34 by eslamber          #+#    #+#              #
-#    Updated: 2023/02/10 17:50:02 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/10 19:40:03 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -145,10 +145,10 @@ $(GNL_OBJ_LIB): $(LIB_GNL_OBJ)%.o: $(LIB_GNL_SRC)%.c $(GNL_LIB_H) lib_fct.h
 
 debug:
 	make -C ./ "FLAGS+= -Wall -Werror -Wextra -fsanitize=address \
-	-fno-omit-frame-pointer"
+	-fno-omit-frame-pointer" print
 
 valgrind_deb:
-	make -C ./ "FLAGS+= -Wall -Werror -Wextra -g"
+	make -C ./ "FLAGS+= -Wall -Werror -Wextra -g" print
 
 #
 ### Directories rules

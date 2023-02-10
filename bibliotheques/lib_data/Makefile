@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 10:46:11 by eslamber          #+#    #+#              #
-#    Updated: 2023/02/10 17:42:16 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/10 18:09:48 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -184,10 +184,10 @@ $(GNRL_OBJ_LIB): $(LIB_GNRL_OBJ)%.o: $(LIB_GNRL_SRC)%.c $(GNRL_LIB_H) lib_data.h
 
 debug:
 	make -C ./ "FLAGS+= -Wall -Werror -Wextra -fsanitize=address \
-	-fno-omit-frame-pointer"
+	-fno-omit-frame-pointer" print
 
 valgrind_deb:
-	make -C ./ "FLAGS+= -Wall -Werror -Wextra -g"
+	make -C ./ "FLAGS+= -Wall -Werror -Wextra -g" print
 
 #
 ### Test rule

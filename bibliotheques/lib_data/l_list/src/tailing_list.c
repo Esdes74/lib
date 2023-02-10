@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:54:05 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/13 13:27:38 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/10 18:06:57 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,14 @@ static void	init_cell(t_cell *cell, t_data *d_cell)
 	cell->prev = 0;
 }
 
+static void	secur_alloc(t_data *data_cell, t_cell *cell)
+{
+	if (data_cell != 0)
+		free(data_cell);
+	if (cell != 0)
+		free(cell);
+}
+
 int	tailing_list(t_list *lst, void *data, t_type t, int debug)
 {
 	t_data	*d_cell;
@@ -45,7 +53,7 @@ int	tailing_list(t_list *lst, void *data, t_type t, int debug)
 	if (debug == 1 && (d_cell == 0 || cell == 0))
 		debuger(debug, 1);
 	if (d_cell == 0 || cell == 0)
-		return (0);
+		return (secur_alloc(d_cell, cell), 0);
 	init_data(data, t, FALSE, d_cell);
 	init_cell(cell, d_cell);
 	if (lst->len > 0)

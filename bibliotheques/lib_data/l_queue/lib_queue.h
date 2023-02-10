@@ -6,13 +6,15 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 12:46:25 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/13 13:38:22 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/10 17:56:07 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIB_QUEUE_H
 # define LIB_QUEUE_H
 # include <stdlib.h>
+# define DEBUG 1
+# define NODEB 0
 
 typedef enum e_type {
 	CHAR = 0,

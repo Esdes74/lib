@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:08:39 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/13 13:37:21 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/10 17:56:28 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIB_LIST_H
 # include <stdlib.h>
 # include <unistd.h>
+# define DEBUG 1
+# define NODEB 0
 
 typedef enum e_type {
 	CHAR = 0,

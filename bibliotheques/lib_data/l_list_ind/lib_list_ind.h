@@ -6,13 +6,15 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:09:34 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/13 13:37:49 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/10 17:56:15 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIB_LIST_IND_H
 # define LIB_LIST_IND_H
 # include <stdlib.h>
+# define DEBUG 1
+# define NODEB 0
 
 typedef enum e_type {
 	CHAR = 0,
