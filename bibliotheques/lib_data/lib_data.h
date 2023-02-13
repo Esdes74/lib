@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:38:47 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/10 16:32:12 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/13 18:48:20 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,12 @@ t_data			*init_data(void *data, t_type t, t_bool allow, t_data *cell);
 // Return size of type give to argument
 // If a pointer is given as argument, return -1
 long long int	size(t_type t, int debug);
+
+// Delete data in data_cell with f and free cell
+void			clear_cell(t_list *lst, t_cell *cell, void (*f)(void *));
+
+// Delete list, f delete data in every data_cell
+void			annihilation(t_list *lst, void (*f)(void *));
 
 // Print the charactere c in file descriptor fd
 size_t			ft_putchar_fd(char c, int fd);

@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:42:31 by eslamber          #+#    #+#              #
-#    Updated: 2023/02/10 21:19:20 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/13 18:39:09 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,7 @@
 #
 
 # Definitions of compilation options
-VALG := -g
-FLAGS := -Wall -Werror -Wextra -fsanitize=address -fno-omit-frame-pointer
+FLAGS := -Wall -Werror -Wextra
 CC := gcc
 
 # Definitions of tests repositories
@@ -144,11 +143,11 @@ GNRL_OBJ_LIB := $(GNRL_LIB:%.c=$(LIB_GNRL_OBJ)%.o)
 
 LIST_LIB := init_list.c \
 			stacking_list.c \
-			addback_list.c \
+			tailing_list.c \
 			unstack_list.c \
 			rmstack_list.c \
-			rmback_list.c \
-			delback_list.c
+			untail_list.c \
+			rmtail_list.c
 LIST_LIB_H := $(LIB_LIST)lib_list.h
 LIST_OBJ_LIB := $(LIST_LIB:%.c=$(LIB_LIST_OBJ)%.o)
 
