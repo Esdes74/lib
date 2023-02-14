@@ -6,21 +6,21 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 18:45:12 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/14 16:33:36 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/14 18:35:03 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib_list.h"
+#include "../../lib_data.h"
 
-static void	debuger_stacking(int debug, int mod)
+static void	debuger_stacking(int debug, int mod, t_list *lst)
 {
 	if (debug == 1)
 	{
-		if (mod == 0)
+		if (lst == 0)
 			write(1, "ERROR : fct stacking_list : lst null\n", 37);
-		if (mod == -1)
+		if (mod == 1)
 			write(1, "ERROR : fct stacking_list : Malloc not OK\n", 42);
-		else if (mod != 0)
+		if (mod == 0)
 			write(1, "ERROR : fct stacking_list : Utilisation of fct list on \
 					non list data structure\n", 80);
 	}
@@ -46,14 +46,14 @@ int	stacking_list(t_list *lst, void *data, t_type t, int debug)
 	t_data	*d_cell;
 	t_cell	*cell;
 
-	if ((lst != 0 || lst->type_lst != LIST) && debug == 1)
-		debuger_stacking(debug, lst);
-	if (lst != 0 || lst->type_lst != LIST)
+	if ((lst == 0 || lst->type_lst != LIST) && debug == 1)
+		debuger_stacking(debug, 0, lst);
+	if (lst == 0 || lst->type_lst != LIST)
 		return (0);
 	d_cell = (t_data *) malloc(sizeof(t_data));
 	cell = (t_cell *) malloc(sizeof(t_cell));
 	if (debug == 1 && (d_cell == 0 || cell == 0))
-		debuger_stacking(debug, -1);
+		debuger_stacking(debug, 1, lst);
 	if (d_cell == 0 || cell == 0)
 		return (secur_alloc(d_cell, cell), 0);
 	init_data(data, t, FALSE, d_cell);

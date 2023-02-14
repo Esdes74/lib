@@ -6,21 +6,21 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:54:05 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/14 16:37:17 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/14 18:36:27 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib_list.h"
 
-static void	debuger(int debug, int mod)
+static void	debuger(int debug, int mod, t_list *lst)
 {
 	if (debug == 1)
 	{
-		if (mod == 0)
+		if (lst == 0)
 			write(1, "ERROR : fct tailing_list : lst null\n", 36);
-		if (mod == -1)
+		if (mod == 11)
 			write(1, "ERROR : fct tailing_list : Malloc not OK\n", 41);
-		else if (mod != 0)
+		else if (mod == 0)
 			write(1, "ERROR : fct tailing_list : Utilisation of fct list on \
 non stack data structure\n", 80);
 
@@ -47,14 +47,14 @@ int	tailing_list(t_list *lst, void *data, t_type t, int debug)
 	t_data	*d_cell;
 	t_cell	*cell;
 
-	if ((lst != 0 || lst->type_lst != LIST) && debug == 1)
-		debuger(debug, lst);
-	if (lst->type_lst != LIST)
+	if ((lst == 0 || lst->type_lst != LIST) && debug == 1)
+		debuger(debug, 0, lst);
+	if (lst == 0 || lst->type_lst != LIST)
 		return (0);
 	d_cell = (t_data *) malloc(sizeof(t_data));
 	cell = (t_cell *) malloc(sizeof(t_cell));
 	if (debug == 1 && (d_cell == 0 || cell == 0))
-		debuger(debug, -1);
+		debuger(debug, 1, lst);
 	if (d_cell == 0 || cell == 0)
 		return (secur_alloc(d_cell, cell), 0);
 	init_data(data, t, FALSE, d_cell);
