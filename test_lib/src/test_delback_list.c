@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 21:05:31 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/07 21:15:41 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/14 11:32:14 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,15 @@ void	test_delback_list(void)
 	nbr_err += init_test_rmstack_list(lst_test);
 	if (nbr_err == 1)
 		return ;
-	delback_list(lst_test, TRUE, 0);
+	rmtail_list(lst_test, TRUE, 0);
 	test_lst(lst_test);
-	delback_list(lst_test, TRUE, 0);
+	rmtail_list(lst_test, TRUE, 0);
 	test_lst(lst_test);
-	delback_list(lst_test, TRUE, 0);
+	rmtail_list(lst_test, TRUE, 0);
 	test_lst(lst_test);
-	delback_list(lst_test, TRUE, 0);
+	rmtail_list(lst_test, TRUE, 0);
 	test_lst(lst_test);
-	delback_list(lst_test, TRUE, 0);
+	rmtail_list(lst_test, TRUE, 0);
 	if (nbr_err == 0)
 		write(1, "DELBACK_LIST tests are succesfull\n", 34);
 	free(lst_test);

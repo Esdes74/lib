@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:42:31 by eslamber          #+#    #+#              #
-#    Updated: 2023/02/13 18:39:09 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/14 11:44:09 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -137,7 +137,8 @@ GNRL_LIB := init_data.c \
 			print_list.c \
 			change_type.c \
 			clear_cell.c \
-			annihilation.c
+			annihilation.c \
+			none.c
 GNRL_LIB_H := $(LIB_DATA)lib_data.h
 GNRL_OBJ_LIB := $(GNRL_LIB:%.c=$(LIB_GNRL_OBJ)%.o)
 

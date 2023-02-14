@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 15:17:02 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/07 20:06:06 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/14 11:31:28 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	*following_value(t_list *lst, t_cell *cel)
 	free(cel->data_cell->data);
 	free(cel->data_cell);
 	free(cel);
-	cel = rmback_list(lst, 0);
+	cel = untail_list(lst, 0);
 	return (cel);
 }
 
@@ -83,7 +83,7 @@ static int	first_test_rmback(t_list *lst)
 	t_cell	*cel;
 
 	nbr_test = 3;
-	cel = rmback_list(lst, 1);
+	cel = untail_list(lst, 1);
 	val = (int *) cel->data_cell->data;
 	if (*val != 1 || lst->tail->prev != lst->head->next || lst->tail->next != 0)
 		write(1, "Error : test 1 of rmback_list (untail first)\n", 45);

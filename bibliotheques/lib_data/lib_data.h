@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:38:47 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/13 18:48:20 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/14 11:43:17 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,9 @@ void			rmstack(t_list *lst, t_bool allow, int debug);
 void			init_tree(void);
 
 /*####################### GNRL ########################*/
+// Function do nothing
+void			none();
+
 // Initialisation of data cells
 t_data			*init_data(void *data, t_type t, t_bool allow, t_data *cell);
 

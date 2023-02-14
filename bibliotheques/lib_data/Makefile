@@ -6,13 +6,12 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 10:46:11 by eslamber          #+#    #+#              #
-#    Updated: 2023/02/10 21:18:06 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/14 11:43:56 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Definitions of compilation options
 FLAGS := -Wall -Werror -Wextra
-FLAGS_DBG := -Wall -Werror -Wextra -fsanitize=address -fno-omit-frame-pointer
 CC := gcc
 
 # Definitions of librairies repertories
@@ -122,7 +121,8 @@ GNRL_LIB := init_data.c \
 			print_list.c \
 			change_type.c \
 			clear_cell.c \
-			annihilation.c
+			annihilation.c \
+			none.c
 GNRL_LIB_H := lib_data.h
 GNRL_OBJ_LIB := $(GNRL_LIB:%.c=$(LIB_GNRL_OBJ)%.o)
 GNRL_OBJ_LIB_DEB := $(GNRL_LIB:%.c=$(LIB_GNRL_OBJ)%_debug.o)

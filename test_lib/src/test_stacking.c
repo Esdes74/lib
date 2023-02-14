@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:40:42 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/06 19:39:34 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/14 11:58:47 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,38 +108,42 @@ static int	second_test_stacking(t_list lst)
 	return (nbr_test);
 }
 
-static void	annihilation_test_stacking(t_list *lst)
-{
-	if (lst->head != 0)
-	{
-		free(lst->head->data_cell);
-		lst->tail = lst->head->next;
-		free(lst->head);
-		lst->head = lst->tail;
-		annihilation_test_stacking(lst);
-	}
-}
+/* static void	annihilation_test_stacking(t_list *lst) */
+/* { */
+/* 	if (lst->head != 0) */
+/* 	{ */
+/* 		free(lst->head->data_cell); */
+/* 		lst->tail = lst->head->next; */
+/* 		free(lst->head); */
+/* 		lst->head = lst->tail; */
+/* 		annihilation_test_stacking(lst); */
+/* 	} */
+/* } */
 
 void	test_stacking(void)
 {
-	t_list	test;
+	t_list	*test;
 	int		nbr_err;
 	int		*point_test;
 	int		val_test;
 	int		sec_val_test;
 
+	test = (t_list *) malloc(sizeof(t_list));
+	if (test == 0)
+		return ;
 	point_test = &val_test;
 	val_test = 15;
 	nbr_err = 0;
-	init_stack(&test);
-	stacking(&test, point_test, INT, 0);
-	nbr_err += first_test_stacking(test);
+	init_stack(test);
+	stacking(test, point_test, INT, 0);
+	nbr_err += first_test_stacking(*test);
 	point_test = &sec_val_test;
 	sec_val_test = 45;
-	stacking(&test, point_test, INT, 0);
-	nbr_err += second_test_stacking(test);
+	stacking(test, point_test, INT, 0);
+	nbr_err += second_test_stacking(*test);
 	if (nbr_err == 0)
 		write(1, "STACKING tests are succesfull\n", 30);
-	annihilation_test_stacking(&test);
+	annihilation(test, none);
+	/* annihilation_test_stacking(&test); */
 	return ;
 }
