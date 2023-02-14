@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 20:33:47 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/14 12:01:38 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/14 12:36:48 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,18 +106,6 @@ static int	second_test_stacking(t_list lst)
 	return (nbr_test);
 }
 
-/* static void	annihilation_test_stacking(t_list *lst) */
-/* { */
-/* 	if (lst->head != 0) */
-/* 	{ */
-/* 		free(lst->head->data_cell); */
-/* 		lst->tail = lst->head->next; */
-/* 		free(lst->head); */
-/* 		lst->head = lst->tail; */
-/* 		annihilation_test_stacking(lst); */
-/* 	} */
-/* } */
-
 void	test_addback_list(void)
 {
 	t_list	*test;
@@ -141,6 +129,6 @@ void	test_addback_list(void)
 	nbr_err += second_test_stacking(*test);
 	if (nbr_err == 0)
 		write(1, "ADDBACK_LIST tests are succesfull\n", 34);
-	annihilation(test, none);
+	annihilation(test, none, DEBUG);
 	return ;
 }
