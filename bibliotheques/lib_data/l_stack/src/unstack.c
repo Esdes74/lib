@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 12:52:09 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/06 20:28:03 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:51:04 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ t_cell	*unstack(t_list *lst, int debug)
 {
 	t_cell	*rm;
 
+	if (lst == 0)
+	{
+		if (debug)
+			write(1, "ERROR : fct unstack : lst null\n", 31);
+		return (0);
+	}
 	rm = lst->head;
 	if (lst->type_lst != STACK || lst->len == 0)
 	{

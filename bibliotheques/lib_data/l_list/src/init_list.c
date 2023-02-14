@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 10:55:02 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/02 18:14:21 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:18:35 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 t_list	*init_list(t_list *lst)
 {
+	if (lst == 0)
+		return (write(1, "Error : fct init_list : lst null\n", 33), 0);
 	lst->len = 0;
 	lst->type_lst = LIST;
 	lst->head = 0;

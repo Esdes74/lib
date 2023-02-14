@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 17:09:19 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/05 17:57:24 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:11:52 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	print_list(t_list *lst)
 	t_cell	*tmp;
 	t_type	type;
 
+	if (lst == 0)
+		return ;
 	tmp = lst->head;
 	ft_printf("{");
 	while (tmp != 0)

@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:45:00 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/13 13:58:28 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:08:24 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 
 void	change_type(t_list *lst, t_type type, int debug)
 {
+	if (lst == 0)
+	{
+		if (debug)
+			ft_printf("Error : fct change_type : lst null");
+		return ;
+	}
 	if (type == LIST || type == STACK || type == DICO || type == QUEUE)
 	{
 		if (lst->type_lst == LIST || lst->type_lst == STACK || \

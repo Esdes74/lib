@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 12:50:42 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/10 18:08:24 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:50:14 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ static void	debuger_stacking(int debug, int mod)
 	if (debug == 1)
 	{
 		if (mod == 0)
-			write(1, "ERROR : fct stacking : Utilisation of fct stack on non \
-					stack data structure\n", 77);
-		if (mod == 1)
-			write(1, "ERROR : fct stacking : Malloc not OK\n", 35);
+			write(1, "ERROR : fct stacking : lst null\n", 32);
+		if (mod == -1)
+			write(1, "ERROR : fct stacking : Malloc not OK\n", 37);
+		else if (mod != 0)
+			write(1, "ERROR : fct stacking : Utilisation of fct list on \
+non list data structure\n", 75);
 	}
 }
 
@@ -45,13 +47,13 @@ int	stacking(t_list *lst, void *data, t_type t, int debug)
 	t_cell	*cell;
 
 	if (lst->type_lst != STACK && debug == 1)
-		debuger_stacking(debug, 0);
+		debuger_stacking(debug, lst);
 	if (lst->type_lst != STACK)
 		return (0);
 	d_cell = (t_data *) malloc(sizeof(t_data));
 	cell = (t_cell *) malloc(sizeof(t_cell));
 	if (debug == 1 && (d_cell == 0 || cell == 0))
-		debuger_stacking(debug, 1);
+		debuger_stacking(debug, -1);
 	if (d_cell == 0 || cell == 0)
 		return (secur_alloc(d_cell, cell), 0);
 	init_data(data, t, FALSE, d_cell);

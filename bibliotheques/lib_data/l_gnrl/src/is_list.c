@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   is_list.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 10:51:00 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/14 16:48:00 by eslamber         ###   ########.fr       */
+/*   Created: 2023/02/14 15:41:28 by eslamber          #+#    #+#             */
+/*   Updated: 2023/02/14 16:02:45 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib_stack.h"
+#include "../../lib_data.h"
 
-t_list	*init_stack(t_list *stk)
+int	is_list(t_type t)
 {
-	if (lst == 0)
-		return (write(1, "Error : fct init_stack : lst null\n", 34), 0);
-	stk->len = 0;
-	stk->type_lst = STACK;
-	stk->head = 0;
-	stk->tail = 0;
-	return (stk);
+	return (t == LIST || t == STACK || t == QUEUE || t == DICO \
+			|| t == LIST_IND);
 }

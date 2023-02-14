@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:29:43 by eslamber          #+#    #+#             */
-/*   Updated: 2023/01/13 13:29:46 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:21:38 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ void	rmtail_list(t_list *lst, t_bool allow, int debug)
 {
 	t_cell	*u_data;
 
+	if (lst == 0)
+	{
+		if (debug)
+			write(1, "Error : fct rmtail_list : lst null\n", 35);
+		return ;
+	}
 	if (lst->type_lst == LIST && lst->len != 0)
 	{
 		u_data = untail_list(lst, debug);
