@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:42:31 by eslamber          #+#    #+#              #
-#    Updated: 2023/02/14 15:48:28 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/17 17:29:50 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -133,6 +133,7 @@ GNRL_LIB := init_data.c \
 			ft_putstr_fd.c \
 			ft_putnbr_fd.c \
 			ft_printf.c \
+			ft_printf_fd.c \
 			conv_ten_to_hex.c \
 			print_list.c \
 			change_type.c \

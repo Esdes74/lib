@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:38:47 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/14 15:47:39 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/17 17:28:36 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,16 @@ typedef struct s_head_tree {
 	t_data	*data;
 	t_list	*leaves;
 }	t_tree;
+
+typedef struct	s_print{
+	size_t	ind;
+	int		fd;
+}	t_print;
+
+typedef struct	s_print_a{
+	int	mod;
+	int	fd;
+}	t_print_a;
 
 /*####################### LIST ########################*/
 // Initailisation of head of list
@@ -155,6 +165,15 @@ void			print_adress(long long int nbr, char dep, int *res, int mod);
 // Printf by 42
 int				ft_printf(const char *str, ...);
 
+// Printf_fd by 42
+int				ft_printf_fd(int fd, const char *str, ...);
+
 // Print the list given
 void			print_list(t_list *lst);
+
+// Convert integer from base 10 to base 16 and put it in file fd
+void			conv_ten_to_hex_fd(int nbr, char dep, int *res, t_print d);
+
+// Convert integer from base 10 to base 16 and print at adress format in file fd
+void			print_adress_fd(long long int nbr, char dep, int *res, t_print_a *m);
 #endif

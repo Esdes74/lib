@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 10:46:11 by eslamber          #+#    #+#              #
-#    Updated: 2023/02/14 15:48:00 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/17 17:31:51 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ ALL_LIB_SRC_DIR := $(LIB_LIST_SRC) \
 				   $(LIB_GNRL_SRC)
 
 # Definition of variables needed for librairie compilation
-LIB := lib_data.a
+LIB := libft.a
 LIB_DEB := lib_data_debug.a
 
 LIST_LIB := init_list.c \
@@ -117,6 +117,7 @@ GNRL_LIB := init_data.c \
 			ft_putstr_fd.c \
 			ft_putnbr_fd.c \
 			ft_printf.c \
+			ft_printf_fd.c \
 			conv_ten_to_hex.c \
 			print_list.c \
 			change_type.c \

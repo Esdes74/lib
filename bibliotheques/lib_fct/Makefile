@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 12:35:34 by eslamber          #+#    #+#              #
-#    Updated: 2023/02/10 19:40:03 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/17 17:17:15 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ PRINT_LIB := ft_putchar_fd.c \
 			 ft_putnbr_fd.c \
 			 ft_putstr_fd.c \
 			 ft_printf.c \
+			 ft_printf_fd.c \
 			 conv_ten_to_hex.c
 PRINT_LIB_H := $(LIB_PRINT)lib_print.h
 PRINT_OBJ_LIB := $(PRINT_LIB:%.c=$(LIB_PRINT_OBJ)%.o)
