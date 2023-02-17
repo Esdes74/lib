@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 11:09:52 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/17 17:27:08 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/17 17:57:42 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ static int	print_unsigned(int nbr, int fd)
 	return (len);
 }
 
-static void	call_print_adr(long long int nbr, char dep, int *res, t_print_a m)
+static void	call_print_adr(long long int nbr, char dep, int *res, t_p_a m)
 {
 	if (nbr == 0)
 		(*res) += ft_putstr_fd("0x0", m.fd);
 	else
-		print_adress_fd(nbr, dep, res, &m);
+		print_adres_fd(nbr, dep, res, &m);
 }
 
-static void	follow_is_format(const char *s, t_print d, va_list *args, int *res)
+static void	follow_is_format(const char *s, t_p d, va_list *args, int *res)
 {
 	int	u;
 
@@ -45,16 +45,16 @@ static void	follow_is_format(const char *s, t_print d, va_list *args, int *res)
 	else if (s[d.ind + 1] == 'u')
 		(*res) += print_unsigned(u, d.fd);
 	else if (s[d.ind + 1] == 'x')
-		conv_ten_to_hex_fd(u, 'a', res, d);
+		conv_to_hex_fd(u, 'a', res, d);
 	else if (s[d.ind + 1] == 'X')
-		conv_ten_to_hex_fd(u, 'A', res, d);
+		conv_to_hex_fd(u, 'A', res, d);
 	else if (s[d.ind + 1] == 'i')
 		(*res) += ft_putnbr_fd(u, d.fd);
 }
 
-static int	is_format(const char *s, t_print d, va_list *args, int *res)
+static int	is_format(const char *s, t_p d, va_list *args, int *res)
 {
-	t_print_a	m;
+	t_p_a	m;
 
 	m.fd = d.fd;
 	m.mod = 1;
@@ -84,7 +84,7 @@ static int	is_format(const char *s, t_print d, va_list *args, int *res)
 
 int	ft_printf_fd(int fd, const char *str, ...)
 {
-	t_print	data;
+	t_p		data;
 	va_list	args;
 	int		format;
 	int		res;

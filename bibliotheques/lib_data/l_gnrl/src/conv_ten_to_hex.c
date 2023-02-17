@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 08:03:08 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/17 17:26:57 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/17 17:58:32 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	conv_ten_to_hex(int nbr, char dep, int *res)
 	}
 }
 
-void	print_adress_fd(long long int nbr, char dep, int *res, t_print_a *m)
+void	print_adres_fd(long long int nbr, char dep, int *res, t_p_a *m)
 {
 	long long unsigned int	u_nbr;
 
@@ -56,7 +56,7 @@ void	print_adress_fd(long long int nbr, char dep, int *res, t_print_a *m)
 	if (u_nbr > 0)
 	{
 		m->mod = 0;
-		print_adress_fd(u_nbr / 16, dep, res, m);
+		print_adres_fd(u_nbr / 16, dep, res, m);
 		u_nbr = u_nbr % 16;
 		if (u_nbr > 9)
 			(*res) += ft_putchar_fd(dep + u_nbr % 10, m->fd);
@@ -65,14 +65,14 @@ void	print_adress_fd(long long int nbr, char dep, int *res, t_print_a *m)
 	}
 }
 
-void	conv_ten_to_hex_fd(int nbr, char dep, int *res, t_print d)
+void	conv_to_hex_fd(int nbr, char dep, int *res, t_p d)
 {
 	unsigned int	u_nbr;
 
 	u_nbr = nbr;
 	if (u_nbr > 0)
 	{
-		conv_ten_to_hex_fd(u_nbr / 16, dep, res, d);
+		conv_to_hex_fd(u_nbr / 16, dep, res, d);
 		u_nbr = u_nbr % 16;
 		if (u_nbr > 9)
 			(*res) += ft_putchar_fd(dep + u_nbr % 10, d.fd);
