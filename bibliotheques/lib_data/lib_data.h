@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:38:47 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/17 17:58:04 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/20 15:32:00 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,14 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include "l_simple/lib_simple.h"
+
 # define DEBUG 1
 # define NODEB 0
+
+// Macro to print "Error\n" on right file descriptor
+# define ER 2
+# define MSG "Error\n"
+# define P_ERROR(x) ft_printf_fd(x, MSG)
 
 typedef enum e_type {
 	CHAR = 0,

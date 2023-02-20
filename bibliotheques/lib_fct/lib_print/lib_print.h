@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 20:56:43 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/17 17:16:05 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/20 15:30:53 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 # define LIB_PRINT_H
 # include <unistd.h>
 # include <stdarg.h>
+
+// Macro to print "Error\n" on right file descriptor
+# define ER 2
+# define MSG "Error\n"
+# define P_ERROR(x) ft_printf_fd(x, MSG)
 
 typedef struct	s_print{
 	size_t	ind;
