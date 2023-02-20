@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 13:26:23 by eslamber          #+#    #+#              #
-#    Updated: 2023/02/10 18:11:25 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/20 15:52:58 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ LIB_SIMPLE_SRC := src/
 LIB_SIMPLE_OBJ := obj/
 
 # Definition of variables needed for librairie compilation
-LIB := lib_data.a
+LIB := lib_simple.a
 
 SIMPLE_LIB := ft_lstadd_back.c \
 			  ft_lstadd_front.c \

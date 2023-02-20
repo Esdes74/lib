@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 12:35:34 by eslamber          #+#    #+#              #
-#    Updated: 2023/02/17 17:17:15 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/20 15:49:00 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ FLAGS := -Wall -Werror -Wextra -fsanitize=address -fno-omit-frame-pointer
 CC := gcc
 
 # Definition of variable librairie
-LIB := libft.a
+LIB := lib_fct.a
 
 # Definitions of librairies repositories
 LIB_MATH := lib_math/

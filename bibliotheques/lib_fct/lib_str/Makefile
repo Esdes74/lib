@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 12:59:41 by eslamber          #+#    #+#              #
-#    Updated: 2023/02/10 19:40:22 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/20 15:51:00 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ FLAGS := -Wall -Werror -Wextra -fsanitize=address -fno-omit-frame-pointer
 CC := gcc
 
 # Definition of variable librairie
-LIB := libft.a
+LIB := lib_str.a
 
 LIB_STR_SRC := src/
 LIB_STR_OBJ := obj/
