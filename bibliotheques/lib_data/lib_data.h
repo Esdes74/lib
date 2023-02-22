@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:38:47 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/20 15:32:00 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/22 20:35:00 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,9 @@ int				is_list(t_type t);
 
 // Initialisation of data cells
 t_data			*init_data(void *data, t_type t, t_bool allow, t_data *cell);
+
+// Find d in list lst return 0 if not found
+t_cell			*where(t_list *lst, t_type t, void *d, size_t n);
 
 // Return size of type give to argument
 // If a pointer is given as argument, return -1
