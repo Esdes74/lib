@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:17:06 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/14 16:41:22 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/25 17:03:45 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ t_cell	*unstack_list(t_list *lst, int debug)
 	{
 		if (debug == 1 && lst->type_lst != LIST)
 		{
-			write(1, "ERROR : fct unstack_list : Utilisation of fct list", 50);
-			write(1, " on non list data structure\n", 28);
+			write(1, "ERROR : fct unstack_list : Utilisation of fct list \
+on non list data structure\n", 79);
 		}
 		return (0);
 	}

@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:54:05 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/14 18:36:27 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/25 17:04:05 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ static void	debuger(int debug, int mod, t_list *lst)
 		else if (mod == 0)
 			write(1, "ERROR : fct tailing_list : Utilisation of fct list on \
 non stack data structure\n", 80);
-
 	}
 }
 

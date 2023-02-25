@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 11:09:52 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/17 17:57:42 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/25 17:01:41 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,10 @@ static int	is_format(const char *s, t_p d, va_list *args, int *res)
 
 	m.fd = d.fd;
 	m.mod = 1;
-	if (s[d.ind] == '%' && (s[d.ind + 1] == 'c' || s[d.ind + 1] == 's' \
-				|| s[d.ind + 1] == 'p' || s[d.ind + 1] == 'd' \
-				|| s[d.ind + 1] == 'i' || s[d.ind + 1] == 'u' \
-				|| s[d.ind + 1] == 'x' || s[d.ind + 1] == 'X' \
-				|| s[d.ind + 1] == '%'))
+	if (s[d.ind] == '%' && (s[d.ind + 1] == 'c' || s[d.ind + 1] == 's' || \
+				s[d.ind + 1] == 'p' || s[d.ind + 1] == 'd' || s[d.ind + 1] == \
+				'i' || s[d.ind + 1] == 'u' || s[d.ind + 1] == 'x' || s[d.ind + \
+				1] == 'X' || s[d.ind + 1] == '%'))
 	{
 		if (s[d.ind + 1] == 'c')
 			(*res) += ft_putchar_fd(va_arg(*args, int), d.fd);

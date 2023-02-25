@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:45:00 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/14 16:08:24 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/25 17:02:18 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,8 @@ void	change_type(t_list *lst, t_type type, int debug)
 			lst->type_lst = type;
 		else
 			if (debug == 1)
-			{
-				ft_printf("Error : fct change_type : Not good type of list to");
-				ft_printf(" change");
-			}
+				ft_printf("Error : fct change_type : Not good type of list to \
+change");
 	}
 	else
 		if (debug == 1)

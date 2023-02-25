@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 12:52:09 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/14 16:51:04 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/25 17:05:32 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,8 @@ t_cell	*unstack(t_list *lst, int debug)
 	if (lst->type_lst != STACK || lst->len == 0)
 	{
 		if (debug == 1 && lst->type_lst != STACK)
-		{
-			write(1, "ERROR : fct unstack : Utilisation of fct stack on", 49);
-			write(1, " non stack data structure\n", 26);
-		}
+			write(1, "ERROR : fct unstack : Utilisation of fct stack on \
+non stack data structure\n", 76);
 		return (0);
 	}
 	if (lst->len > 0)

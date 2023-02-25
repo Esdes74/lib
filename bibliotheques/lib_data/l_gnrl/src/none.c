@@ -6,13 +6,13 @@
 /*   By: eslamber <eslamber@student.42.ft>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:41:02 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/14 11:42:17 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/25 17:01:57 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../lib_data.h"
 
-void	none()
+void	none(void)
 {
 	return ;
 }

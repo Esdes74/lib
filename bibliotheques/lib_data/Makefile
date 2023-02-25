@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 10:46:11 by eslamber          #+#    #+#              #
-#    Updated: 2023/02/22 20:33:46 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/25 17:37:08 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,7 +86,6 @@ QUEUE_OBJ_LIB_DEB := $(QUEUE_LIB:%.c=$(LIB_QUEUE_OBJ)%_debug.o)
 
 STACK_LIB := init_stack.c \
 			 stacking.c \
-			 stacking_val.c \
 			 unstack.c \
 			 rmstack.c
 STACK_LIB_H := $(LIB_STACK)lib_stack.h

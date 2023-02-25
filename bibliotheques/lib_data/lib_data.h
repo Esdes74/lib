@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:38:47 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/22 20:35:00 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/25 17:37:31 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 // Macro to print "Error\n" on right file descriptor
 # define ER 2
 # define MSG "Error\n"
-# define P_ERROR(x) ft_printf_fd(x, MSG)
 
 typedef enum e_type {
 	CHAR = 0,
@@ -76,12 +75,12 @@ typedef struct s_head_tree {
 	t_list	*leaves;
 }	t_tree;
 
-typedef struct	s_p{
+typedef struct s_p {
 	size_t	ind;
 	int		fd;
 }	t_p;
 
-typedef struct	s_p_a{
+typedef struct s_p_a {
 	int	mod;
 	int	fd;
 }	t_p_a;
@@ -121,9 +120,6 @@ t_list			*init_stack(t_list *lst);
 // Add element on first index of list
 int				stacking(t_list *lst, void *data, t_type t, int debug);
 
-// Add copy of variable on first index of list
-int				stacking_val(t_list *lst, void *data, t_type t, int debug);
-
 // Remove first element and return it
 t_cell			*unstack(t_list *lst, int debug);
 
@@ -135,7 +131,7 @@ void			init_tree(void);
 
 /*####################### GNRL ########################*/
 // Function do nothing
-void			none();
+void			none(void);
 
 // Return true if type given is a list type
 int				is_list(t_type t);
