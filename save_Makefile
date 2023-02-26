@@ -6,7 +6,7 @@
 #    By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:42:31 by eslamber          #+#    #+#              #
-#    Updated: 2023/02/26 15:32:34 by eslamber         ###   ########.fr        #
+#    Updated: 2023/02/17 17:45:32 by eslamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -129,6 +129,12 @@ ALL_LIB_SRC_DIR := $(LIB_LIST_SRC) \
 # Definition of variables needed to librairie's compilation
 GNRL_LIB := init_data.c \
 			size.c \
+			ft_putchar_fd.c \
+			ft_putstr_fd.c \
+			ft_putnbr_fd.c \
+			ft_printf.c \
+			ft_printf_fd.c \
+			conv_ten_to_hex.c \
 			print_list.c \
 			change_type.c \
 			clear_cell.c \
@@ -159,6 +165,7 @@ QUEUE_OBJ_LIB := $(QUEUE_LIB:%.c=$(LIB_QUEUE_OBJ)%.o)
 
 STACK_LIB := init_stack.c \
 			 stacking.c \
+			 stacking_val.c \
 			 unstack.c \
 			 rmstack.c
 STACK_LIB_H := $(LIB_STACK)lib_stack.h
@@ -198,10 +205,7 @@ MEM_OBJ_LIB := $(MEM_LIB:%.c=$(LIB_MEM_OBJ)%.o)
 PRINT_LIB := ft_putchar_fd.c \
 			 ft_putendl_fd.c \
 			 ft_putnbr_fd.c \
-			 ft_putstr_fd.c \
-			 conv_ten_to_hex.c \
-			 ft_printf.c \
-			 ft_printf_fd.c
+			 ft_putstr_fd.c
 PRINT_LIB_H := $(LIB_PRINT)lib_print.h
 PRINT_OBJ_LIB := $(PRINT_LIB:%.c=$(LIB_PRINT_OBJ)%.o)
 
