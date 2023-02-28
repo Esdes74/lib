@@ -6,7 +6,7 @@
 /*   By: eslamber <eslamber@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:38:47 by eslamber          #+#    #+#             */
-/*   Updated: 2023/02/25 17:37:31 by eslamber         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:41:56 by eslamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,12 @@ void			clear_cell(t_list *lst, t_cell *cell, void (*f)(void *));
 
 // Delete list, f delete data in every data_cell
 void			annihilation(t_list *lst, void (*f)(void *), int debug);
+
+// Return the data contened in cell
+void			*content(t_cell *cell);
+
+// Return convert value contened in cell
+int				value_int(t_cell *cell);
 
 // Print the charactere c in file descriptor fd
 size_t			ft_putchar_fd(char c, int fd);
